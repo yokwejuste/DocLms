@@ -1,21 +1,31 @@
-from django.shortcuts import render
 import pyrebase
+from django.shortcuts import render
+from doc_lms.settings import env
 
-config={
-	apiKey: "Use Your Api Key Here",
-	authDomain: "Use Your authDomain Here",
-	databaseURL: "Use Your databaseURL Here",
-	projectId: "Use Your projectId Here",
-	storageBucket: "Use Your storageBucket Here",
-	messagingSenderId: "Use Your messagingSenderId Here",
-	appId: "Use Your appId Here"
+config = {
+    "apiKey": env("F_API"),
+    "authDomain": env("F_AUTH_DOMAIN"),
+    "databaseURL": env("F_DATABASE_URL"),
+    "projectId": env("doclms"),
+    "storageBucket": env("doclms.appspot.com"),
+    "messagingSenderId": env("F_MESSAGING_SENDER_ID"),
+    "appId": env("F_APP_ID"),
+    "measurementId": env("G-TC8W87WMRT")
 }
-firebase=pyrebase.initialize_app(config)
+firebase = pyrebase.initialize_app(config)
 authe = firebase.auth()
-database=firebase.database()
+database = firebase.database()
 
-def home(request):
-	day = database.child('Data').child('Day').get().val()
-	id = database.child('Data').child('Id').get().val()
-	projectname = database.child('Data').child('Projectname').get().val()
-	return render(request,"Home.html",{"day":day,"id":id,"projectname":projectname })
+
+def index(request):
+    # accessing our firebase data and storing it in a variable
+    name = database.child('Data').child('Name').get().val()
+    stack = database.child('Data').child('Stack').get().val()
+    framework = database.child('Data').child('Framework').get().val()
+
+    context = {
+        'name': name,
+        'stack': stack,
+        'framework': framework
+    }
+    return render(request, 'index.html', context)
