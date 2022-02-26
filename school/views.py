@@ -1,6 +1,4 @@
 from django.shortcuts import render
-from .pyrebase_settings import *
-from django.shortcuts import render
 
 from .pyrebase_settings import *
 
@@ -16,4 +14,4 @@ def index(request):
         'stack': stack,
         'framework': framework
     }
-    return render(request, 'index.html', context)
+    return render(request, 'student/index.html', context)
