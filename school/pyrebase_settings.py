@@ -1,3 +1,5 @@
+import pyrebase
+
 from doc_lms.settings import env
 
 config = {
