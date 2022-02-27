@@ -6,7 +6,7 @@ from django.views.generic import RedirectView
 from doc_lms import settings
 
 favicon_view = RedirectView.as_view(
-    url='https://help.twitter.com/content/dam/help-twitter/brand/logo.png',
+    url="static/images/favicon.png",
     permanent=True
 )
 urlpatterns = [
