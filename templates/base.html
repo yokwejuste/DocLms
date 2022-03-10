@@ -2,65 +2,118 @@
 {% load static %}
 <html lang="en">
 <head>
-
     <!--====== Required meta tags ======-->
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Edubin - LMS Education HTML Template</title>
+    <title>DocLMS - Life Taste</title>
     <link rel="stylesheet" href="{% static 'css/slick.css' %}">
     <link rel="stylesheet" href="{% static 'css/animate.css' %}">
     <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
-
     <link rel="stylesheet" href="{% static 'css/jquery.nice-number.min.css' %}">
-
     <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
 
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="{% static 'css/default.css' %}">
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script>
+        function addDarkmodeWidget() {
+            new Darkmode().showWidget();
+        }
 
+        window.addEventListener('load', addDarkmodeWidget); 
+    </script>
+    <style>
+        @media only screen and (min-width: 569px) and (max-width: 11768px) {
+            #back-logo {
+                display: none
+            }
+        }
+
+        @media only screen and (max-width: 958px) {
+            #head-1 {
+                display: none;
+                align-content: center;
+            }
+
+            #back-logo {
+                display: inline;
+            }
+        }
+
+        .dropbtn {
+            background-color: #3498DB;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropbtn:hover, .dropbtn:focus {
+            background-color: #2980B9;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            overflow: auto;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            align-content: center;
+            right: 0;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown a:hover {
+            background-color: #ddd;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
 
 </head>
 <body>
 <header id="header-part">
 
-    <div class="header-logo-support pt-30 pb-30">
+    <div class="header-logo-support pt-30 pb-30" id="head-1">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-4">
+                <div class="d-flex text-center justify-content-center col-lg-12 col-md-12">
                     <div class="logo">
                         <a href="index-2.html">
                             <img src="{% static 'images/logo.png' %}" alt="Logo">
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-8 col-md-8">
-                    <div class="support-button float-right d-none d-md-block">
-                        <div class="support float-left">
-                            <div class="icon">
-                                <img src="{% static 'images/all-icon/support.png' %}" alt="icon">
-                            </div>
-                            <div class="cont">
-                                <p>Need Help? call us free</p>
-                                <span>321 325 5678</span>
-                            </div>
-                        </div>
-                        <div class="button float-left">
-                            <a href="#" class="main-btn">Apply Now</a>
-                        </div>
-                    </div>
-                </div>
             </div> <!-- row -->
         </div> <!-- container -->
     </div> <!-- header logo support -->
-
     <div class="navigation">
         <div class="container">
             <div class="row">
@@ -73,7 +126,11 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-
+                        <div class="logo" id="back-logo">
+                            <a href="index-2.html">
+                                <img src="{% static 'images/logo.png' %}" alt="Logo">
+                            </a>
+                        </div>
                         <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item">
@@ -91,7 +148,7 @@
                                     <a href="courses.html">Courses</a>
                                     <ul class="sub-menu">
                                         <li><a href="courses.html">Courses</a></li>
-                                        <li><a href="courses-singel.html">Course Singel</a></li>
+                                        <li><a href="courses-singel.html">Course Single</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
@@ -135,16 +192,22 @@
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-3 col-4">
                     <div class="right-icon text-right">
-                        <ul>
-                            <li><a href="#" id="search"><i class="fa fa-search"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i><span>0</span></a></li>
-                        </ul>
-                    </div> <!-- right icon -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
+                        {#                        <ul>#}
+                        {#                            <li><a href="#" id="search"><i class="fa fa-user"></i></a></li>#}
+                        {#                        </ul>#}
+                        <div class="dropdown">
+                            <button onclick="myFunction()" class="dropbtn"><i class="fa fa-user"></i></button>
+                            <div id="myDropdown" class="dropdown-content">
+                                <a href="#home">Home</a>
+                                <a href="#about">About</a>
+                                <a href="#contact">Contact</a>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div>
     </div>
-
 </header>
 {% block content %}
 
@@ -158,7 +221,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="footer-about mt-40">
                         <div class="logo">
-                            <a href="#"><img src="../../static/images/logo-2.png" alt="Logo"></a>
+                            <a href="#"><img src="{% static 'images/logo.png' %}" alt="Logo"></a>
                         </div>
                         <p>Gravida nibh vel velit auctor aliquetn quibibendum auci elit cons equat ipsutis sem nibh id
                             elit. Duis sed odio sit amet nibh vulputate.</p>
@@ -275,6 +338,26 @@
 <script src="{% static 'js/main.js' %}"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC3Ip9iVC0nIxC6V14CKLQ1HZNF_65qEQ"></script>
 <script src="{% static 'js/map-script.js' %}"></script>
+<script>
+    /* When the user clicks on the button,
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
 
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>   <!-- dropdown js -->
 </body>
 </html>
