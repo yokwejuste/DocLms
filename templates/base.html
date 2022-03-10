@@ -24,6 +24,9 @@
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dark-mode.css' %}">
+    <script src="{% static 'js/dark-mode-switch.min.js' %}"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
     <script>
@@ -217,7 +220,6 @@
 {% block content %}
 
 {% endblock %}
-<!--====== FOOTER PART START ======-->
 
 <footer id="footer-part">
     <div class="footer-top pt-40 pb-70">
@@ -309,23 +311,6 @@
             </div> <!-- row -->
         </div> <!-- container -->
     </div> <!-- footer top -->
-
-    <!--    <div class="footer-copyright pt-10 pb-25">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="copyright text-md-left text-center pt-15">
-                            <p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="copyright text-md-right text-center pt-15">
-
-                        </div>
-                    </div>
-                </div>
-            </div> container -->
-    </div> <!-- footer copyright -->
 </footer>
 <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
 <script src="{% static 'js/vendor/modernizr-3.6.0.min.js' %}"></script>
@@ -343,7 +328,6 @@
 <script src="{% static 'js/main.js' %}"></script>
 <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC3Ip9iVC0nIxC6V14CKLQ1HZNF_65qEQ">
-
 </script>
 <script src="{% static 'js/map-script.js' %}"></script>
 <script>
