@@ -31,7 +31,7 @@
             new Darkmode().showWidget();
         }
 
-        window.addEventListener('load', addDarkmodeWidget); 
+        window.addEventListener('load', addDarkmodeWidget);
     </script>
     <style>
         @media only screen and (min-width: 569px) and (max-width: 11768px) {
@@ -80,10 +80,12 @@
             align-content: center;
             right: 0;
         }
-        .dropdown-content>a{
+
+        .dropdown-content > a {
             text-align: left;
             margin: 10px;
         }
+
         .dropdown-content a {
             color: black;
             padding: 12px 16px;
@@ -308,21 +310,21 @@
         </div> <!-- container -->
     </div> <!-- footer top -->
 
-    <div class="footer-copyright pt-10 pb-25">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="copyright text-md-left text-center pt-15">
-                        <p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></p>
+    <!--    <div class="footer-copyright pt-10 pb-25">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="copyright text-md-left text-center pt-15">
+                            <p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="copyright text-md-right text-center pt-15">
+                    <div class="col-md-4">
+                        <div class="copyright text-md-right text-center pt-15">
 
+                        </div>
                     </div>
                 </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
+            </div> container -->
     </div> <!-- footer copyright -->
 </footer>
 <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
@@ -339,7 +341,10 @@
 <script src="{% static 'js/validator.min.js' %}"></script>
 <script src="{% static 'js/ajax-contact.js' %}"></script>
 <script src="{% static 'js/main.js' %}"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC3Ip9iVC0nIxC6V14CKLQ1HZNF_65qEQ"></script>
+<script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC3Ip9iVC0nIxC6V14CKLQ1HZNF_65qEQ">
+
+</script>
 <script src="{% static 'js/map-script.js' %}"></script>
 <script>
     /* When the user clicks on the button,
@@ -348,7 +353,7 @@
         document.getElementById("myDropdown").classList.toggle("show");
     }
 
-    // Close the dropdown if the user clicks outside of it
+    // Close the dropdown if the user clicks outside it
     window.onclick = function (event) {
         if (!event.target.matches('.dropbtn')) {
             var dropdowns = document.getElementsByClassName("dropdown-content");
