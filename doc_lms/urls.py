@@ -7,7 +7,7 @@ from django.views.generic import RedirectView
 from doc_lms import settings
 
 favicon_view = RedirectView.as_view(
-    url="static/images/favicon.png",
+    url="https://google-solution-challenge2022.s3.amazonaws.com/static/images/favicon.png",
     permanent=True
 )
 urlpatterns = [
