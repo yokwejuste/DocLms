@@ -15,3 +15,7 @@ def index(request):
         # 'framework': framework
     }
     return render(request, 'student/index.html', context)
+
+
+def about(request):
+    return render(request, 'student/about.html')
