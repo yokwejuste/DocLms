@@ -1,1 +1,1 @@
-web: gunicorn core.wsgi --log-file=-
+web: gunicorn doc_lms.wsgi --log-file=-
