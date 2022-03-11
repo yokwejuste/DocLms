@@ -1,7 +1,5 @@
 from django.shortcuts import render
 
-from .pyrebase_settings import *
-
 
 def index(request):
     # accessing our firebase data and storing it in a variable
@@ -19,3 +17,39 @@ def index(request):
 
 def about(request):
     return render(request, 'student/events.html')
+
+
+def events(request):
+    return render(request, 'student/events.html')
+
+
+def blog(request):
+    return render(request, 'student/blog.html')
+
+
+def courses(request):
+    return render(request, 'student/courses.html')
+
+
+def contact(request):
+    return render(request, 'student/contact.html')
+
+
+def shop(request):
+    return render(request, 'student/shop.html')
+
+
+def single_blog(request):
+    return render(request, 'student/blog-single.html')
+
+
+def single_course(request):
+    return render(request, 'student/courses-single.html')
+
+
+def dashboard(request):
+    return render(request, 'student/studentDashboard.html')
+
+
+def teachers(request):
+    return render(request, 'student/teachers.html')
