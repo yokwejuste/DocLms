@@ -21,7 +21,11 @@ USE_S3 = os.getenv('USE_S3') == 'TRUE'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'https://doclms.herokuapp.com/',
+    'https://doclms.herokuapp.com',
+    'doclms.herokuapp.com'
+]
 # Application definition
 
 INSTALLED_APPS = [
