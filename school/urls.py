@@ -20,4 +20,5 @@ urlpatterns = [
     path('course-single', views.single_course, name='single_course'),
     path('blog-single', views.single_blog, name='single_blog'),
     path('shop', views.shop, name='shop'),
+    path('shop-single', views.single_shop, name='single_shop'),
 ]
