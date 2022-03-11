@@ -1,25 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
+{% include 'base-search.html' %}
+
 {% block content %}
-
-    <div class="search-box">
-        <div class="serach-form">
-            <div class="closebtn">
-                <span></span>
-                <span></span>
-            </div>
-            <form action="#">
-                <label>
-                    <input type="text" placeholder="Search by keyword">
-                </label>
-                <button><i class="fa fa-search"></i></button>
-            </form>
-        </div> <!-- serach form -->
-    </div>
-
-    <!--====== SEARCH BOX PART ENDS ======-->
-
-    <!--====== SLIDER PART START ======-->
 
     <section id="slider-part" class="slider-active">
         <div class="single-slider bg_cover pt-150"
@@ -835,7 +818,7 @@
                 <div class="col-lg-6">
                     <div class="singel-news mt-30">
                         <div class="news-thum pb-25">
-                            <img src="../../static/images/news/n-1.jpg" alt="News">
+                            <img src="{% static 'images/news/n-1.jpg' %}" alt="News">
                         </div>
                         <div class="news-cont">
                             <ul>
