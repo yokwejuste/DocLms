@@ -15,6 +15,18 @@ def index(request):
     return render(request, 'student/index.html', context)
 
 
+def index_2(request):
+    return render(request, 'student/index-2.html')
+
+
+def index_3(request):
+    return render(request, 'student/index-3.html')
+
+
+def index_4(request):
+    return render(request, 'student/index-4.html')
+
+
 def about(request):
     return render(request, 'student/events.html')
 
