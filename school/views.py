@@ -59,9 +59,17 @@ def single_course(request):
     return render(request, 'student/courses-single.html')
 
 
+def single_events(request):
+    return render(request, 'student/events-single.html')
+
+
 def dashboard(request):
     return render(request, 'student/studentDashboard.html')
 
 
 def teachers(request):
     return render(request, 'student/teachers.html')
+
+
+def teacher_single(request):
+    return render(request, 'student/teachers-single.html')

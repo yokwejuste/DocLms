@@ -125,9 +125,9 @@
             background-color: #ddd;
         }
 
-        .show {
-            display: block;
-        }
+        {#.show {#}
+        {#    display: block;#}
+        {#}#}
     </style>
 
 </head>
@@ -139,7 +139,7 @@
             <div class="row">
                 <div class="d-flex text-center justify-content-center col-lg-12 col-md-12">
                     <div class="logo">
-                        <a href="index-2.html">
+                        <a href="{% url 'index2' %}">
                             <img src="{% static 'images/logo.png' %}" alt="Logo">
                         </a>
                     </div>
@@ -160,46 +160,46 @@
                             <span class="icon-bar"></span>
                         </button>
                         <div class="logo" id="back-logo">
-                            <a href="index-2.html">
+                            <a href="{% url 'index2' %}">
                                 <img src="{% static 'images/logo.png' %}" alt="Logo">
                             </a>
                         </div>
                         <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item">
-                                    <a class="active" href="index-2.html">Home</a>
+                                    <a class="active" href="{% url 'index2' %}">Home</a>
                                     <ul class="sub-menu">
-                                        <li><a class="active" href="index-2.html">Home 01</a></li>
-                                        <li><a href="index-3.html">Home 02</a></li>
-                                        <li><a href="index-4.html">Home 03</a></li>
+                                        <li><a class="active" href="{% url 'index2' %}">Home 01</a></li>
+                                        <li><a href="{% url 'index3' %}">Home 02</a></li>
+                                        <li><a href="{% url 'index4' %}">Home 03</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="about.html">About us</a>
+                                    <a href="{% url 'about' %}">About us</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="courses.html">Courses</a>
+                                    <a href="{% url 'courses' %}">Courses</a>
                                     <ul class="sub-menu">
-                                        <li><a href="courses.html">Courses</a></li>
-                                        <li><a href="courses-singel.html">Course Single</a></li>
+                                        <li><a href="{% url 'courses' %}">Courses</a></li>
+                                        <li><a href="{% url 'courses' %}">Course Single</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="events.html">Events</a>
+                                    <a href="{% url 'events' %}">Events</a>
                                     <ul class="sub-menu">
-                                        <li><a href="events.html">Events</a></li>
-                                        <li><a href="events-singel.html">Event Singel</a></li>
+                                        <li><a href="{% url 'events' %}">Events</a></li>
+                                        <li><a href="{% url 'event-single' %}">Event Singel</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="teachers.html">Our teachers</a>
+                                    <a href="{% url 'teachers' %}">Our teachers</a>
                                     <ul class="sub-menu">
-                                        <li><a href="teachers.html">teachers</a></li>
-                                        <li><a href="teachers-singel.html">teacher Singel</a></li>
+                                        <li><a href="{% url 'teachers' %}">teachers</a></li>
+                                        <li><a href="{% url 'teacher-single' %}">teacher Single</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="blog.html">Blog</a>
+                                    <a href="{% url 'blog' %}">Blog</a>
                                     <ul class="sub-menu">
                                         <li><a href="blog.html">Blog</a></li>
                                         <li><a href="blog-singel.html">Blog Singel</a></li>
