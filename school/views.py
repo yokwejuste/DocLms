@@ -18,4 +18,4 @@ def index(request):
 
 
 def about(request):
-    return render(request, 'student/about.html')
+    return render(request, 'student/events.html')
