@@ -51,6 +51,10 @@ def shop(request):
     return render(request, 'student/shop.html')
 
 
+def single_shop(request):
+    return render(request, 'student/shop-single.html')
+
+
 def single_blog(request):
     return render(request, 'student/blog-single.html')
 
