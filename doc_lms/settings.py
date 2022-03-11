@@ -2,7 +2,6 @@ import os
 from pathlib import Path
 import django_heroku
 import environ as django_environ
-django_heroku.settings(locals())
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -98,6 +97,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+django_heroku.settings(locals())
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
