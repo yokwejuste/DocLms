@@ -1,3 +1,5 @@
+{% load socialaccount %}
+{% load account %}
 <!doctype html>
 {% load static %}
 <html lang="en">
@@ -343,7 +345,7 @@
                                         <button type="button" class="btn btn-light btn-floating mx-1">
                                             <i class="fab fa-twitter"></i>
                                         </button>
-                                        <a href="#"
+                                        <a href="{% provider_login_url 'github' %}"
                                            class="btn btn-light btn-floating mx-1">
                                             <i class="fab fa-github"></i>
                                         </a>
