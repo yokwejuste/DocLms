@@ -34,9 +34,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'school',
+    'bootstrap4',
+    'bootstrap3',
     'user_visit',
-    'storages'
+    'storages',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
 ]
 
 MIDDLEWARE = [
@@ -122,6 +129,8 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = 'media/'
+
+SITE_ID = 1
 
 # Amazon config
 AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
