@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .pyrebase_settings import database
+from .pyrebase_settings import database, firebase, authed
 
 
 def index(request):
@@ -81,10 +81,19 @@ def teacher_single(request):
 
 
 def login(request):
+    auth = firebase.auth()
+    email = request.POST.get('email')
+    password = request.POST.get('password')
+    if request.POST:
+        user = auth.create_user_with_email_and_password(email, password)
     return render(request, 'student/login.html')
 
 
 def register(request):
+    email = request.POST.get('email')
+    password = request.POST.get('password')
+    if request.POST:
+        user = authed.create_user_with_email_and_password(email, password)
     return render(request, 'student/register.html')
 
 
