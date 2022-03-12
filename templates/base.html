@@ -202,7 +202,7 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{% url 'shop.html' %}">Shop</a>
+                                    <a href="{% url 'shop' %}">Shop</a>
                                     <ul class="sub-menu">
                                         <li><a href="{% url 'shop' %}">Shop</a></li>
                                         <li><a href="{% url 'single_shop' %}">Shop Single</a></li>
@@ -227,7 +227,7 @@
                         <div class="dropdown">
                             <button onclick="myFunction()" class="dropbtn"><i class="fa fa-user"></i></button>
                             <div id="myDropdown" class="dropdown-content">
-                                <a href="#"><i class="fa fa-home"></i>&nbsp;&nbsp;Home</a>
+                                <a href="{% url 'home' %}"><i class="fa fa-home"></i>&nbsp;&nbsp;Home</a>
                                 <a href="{% url 'about' %}"><i class="fa fa-book"></i>&nbsp;&nbsp;About</a>
                                 <a href="{% url 'contact' %}"><i class="fa fa-phone"></i>&nbsp;&nbsp;Contact</a>
                             </div>
