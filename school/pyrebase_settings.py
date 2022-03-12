@@ -13,5 +13,5 @@ config = {
     "measurementId": env("F_MEASUREMENT_ID")
 }
 firebase = pyrebase.initialize_app(config)
-authe = firebase.auth()
+authed = firebase.auth()
 database = firebase.database()
