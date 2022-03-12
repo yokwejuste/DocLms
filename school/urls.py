@@ -4,7 +4,10 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('login/', views.login, name='login'),
+    path('logout/', views.logout, name='logout'),
     path('index-2', views.index_2, name='index2'),
+    path('register/', views.register, name='register'),
     path('index-3', views.index_3, name='index3'),
     path('index-4', views.index_4, name='index4'),
     path('events', views.events, name='events'),
