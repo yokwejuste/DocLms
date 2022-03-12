@@ -1,11 +1,12 @@
 from django.shortcuts import render
 
+from .pyrebase_settings import database
+
 
 def index(request):
-    # accessing our firebase data and storing it in a variable
-    # name = database.child('Data').child('Name').get().val()
-    # stack = database.child('Data').child('Stack').get().val()
-    # framework = database.child('Data').child('Framework').get().val()
+    name = database.child('Data').child('Name').get().val()
+    stack = database.child('Data').child('Stack').get().val()
+    framework = database.child('Data').child('Framework').get().val()
 
     context = {
         # 'name': name,
@@ -77,3 +78,15 @@ def teachers(request):
 
 def teacher_single(request):
     return render(request, 'student/teachers-single.html')
+
+
+def login(request):
+    return render(request, 'student/login.html')
+
+
+def register(request):
+    return render(request, 'student/register.html')
+
+
+def logout(request):
+    return None
