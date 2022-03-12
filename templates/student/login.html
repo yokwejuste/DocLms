@@ -1,0 +1,493 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8">
+    <meta property="og:image"
+          content="https://google-solution-challenge2022.s3.amazonaws.com/static/PRo.png">
+    <meta property="og:url" content="https://www.doclms.com/"/>
+    <meta property="og:title" content="The Doctor LMS"/>
+    <meta property="twitter:url"
+          content="https://doclms.com">
+    <meta property="twitter:title"
+          content="The Doctor LMS">
+
+    <meta property="og: description" content="The best in education, we do it with our hearts"/>
+    <meta property="twitter:image"
+          content="https://google-solution-challenge2022.s3.amazonaws.com/static/PRo.png">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>DocLMS - Life Taste</title>
+    <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery.nice-number.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/default.css' %}">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap">
+    <link rel="stylesheet" type="text/css"
+          href="https://mdbootstrap.com/api/snippets/static/download/MDB5-Pro-Advanced_3.10.1/css/mdb.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://mdbootstrap.com/api/snippets/static/download/MDB5-Pro-Advanced_3.10.2/plugins/css/all.min.css">
+    <style>
+        html,
+        body,
+        .intro {
+            height: 100%;
+        }
+
+        @media (min-width: 550px) and (max-width: 750px) {
+            html,
+            body,
+            .intro {
+                height: 750px;
+            }
+        }
+
+        @media (min-width: 800px) and (max-width: 850px) {
+            html,
+            body,
+            .intro {
+                height: 750px;
+            }
+        }
+
+        .mask-custom {
+            backdrop-filter: blur(15px);
+            background-color: rgba(255, 255, 255, .2);
+            border-radius: 3em;
+            border: 2px solid rgba(255, 255, 255, .1);
+            background-clip: padding-box;
+            box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
+        }</style>
+    <style>INPUT:-webkit-autofill, SELECT:-webkit-autofill, TEXTAREA:-webkit-autofill {
+        animation-name: onautofillstart
+    }
+
+    INPUT:not(:-webkit-autofill), SELECT:not(:-webkit-autofill), TEXTAREA:not(:-webkit-autofill) {
+        animation-name: onautofillcancel
+    }
+
+    @keyframes onautofillstart {
+    }
+
+    @keyframes onautofillcancel {
+    }</style>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dark-mode.css' %}">
+    <script src="{% static 'js/dark-mode-switch.min.js' %}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script>
+        const options = {
+            bottom: '64px', // default: '32px'
+            right: 'unset', // default: '32px'
+            left: '32px', // default: 'unset'
+            time: '0.7s', // default: '0.3s'
+            mixColor: '#fff', // default: '#fff'
+            backgroundColor: '#fff',  // default: '#fff'
+            buttonColorDark: '#100f2c',  // default: '#100f2c'
+            buttonColorLight: '#fff', // default: '#fff'
+            saveInCookies: true, // default: true,
+            label: '🌓', // default: ''
+            autoMatchOsTheme: true,// default: true
+        }
+
+        function addDarkmodeWidget() {
+            const darkmode = new Darkmode(options);
+            darkmode.showWidget();
+        }
+
+        window.addEventListener('load', addDarkmodeWidget);
+    </script>
+    <style>
+        @media only screen and (min-width: 569px) and (max-width: 11768px) {
+            #back-logo {
+                display: none
+            }
+        }
+
+        @media only screen and (max-width: 958px) {
+            #head-1 {
+                display: none;
+                align-content: center;
+            }
+
+            #back-logo {
+                display: inline;
+            }
+        }
+
+        .dropbtn {
+            background-color: #3498DB;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropbtn:hover, .dropbtn:focus {
+            background-color: #2980B9;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            overflow: auto;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            align-content: center;
+            right: 0;
+        }
+
+        .dropdown-content > a {
+            text-align: left;
+            margin: 10px;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown a:hover {
+            background-color: #ddd;
+        }
+    </style>
+
+</head>
+<body>
+<header id="header-part">
+
+    <div class="header-logo-support pt-30 pb-30" id="head-1">
+        <div class="container">
+            <div class="row">
+                <div class="d-flex text-center justify-content-center col-lg-12 col-md-12">
+                    <div class="logo">
+                        <a href="{% url 'index2' %}">
+                            <img src="{% static 'images/logo.png' %}" alt="Logo">
+                        </a>
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </div> <!-- header logo support -->
+    <div class="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-md-10 col-sm-9 col-8">
+                    <nav class="navbar navbar-expand-lg">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="logo" id="back-logo">
+                            <a href="{% url 'index2' %}">
+                                <img src="{% static 'images/logo.png' %}" alt="Logo">
+                            </a>
+                        </div>
+                        <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                    <a class="active" href="{% url 'index2' %}">Home</a>
+                                    <ul class="sub-menu">
+                                        <li><a class="active" href="{% url 'index2' %}">Home 01</a></li>
+                                        <li><a href="{% url 'index3' %}">Home 02</a></li>
+                                        <li><a href="{% url 'index4' %}">Home 03</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{% url 'about' %}">About us</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{% url 'courses' %}">Courses</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="{% url 'courses' %}">Courses</a></li>
+                                        <li><a href="{% url 'courses' %}">Course Single</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{% url 'events' %}">Events</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="{% url 'events' %}">Events</a></li>
+                                        <li><a href="{% url 'event-single' %}">Event Singel</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{% url 'teachers' %}">Our teachers</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="{% url 'teachers' %}">teachers</a></li>
+                                        <li><a href="{% url 'teacher-single' %}">teacher Single</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{% url 'blog' %}">Blog</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="{% url 'blog' %}">Blog</a></li>
+                                        <li><a href="{% url 'single_blog' %}">Blog Singel</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{% url 'shop' %}">Shop</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="{% url 'shop' %}">Shop</a></li>
+                                        <li><a href="{% url 'single_shop' %}">Shop Single</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{% url 'contact' %}">Contact</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                                        <li><a href="{% url 'contact' %}">Contact Us 2</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav> <!-- nav -->
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-3 col-4">
+                    <div class="right-icon text-right">
+                        {#                        <ul>#}
+                        {#                            <li><a href="#" id="search"><i class="fa fa-user"></i></a></li>#}
+                        {#                        </ul>#}
+                        <div class="dropdown">
+                            <button onclick="myFunction()" class="dropbtn"><i class="fa fa-user"></i></button>
+                            <div id="myDropdown" class="dropdown-content">
+                                <a href="{% url 'index' %}"><i class="fa fa-home"></i>&nbsp;&nbsp;Home</a>
+                                <a href="{% url 'about' %}"><i class="fa fa-book"></i>&nbsp;&nbsp;About</a>
+                                <a href="{% url 'contact' %}"><i class="fa fa-phone"></i>&nbsp;&nbsp;Contact</a>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div>
+    </div>
+</header>
+<section class="intro">
+    <div class="bg-image h-100" style="background-image:
+  url('https://mdbootstrap.com/img/Photos/new-templates/glassmorphism-article/img5.jpg');">
+        <div class="mask d-flex align-items-center h-100">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 col-lg-7 col-xl-6">
+                        <div class="card mask-custom">
+                            <div class="card-body p-5 text-white">
+
+                                <div class="my-xxl-5">
+                                    <h2 class="text-center mb-5">SignIn Form</h2>
+
+                                    <form method="POST" action="{% url 'register' %}">
+                                        {% csrf_token %}
+                                        <div class="row">
+                                            <div class="col-12 col-md-6 mb-4">
+                                                <div class="form-outline form-white">
+                                                    <input type="text" id="first-name"
+                                                           class="form-control form-control-lg">
+                                                    <label class="form-label" for="first-name">Username</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6 mb-4">
+                                                <div class="form-outline form-white">
+                                                    <input type="password" id="password"
+                                                           class="form-control form-control-lg">
+                                                    <label class="form-label" for="password">Password</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-light btn-block mb-4">Sign In</button>
+
+                                    </form>
+                                    <div class="text-center">
+                                        <p>or sign in with:</p>
+                                        <button type="button" class="btn btn-light btn-floating mx-1">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-light btn-floating mx-1">
+                                            <i class="fab fa-google"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-light btn-floating mx-1">
+                                            <i class="fab fa-twitter"></i>
+                                        </button>
+                                        <a href="#"
+                                           class="btn btn-light btn-floating mx-1">
+                                            <i class="fab fa-github"></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer id="footer-part">
+    <div class="footer-top pt-40 pb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-about mt-40">
+                        <div class="logo">
+                            <a href="#"><img src="{% static 'images/logo.png' %}" alt="Logo"></a>
+                        </div>
+                        <p>Gravida nibh vel velit auctor aliquetn quibibendum auci elit cons equat ipsutis sem nibh id
+                            elit. Duis sed odio sit amet nibh vulputate.</p>
+                        <ul class="mt-20">
+                            <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        </ul>
+                    </div> <!-- footer about -->
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer-link mt-40">
+                        <div class="footer-title pb-25">
+                            <h6>Sitemap</h6>
+                        </div>
+                        <ul>
+                            <li><a href="{% url 'index2' %}"><i class="fa fa-angle-right"></i>Home</a></li>
+                            <li><a href="{% url 'about' %}"><i class="fa fa-angle-right"></i>About us</a></li>
+                            <li><a href="{% url 'courses' %}"><i class="fa fa-angle-right"></i>Courses</a></li>
+                            <li><a href="{% url 'blog' %}"><i class="fa fa-angle-right"></i>News</a></li>
+                            <li><a href="{% url 'events' %}"><i class="fa fa-angle-right"></i>Event</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="{% url 'index' %}"><i class="fa fa-angle-right"></i>Gallery</a></li>
+                            <li><a href="{% url 'shop' %}"><i class="fa fa-angle-right"></i>Shop</a></li>
+                            <li><a href="{% url 'teachers' %}"><i class="fa fa-angle-right"></i>Teachers</a></li>
+                            <li><a href="{% url 'index' %}"><i class="fa fa-angle-right"></i>Support</a></li>
+                            <li><a href="{% url 'contact' %}"><i class="fa fa-angle-right"></i>Contact</a></li>
+                        </ul>
+                    </div> <!-- footer link -->
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-6">
+                    <div class="footer-link support mt-40">
+                        <div class="footer-title pb-25">
+                            <h6>Support</h6>
+                        </div>
+                        <ul>
+                            <li><a href="#"><i class="fa fa-angle-right"></i>FAQS</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i>Privacy</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i>Policy</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i>Support</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i>Documentation</a></li>
+                        </ul>
+                    </div> <!-- support -->
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-address mt-40">
+                        <div class="footer-title pb-25">
+                            <h6>Contact Us</h6>
+                        </div>
+                        <ul>
+                            <li>
+                                <div class="icon">
+                                    <i class="fa fa-home"></i>
+                                </div>
+                                <div class="cont">
+                                    <p>143 castle road 517 district, kiyev port south Canada</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon">
+                                    <i class="fa fa-phone"></i>
+                                </div>
+                                <div class="cont">
+                                    <p>+3 123 456 789</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon">
+                                    <i class="fa fa-envelope-o"></i>
+                                </div>
+                                <div class="cont">
+                                    <p>info@yourmail.com</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div> <!-- footer address -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </div> <!-- footer top -->
+</footer>
+<a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+<script src="{% static 'js/vendor/modernizr-3.6.0.min.js' %}"></script>
+<script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/slick.min.js' %}"></script>
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/waypoints.min.js' %}"></script>
+<script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+<script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+<script src="{% static 'js/jquery.nice-number.min.js' %}"></script>
+<script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+<script src="{% static 'js/validator.min.js' %}"></script>
+<script src="{% static 'js/ajax-contact.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC3Ip9iVC0nIxC6V14CKLQ1HZNF_65qEQ">
+</script>
+<script src="{% static 'js/map-script.js' %}"></script>
+<script>
+    /* When the user clicks on the button,
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside it
+    window.onclick = function (event) {
+        if (!event.target.matches('.dropbtn')) {
+            const dropdowns = document.getElementsByClassName("dropdown-content");
+            let i;
+            for (i = 0; i < dropdowns.length; i++) {
+                const openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>   <!-- dropdown js -->
+</body>
+</html>
