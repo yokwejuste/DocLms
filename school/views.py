@@ -134,8 +134,8 @@ def blog_summit(request):
         file = request.FILES.get('first_image')
         title = request.POST.get('blog_title')
         title_converted = title.replace(' ', '-')
-        print(title_converted)
-        print(f'{title_converted}-{file}')
+        # print(title_converted)
+        # print(f'{title_converted}-{file}')
         storage.child(file).put(f'{title_converted}-{file}')
         url = storage.child(file).get_url(None)
         date = f'{datetime.datetime.now().strftime("%d")} ' \
