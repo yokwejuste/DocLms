@@ -1,4 +1,7 @@
+import datetime
+
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 from .pyrebase_settings import *
@@ -127,24 +130,34 @@ def logout(request):
 
 
 def blog_summit(request):
-    file = request.FILES['first_image']
-    url = storage.child(file).get_url(None)
-    title = request.POST.get('blog_title')
-    data = {"blog-1": {
-        "author": "Manka Velda",
-        "content": "lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod, Lorem ipsum"
-                   " dolor sit amet, consectetur adipisicing elit. Alias culpa deleniti est exercitationem"
-                   " fuga laudantium libero magnam mollitia nemo nostrum, nulla odio, porro possimus quia"
-                   " quisquam ratione suscipit tempora vel.",
-        "first-image-path": url,
-        "tags": {
-            "Education": "Education",
-            "Technology": "Technology",
-            "Business": "Business",
-            "Marketing": "Marketing",
-        },
-        "title": title,
-    }}
-    storage.childname(file).put(title)
-    database.child('blog').child('blog-1').push(data)
+    if request.method == 'POST':
+        file = request.FILES.get('first_image')
+        title = request.POST.get('blog_title')
+        title_converted = title.replace(' ', '-')
+        print(title_converted)
+        print(f'{title_converted}-{file}')
+        storage.child(file).put(f'{title_converted}-{file}')
+        url = storage.child(file).get_url(None)
+        date = f'{datetime.datetime.now().strftime("%d")} ' \
+               f'{datetime.datetime.now().strftime("%b")}' \
+               f' {datetime.datetime.now().strftime("%Y")}'
+        data = {
+            "author": "Manka Velda",
+            "content": "lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod, Lorem ipsum"
+                       " dolor sit amet, consectetur adipisicing elit. Alias culpa deleniti est exercitationem"
+                       " fuga laudantium libero magnam mollitia nemo nostrum, nulla odio, porro possimus quia"
+                       " quisquam ratione suscipit tempora vel.",
+            "first-image-path": url,
+            'date': date,
+            "tags": {
+                "Education": "Education",
+                "Technology": "Technology",
+                "Business": "Business",
+                "Marketing": "Marketing",
+            },
+            "title": title,
+        }
+        storage.child(file).put(title)
+        database.child('blog').push(data)
+        return HttpResponse('success')
     return render(request, 'blog/blog-summit.html')
