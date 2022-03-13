@@ -1,14 +1,13 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
-from .pyrebase_settings import database, firebase, authed
+from .pyrebase_settings import *
 
 
 def index(request):
-    name = database.child('Data').child('Name').get().val()
-    stack = database.child('Data').child('Stack').get().val()
-    framework = database.child('Data').child('Framework').get().val()
-
+    # name = database.child('Data').child('Name').get().val()
+    # stack = database.child('Data').child('Stack').get().val()
+    # framework = database.child('Data').child('Framework').get().val()
     context = {
         # 'name': name,
         # 'stack': stack,
@@ -56,7 +55,7 @@ def blog(request):
         'image': image,
         'content': content,
         'author': author,
-        'tags': tags
+        'tags': tags,
     }
     return render(request, 'blog/blog.html', context)
 
@@ -119,7 +118,7 @@ def register(request):
     email = request.POST.get('email')
     password = request.POST.get('password')
     if request.POST:
-        user = authed.create_user_with_email_and_password(email, password)
+        authed.create_user_with_email_and_password(email, password)
     return render(request, 'student/register.html')
 
 
@@ -128,4 +127,24 @@ def logout(request):
 
 
 def blog_summit(request):
+    file = request.FILES['first_image']
+    url = storage.child(file).get_url(None)
+    title = request.POST.get('blog_title')
+    data = {"blog-1": {
+        "author": "Manka Velda",
+        "content": "lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod, Lorem ipsum"
+                   " dolor sit amet, consectetur adipisicing elit. Alias culpa deleniti est exercitationem"
+                   " fuga laudantium libero magnam mollitia nemo nostrum, nulla odio, porro possimus quia"
+                   " quisquam ratione suscipit tempora vel.",
+        "first-image-path": url,
+        "tags": {
+            "Education": "Education",
+            "Technology": "Technology",
+            "Business": "Business",
+            "Marketing": "Marketing",
+        },
+        "title": title,
+    }}
+    storage.childname(file).put(title)
+    database.child('blog').child('blog-1').push(data)
     return render(request, 'blog/blog-summit.html')
