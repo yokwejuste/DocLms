@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
 
 from .pyrebase_settings import database, firebase, authed
 
@@ -37,7 +38,27 @@ def events(request):
 
 
 def blog(request):
-    return render(request, 'student/blog.html')
+    global light, image, content, author, tags
+    blogposts = database.child('blog').get()
+    yup = database.child('blog').child('blog-1').child('tags').get()
+    for i in blogposts.each():
+        i.key()
+        light = list(i.val().values())[4]
+        image = list(i.val().values())[2]
+        content = list(i.val().values())[1]
+        author = list(i.val().values())[0]
+    for j in yup.each():
+        tags = j.val()
+
+    context = {
+        'blogpost': blogposts,
+        'blogTitle': light,
+        'image': image,
+        'content': content,
+        'author': author,
+        'tags': tags
+    }
+    return render(request, 'blog/blog.html', context)
 
 
 def courses(request):
@@ -57,7 +78,7 @@ def single_shop(request):
 
 
 def single_blog(request):
-    return render(request, 'student/blog-single.html')
+    return render(request, 'blog/blog-single.html')
 
 
 def single_course(request):
@@ -68,7 +89,11 @@ def single_events(request):
     return render(request, 'student/events-single.html')
 
 
+@login_required
 def dashboard(request):
+    user = firebase.auth().current_user
+    if user.is_authenticated():
+        return render(request, 'student/studentDashboard.html')
     return render(request, 'student/studentDashboard.html')
 
 
@@ -85,7 +110,8 @@ def login(request):
     email = request.POST.get('email')
     password = request.POST.get('password')
     if request.POST:
-        user = auth.create_user_with_email_and_password(email, password)
+        auth.sign_in_with_email_and_password(email, password)
+        redirect('s-dashboard')
     return render(request, 'student/login.html')
 
 
@@ -99,3 +125,7 @@ def register(request):
 
 def logout(request):
     return None
+
+
+def blog_summit(request):
+    return render(request, 'blog/blog-summit.html')
