@@ -1,10 +1,8 @@
 import datetime
 
-from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
-from doc_lms.settings import env
 from .pyrebase_settings import *
 
 
@@ -93,12 +91,9 @@ def single_events(request):
     return render(request, 'student/events-single.html')
 
 
-@login_required
 def dashboard(request):
-    user = firebase.auth().current_user
-    if user.is_authenticated():
-        return render(request, 'student/studentDashboard.html')
-    return render(request, 'student/studentDashboard.html')
+    context = {}
+    return render(request, 'student/studentDashboard.html', context)
 
 
 def teachers(request):
