@@ -57,8 +57,10 @@
         }
 
         #myImg {
-            height: 200px;
-            width: 200px;
+            height: 250px;
+            width: 600px;
+            overflow: hidden;
+            object-fit: contain;
             border: 2px solid #000000;
         }
 
@@ -82,10 +84,7 @@
                         </label>
                     </div>
                     <div class="form-group">
-                        <label>
-                            <input type="file" name="first_image" class="form-control" placeholder="First image of post"
-                                   value=""/>
-                        </label>
+                        <input accept="image/*" type='file' id="imgInp"/>
                     </div>
                     <div class="form-group">
                         <button class="btnContact">Submit Post</button>
@@ -98,33 +97,36 @@
                                       style="width: 200%; height: 150px;"></textarea>
                         </label>
                     </div>
-                    <img id="myImg" src="" alt="">
+                    <img id="myImg" src="#" alt="">
 
                 </div>
             </div>
         </form>
     </div>
-    <script type="module">
-        import {initializeApp} from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
-        import {getAnalytics} from "https://www.gstatic.com/firebasejs/9.6.8/firebase-analytics.js";
-        // https://firebase.google.com/docs/web/setup#available-libraries
-        const firebaseConfig = {
-            apiKey: {{ apiKey }},
-            authDomain: {{ authDomain }},
-            databaseURL: {{ databaseURL }},
-            projectId: {{ projectId }},
-            storageBucket: {{ storageBucket }},
-            messagingSenderId: {{ messagingSenderId }},
-            appId: {{ appId }},
-            measurementId: {{ measurementId }}
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-    </script>
     <script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-storage.js"></script>
+    <script id="mainScript">
+        /*let firebaseConfig = {
+            apiKey: '{{ apiKey }}',
+            authDomain: '{{ authDomain }}',
+            databaseURL: '{{ databaseURL }}',
+            projectId: '{{ projectId }}',
+            storageBucket: '{{ storageBucket }}',
+            messagingSenderId: '{{ messagingSenderId }}',
+            appId: '{{ appId }}',
+            measurementId: '{{ measurementId }}'
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);*/
+        imgInp.onchange = evt => {
+            const [file] = imgInp.files
+            if (file) {
+                myImg.src = URL.createObjectURL(file)
+            }
+        }
+    </script>
 {% endblock %}
