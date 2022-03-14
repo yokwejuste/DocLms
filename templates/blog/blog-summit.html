@@ -62,6 +62,9 @@
             overflow: hidden;
             object-fit: contain;
             border: 2px solid #000000;
+            background-image:
+                    url("https://google-solution-challenge2022.s3.amazonaws.com/static/loading-bird.gif");
+            background-size: cover;
         }
 
     </style>
@@ -71,12 +74,12 @@
             <h3>Write the blog post</h3>
             <div class="row">
                 <div class="col-md-6">
-                    <div class="form-group">
+                    <!--<div class="form-group">
                         <label>
                             <input id='nameBox' type="text" name="txtName" class="form-control"
                                    placeholder="Your Name *" value=""/>
                         </label>
-                    </div>
+                    </div>-->
                     <div class="form-group">
                         <label>
                             <input type="text" name="blog_title" class="form-control" placeholder="The post title *"
@@ -84,7 +87,7 @@
                         </label>
                     </div>
                     <div class="form-group">
-                        <input accept="image/*" type='file' id="imgInp"/>
+                        <input accept="image/*" type='file' name="first_image" id="imgInp"/>
                     </div>
                     <div class="form-group">
                         <button class="btnContact">Submit Post</button>
