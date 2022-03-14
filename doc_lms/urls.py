@@ -1,6 +1,5 @@
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.contrib.staticfiles.views import serve
 from django.urls import path, include, re_path
 from django.views.generic import RedirectView
 
