@@ -56,6 +56,12 @@
             cursor: pointer;
         }
 
+        #myImg{
+            height: 200px;
+            width: 200px;
+            border: 2px solid #000000;
+        }
+
     </style>
     <div class="container contact-form">
         <form method="post">
@@ -63,11 +69,12 @@
             <h3>Write the blog post</h3>
             <div class="row">
                 <div class="col-md-6">
-                    <!--<div class="form-group">
+                    <div class="form-group">
                         <label>
-                            <input type="text" name="txtName" class="form-control" placeholder="Your Name *" value=""/>
+                            <input id='nameBox' type="text" name="txtName" class="form-control"
+                                   placeholder="Your Name *" value=""/>
                         </label>
-                    </div>-->
+                    </div>
                     <div class="form-group">
                         <label>
                             <input type="text" name="blog_title" class="form-control" placeholder="The post title *"
@@ -91,6 +98,8 @@
                                       style="width: 200%; height: 150px;"></textarea>
                         </label>
                     </div>
+                                 <img id="myImg" src="" alt="" >
+
                 </div>
             </div>
         </form>
