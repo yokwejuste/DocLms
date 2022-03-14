@@ -62,8 +62,7 @@
             overflow: hidden;
             object-fit: contain;
             border: 2px solid #000000;
-            background-image:
-                    url("https://google-solution-challenge2022.s3.amazonaws.com/static/loading-bird.gif");
+            background-image: url("https://google-solution-challenge2022.s3.amazonaws.com/static/loading-bird.gif");
             background-size: cover;
         }
 
@@ -110,7 +109,7 @@
     <script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-storage.js"></script>
-    <script id="mainScript">
+    <!--<script id="mainScript">
         /*let firebaseConfig = {
             apiKey: '{{ apiKey }}',
             authDomain: '{{ authDomain }}',
@@ -130,6 +129,39 @@
             if (file) {
                 myImg.src = URL.createObjectURL(file)
             }
+        }
+    </script>-->
+    <script>
+        let firebaseConfig = {
+            apiKey: '{{ apiKey }}',
+            authDomain: '{{ authDomain }}',
+            databaseURL: '{{ databaseURL }}',
+            projectId: '{{ projectId }}',
+            storageBucket: '{{ storageBucket }}',
+            messagingSenderId: '{{ messagingSenderId }}',
+            appId: '{{ appId }}',
+            measurementId: '{{ measurementId }}'
+        };
+        firebase.initializeApp(firebaseConfig);
+
+        function uploadimage() {
+            var storage = firebase.storage();
+            var file = document.getElementById("files").files[0];
+            var storageref = storage.ref();
+            var thisref = storageref.child(file.name).put(file);
+            thisref.on('state_changed', function (snapshot) {
+                console.log('Done');
+            }, function (error) {
+                console.log('Error', error);
+
+            }, function () {
+                // Uploaded completed successfully, now we can get the download URL
+                thisref.snapshot.ref.getDownloadURL().then(function (downloadURL) {
+                    console.log('File available at', downloadURL);
+                    document.getElementById("url").value = downloadURL;
+                    alert('uploaded successfully');
+                });
+            });
         }
     </script>
 {% endblock %}
