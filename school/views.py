@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
+from doc_lms.settings import env
 from .pyrebase_settings import *
 
 
@@ -41,6 +42,7 @@ def events(request):
 
 def blog(request):
     global light, image, content, author, tags
+
     blogposts = database.child('blog').get()
     yup = database.child('blog').child('blog-1').child('tags').get()
     for i in blogposts.each():
@@ -130,6 +132,16 @@ def logout(request):
 
 
 def blog_summit(request):
+    context = {
+        "apiKey": env("F_API"),
+        "authDomain": env("F_AUTH_DOMAIN"),
+        "databaseURL": env("F_DATABASE_URL"),
+        "projectId": env("F_PROJECT_ID"),
+        "storageBucket": env("F_STORAGE_BUCKET"),
+        "messagingSenderId": env("F_MESSAGING_SENDER_ID"),
+        "appId": env("F_APP_ID"),
+        "measurementId": env("F_MEASUREMENT_ID")
+    }
     if request.method == 'POST':
         file = request.FILES.get('first_image')
         title = request.POST.get('blog_title')
@@ -158,4 +170,4 @@ def blog_summit(request):
         storage.child(file).put(title)
         database.child('blog').push(data)
         return HttpResponse('success')
-    return render(request, 'blog/blog-summit.html')
+    return render(request, 'blog/blog-summit.html', context)
