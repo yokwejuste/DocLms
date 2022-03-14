@@ -143,9 +143,9 @@ def blog_summit(request):
         "measurementId": env("F_MEASUREMENT_ID")
     }
     if request.method == 'POST':
-        file = request.FILES.get('first_image')
+        file = request.POST.get('first_image')
         title = request.POST.get('blog_title')
-        title_converted = title.replace(' ', '-')
+        title_converted = str(title).lower().replace(' ', '-')
         storage.child(file).put(f'{title_converted}-{file}')
         url = storage.child(file).get_url(None)
         date = f'{datetime.datetime.now().strftime("%d")} ' \
