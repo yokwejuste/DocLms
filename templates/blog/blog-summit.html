@@ -109,6 +109,7 @@
             measurementId: '{{ measurementId }}'
         };
         firebase.initializeApp(firebaseConfig);
+
         function uploadImage() {
             const storage = firebase.storage();
             const file = document.getElementById("files").files[0];
