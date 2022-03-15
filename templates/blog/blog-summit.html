@@ -114,23 +114,18 @@
             const storage = firebase.storage();
             const file = document.getElementById("files").files[0];
             const form = document.getElementById("form-id");
+            const but_1 = document.getElementById('myButton');
             const storage_reference = storage.ref();
             const this_reference = storage_reference.child(file.name).put(file);
             const x = document.getElementById("myButton");
             this_reference.on('state_changed', function (snapshot) {
             }, function (error) {
                 console.log('Error', error);
-
-            }, function () {
-                if (x.style.display === "none") {
-                    x.style.display = "block";
-                } else {
-                    x.style.display = "none";
-                }
             }, function () {
                 // Uploaded completed successfully, now we can get the download URL
                 this_reference.snapshot.ref.getDownloadURL().then(function (downloadURL) {
                     form.submit();
+                    but_1.style.display = "none";
                 });
             });
 
