@@ -141,22 +141,25 @@ def blog_summit(request):
         file = request.POST.get('url')
         title = request.POST.get('blog_title')
         blog_content = request.POST.get('content')
+        blog_tags = request.POST.get('tags')
+        blog__tags = blog_tags.split(' ')
+        arr = []
+        for tag in blog__tags:
+            arr.append(str(tag).capitalize())
+        arr_2 = arr
+        blog_tags_set = mapping = dict(zip(arr, arr_2))
         date = f'{datetime.datetime.now().strftime("%d")} ' \
                f'{datetime.datetime.now().strftime("%b")}' \
                f' {datetime.datetime.now().strftime("%Y")}'
         data = {
             "author": "Manka Velda",
-            "content":  blog_content,
+            "content": blog_content,
             "first-image-path": file,
             'date': date,
-            "tags": {
-                "Education": "Education",
-                "Technology": "Technology",
-                "Business": "Business",
-                "Marketing": "Marketing",
-            },
+            "tags": blog_tags_set,
             "title": title,
         }
+        print(data)
         database.child('blog').child(title).set(data)
         return HttpResponse('success')
     return render(request, 'blog/blog-summit.html', context)
