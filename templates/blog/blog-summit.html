@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
     <style>
         body {
             background: -webkit-linear-gradient(left, #67a9fc, #00c6ff);
@@ -56,40 +57,43 @@
             cursor: pointer;
         }
 
-        #myImg {
-            height: 250px;
-            width: 600px;
-            overflow: hidden;
-            object-fit: contain;
-            border: 2px solid #000000;
-            background-image: url("https://google-solution-challenge2022.s3.amazonaws.com/static/loading-bird.gif");
-            background-size: cover;
+        .loading {
+            background-image: url('https://www.fotos-lienzo.es/media/aw_searchautocomplete/default/loading.gif');
+            background-repeat: no-repeat;
         }
 
+        .loading:after {
+            content: "Logging in...";
+            text-align: right;
+            padding-left: 25px;
+        }
     </style>
     <div class="container contact-form">
-        <form method="post">
+        <form method="post" id="form-id">
             {% csrf_token %}
             <h3>Write the blog post</h3>
             <div class="row">
                 <div class="col-md-6">
-                    <!--<div class="form-group">
-                        <label>
-                            <input id='nameBox' type="text" name="txtName" class="form-control"
-                                   placeholder="Your Name *" value=""/>
-                        </label>
-                    </div>-->
                     <div class="form-group">
                         <label>
-                            <input type="text" name="blog_title" class="form-control" placeholder="The post title *"
+                            <input type="text" name="blog_title" class="form-control" placeholder="The post title"
                                    value=""/>
                         </label>
                     </div>
                     <div class="form-group">
-                        <input accept="image/*" type='file' name="first_image" id="imgInp"/>
+                        <label>
+                            <input id='tags' type="text" name="tags" class="form-control"
+                                   placeholder="Post tags" value=""/>
+                        </label>
+                    </div>
+                    <input type="hidden" name="url" id="url">
+                    <div class="form-group">
+                        <input accept="image/*" type='file' name="files[]" id="files"/>
                     </div>
                     <div class="form-group">
-                        <button class="btnContact">Submit Post</button>
+                        <button class="btnContact" id="myButton1" type="button" onclick="uploadImage()">
+                            Submit Post
+                        </button>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -99,16 +103,17 @@
                                       style="width: 200%; height: 150px;"></textarea>
                         </label>
                     </div>
-                    <img id="myImg" src="#" alt="">
 
                 </div>
             </div>
         </form>
     </div>
+    <!--
     <script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-storage.js"></script>
+    -->
     <!--<script id="mainScript">
         /*let firebaseConfig = {
             apiKey: '{{ apiKey }}',
@@ -144,22 +149,29 @@
         };
         firebase.initializeApp(firebaseConfig);
 
-        function uploadimage() {
-            var storage = firebase.storage();
-            var file = document.getElementById("files").files[0];
-            var storageref = storage.ref();
-            var thisref = storageref.child(file.name).put(file);
-            thisref.on('state_changed', function (snapshot) {
-                console.log('Done');
+        function uploadImage() {
+            const storage = firebase.storage();
+            const file = document.getElementById("files").files[0];
+            const form = document.getElementById("form-id");
+            const storage_reference = storage.ref();
+            const this_reference = storage_reference.child(file.name).put(file);
+            this_reference.on('state_changed', function (snapshot) {
             }, function (error) {
                 console.log('Error', error);
 
             }, function () {
                 // Uploaded completed successfully, now we can get the download URL
-                thisref.snapshot.ref.getDownloadURL().then(function (downloadURL) {
+                this_reference.snapshot.ref.getDownloadURL().then(function (downloadURL) {
                     console.log('File available at', downloadURL);
                     document.getElementById("url").value = downloadURL;
-                    alert('uploaded successfully');
+                    $('#myButton1').hide();
+                    $('.load').addClass('loading');
+                    setTimeout(function () {
+                        $('.load').removeClass('loading');
+                        $('#myButton1').show();
+
+                    }, 2000)
+                    form.submit();
                 });
             });
         }
