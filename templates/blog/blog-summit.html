@@ -121,11 +121,20 @@
                 console.log('Error', error);
 
             }, function () {
+                const x = document.getElementById("myButton");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            }, function () {
                 // Uploaded completed successfully, now we can get the download URL
                 this_reference.snapshot.ref.getDownloadURL().then(function (downloadURL) {
                     form.submit();
                 });
             });
+
+
         }
     </script>
 {% endblock %}
