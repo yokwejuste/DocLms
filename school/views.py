@@ -138,21 +138,16 @@ def blog_summit(request):
         "measurementId": env("F_MEASUREMENT_ID")
     }
     if request.method == 'POST':
-        file = request.POST.get('first_image')
+        file = request.POST.get('url')
         title = request.POST.get('blog_title')
-        title_converted = str(title).lower().replace(' ', '-')
-        storage.child(file).put(f'{title_converted}-{file}')
-        url = storage.child(file).get_url(None)
+        blog_content = request.POST.get('content')
         date = f'{datetime.datetime.now().strftime("%d")} ' \
                f'{datetime.datetime.now().strftime("%b")}' \
                f' {datetime.datetime.now().strftime("%Y")}'
         data = {
             "author": "Manka Velda",
-            "content": "lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod, Lorem ipsum"
-                       " dolor sit amet, consectetur adipisicing elit. Alias culpa deleniti est exercitationem"
-                       " fuga laudantium libero magnam mollitia nemo nostrum, nulla odio, porro possimus quia"
-                       " quisquam ratione suscipit tempora vel.",
-            "first-image-path": url,
+            "content":  blog_content,
+            "first-image-path": file,
             'date': date,
             "tags": {
                 "Education": "Education",
@@ -162,7 +157,6 @@ def blog_summit(request):
             },
             "title": title,
         }
-        storage.child(file).put(title)
-        database.child('blog').push(data)
+        database.child('blog').child(title).set(data)
         return HttpResponse('success')
     return render(request, 'blog/blog-summit.html', context)
