@@ -116,12 +116,12 @@
             const form = document.getElementById("form-id");
             const storage_reference = storage.ref();
             const this_reference = storage_reference.child(file.name).put(file);
+            const x = document.getElementById("myButton");
             this_reference.on('state_changed', function (snapshot) {
             }, function (error) {
                 console.log('Error', error);
 
             }, function () {
-                const x = document.getElementById("myButton");
                 if (x.style.display === "none") {
                     x.style.display = "block";
                 } else {
