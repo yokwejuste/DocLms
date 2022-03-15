@@ -159,7 +159,6 @@ def blog_summit(request):
             "tags": blog_tags_set,
             "title": title,
         }
-        print(data)
         database.child('blog').child(title).set(data)
         return HttpResponse('success')
     return render(request, 'blog/blog-summit.html', context)
