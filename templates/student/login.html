@@ -27,6 +27,51 @@
             margin: 0;
             padding: 0;
         }
+
+        .nav li {
+            display: inline-block;
+            list-style: none;
+        }
+
+        .nav .button-dropdown {
+            position: relative;
+        }
+
+        .nav li a {
+            display: block;
+            color: #333;
+            background-color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+
+        .nav li a span {
+            display: inline-block;
+            margin-left: 5px;
+            font-size: 10px;
+            color: #999;
+        }
+
+        .nav li a:hover, .nav li a.dropdown-toggle.active {
+            background-color: #289dcc;
+            color: #fff;
+        }
+
+        .nav li a:hover span, .nav li a.dropdown-toggle.active span {
+            color: #fff;
+        }
+
+        .nav li .dropdown-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .nav li .dropdown-menu a {
+            width: 100%;
+        }
     </style>
     <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <link rel="stylesheet" type="text/css"
@@ -127,36 +172,6 @@
             }
         }
 
-        .dropbtn {
-            background-color: #3498DB;
-            color: white;
-            padding: 16px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .dropbtn:hover, .dropbtn:focus {
-            background-color: #2980B9;
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f1f1f1;
-            min-width: 160px;
-            overflow: auto;
-            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            align-content: center;
-            right: 0;
-        }
-
         .dropdown-content > a {
             text-align: left;
             margin: 10px;
@@ -195,7 +210,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-md-10 col-sm-9 col-8">
-                    <nav class="navbar navbar-expand-lg">
+                    <nav style="box-shadow: none" class="navbar navbar-expand-lg">
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                                 aria-expanded="false" aria-label="Toggle navigation">
@@ -269,17 +284,30 @@
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-3 col-4">
                     <div class="right-icon text-right">
-                        {#                        <ul>#}
-                        {#                            <li><a href="#" id="search"><i class="fa fa-user"></i></a></li>#}
-                        {#                        </ul>#}
-                        <div class="dropdown">
-                            <button onclick="myFunction()" class="dropbtn"><i class="fa fa-user"></i></button>
-                            <div id="myDropdown" class="dropdown-content">
-                                <a href="{% url 'index' %}"><i class="fa fa-home"></i>&nbsp;&nbsp;Home</a>
-                                <a href="{% url 'about' %}"><i class="fa fa-book"></i>&nbsp;&nbsp;About</a>
-                                <a href="{% url 'contact' %}"><i class="fa fa-phone"></i>&nbsp;&nbsp;Contact</a>
-                            </div>
-                        </div>
+                        <ul class="nav">
+                            <li class="button-dropdown">
+                                <a href="javascript:void(0)" class="dropdown-toggle">
+                                    <i class="fa fa-user"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#">
+                                            Drop Item 1
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            Drop Item 2
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            Drop Item 3
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
                 </div> <!-- row -->
             </div> <!-- container -->
@@ -332,10 +360,14 @@
                                         <button type="button" class="btn btn-light btn-floating mx-1">
                                             <i class="fab fa-twitter"></i>
                                         </button>
-                                        <a href="{% provider_login_url 'github' %}"
+                                        <!--<a href="{% provider_login_url 'github' %}"
                                            class="btn btn-light btn-floating mx-1">
                                             <i class="fab fa-github"></i>
-                                        </a>
+                                        </a>-->
+                                        <p onclick="githubSignin()"
+                                           class="btn btn-light btn-floating mx-1">
+                                            <i class="fab fa-github"></i>
+                                        </p>
                                     </div>
 
                                 </div>
@@ -348,7 +380,34 @@
         </div>
     </div>
 </section>
+<script>
+    jQuery(document).ready(function (e) {
+        function t(t) {
+            e(t).bind("click", function (t) {
+                t.preventDefault();
+                e(this).parent().fadeOut()
+            })
+        }
 
+        e(".dropdown-toggle").click(function () {
+            var t = e(this).parents(".button-dropdown").children(".dropdown-menu").is(":hidden");
+            e(".button-dropdown .dropdown-menu").hide();
+            e(".button-dropdown .dropdown-toggle").removeClass("active");
+            if (t) {
+                e(this).parents(".button-dropdown").children(".dropdown-menu").toggle().parents(".button-dropdown")
+                    .children(".dropdown-toggle").addClass("active")
+            }
+        });
+        e(document).bind("click", function (t) {
+            var n = e(t.target);
+            if (!n.parents().hasClass("button-dropdown")) e(".button-dropdown .dropdown-menu").hide();
+        });
+        e(document).bind("click", function (t) {
+            var n = e(t.target);
+            if (!n.parents().hasClass("button-dropdown")) e(".button-dropdown .dropdown-toggle").removeClass("active");
+        })
+    });
+</script>
 <footer id="footer-part">
     <div class="footer-top pt-40 pb-70">
         <div class="container">
@@ -440,6 +499,37 @@
         </div> <!-- container -->
     </div> <!-- footer top -->
 </footer>
+<script>
+    let firebaseConfig = {
+        apiKey: '{{ apiKey }}',
+        authDomain: '{{ authDomain }}',
+        databaseURL: '{{ databaseURL }}',
+        projectId: '{{ projectId }}',
+        storageBucket: '{{ storageBucket }}',
+        messagingSenderId: '{{ messagingSenderId }}',
+        appId: '{{ appId }}',
+        measurementId: '{{ measurementId }}'
+    };
+    var provider = new firebase.auth.GithubAuthProvider();
+
+    function githubSignin() {
+        firebase.auth().signInWithPopup(provider)
+
+            .then(function (result) {
+                var token = result.credential.accessToken;
+                var user = result.user;
+
+                console.log(token)
+                console.log(user)
+            }).catch(function (error) {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+
+            console.log(error.code)
+            console.log(error.message)
+        });
+    }
+</script>
 <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
 <script src="{% static 'js/vendor/modernizr-3.6.0.min.js' %}"></script>
 <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
@@ -458,26 +548,5 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC3Ip9iVC0nIxC6V14CKLQ1HZNF_65qEQ">
 </script>
 <script src="{% static 'js/map-script.js' %}"></script>
-<script>
-    /* When the user clicks on the button,
-    toggle between hiding and showing the dropdown content */
-    function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-    }
-
-    // Close the dropdown if the user clicks outside it
-    window.onclick = function (event) {
-        if (!event.target.matches('.dropbtn')) {
-            const dropdowns = document.getElementsByClassName("dropdown-content");
-            let i;
-            for (i = 0; i < dropdowns.length; i++) {
-                const openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
-</script>   <!-- dropdown js -->
 </body>
 </html>
