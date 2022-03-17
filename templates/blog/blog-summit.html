@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
     <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
-    <style>
+    <style id="style">
         body {
             background: -webkit-linear-gradient(left, #67a9fc, #00c6ff);
         }
@@ -83,6 +83,13 @@
                         <button class="btnContact" id="myButton" type="button" onclick="uploadImage()">
                             Submit Post
                         </button>
+                        <script>
+                            $(document).ready(function () {
+                                $(".btnContact").click(function () {
+                                    $("#myButton").hide();
+                                });
+                            });
+                        </script>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -124,6 +131,7 @@
             }, function () {
                 // Uploaded completed successfully, now we can get the download URL
                 this_reference.snapshot.ref.getDownloadURL().then(function (downloadURL) {
+                    document.getElementById("url").value = downloadURL;
                     form.submit();
                     but_1.style.display = "none";
                 });
