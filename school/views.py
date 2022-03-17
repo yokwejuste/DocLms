@@ -39,26 +39,26 @@ def events(request):
 
 
 def blog(request):
-    global light, image, content, author, tags
+    # global light, image, content, author, tags
 
-    blogposts = database.child('blog').get()
-    yup = database.child('blog').child('blog-1').child('tags').get()
-    for i in blogposts.each():
-        i.key()
-        light = list(i.val().values())[4]
-        image = list(i.val().values())[2]
-        content = list(i.val().values())[1]
-        author = list(i.val().values())[0]
-    for j in yup.each():
-        tags = j.val()
+    # blogposts = database.child('blog').get()
+    # yup = database.child('blog').child('blog-1').child('tags').get()
+    # for i in blogposts.each():
+    #     i.key()
+    #     light = list(i.val().values())[4]
+    #     image = list(i.val().values())[2]
+    #     content = list(i.val().values())[1]
+    #     author = list(i.val().values())[0]
+    # for j in yup.each():
+    #     tags = j.val()
 
     context = {
-        'blogpost': blogposts,
-        'blogTitle': light,
-        'image': image,
-        'content': content,
-        'author': author,
-        'tags': tags,
+        # 'blogpost': blogposts,
+        # 'blogTitle': light,
+        # 'image': image,
+        # 'content': content,
+        # 'author': author,
+        # 'tags': tags,
     }
     return render(request, 'blog/blog.html', context)
 
@@ -108,10 +108,20 @@ def login(request):
     auth = firebase.auth()
     email = request.POST.get('email')
     password = request.POST.get('password')
+    context = {
+        "apiKey": env("F_API"),
+        "authDomain": env("F_AUTH_DOMAIN"),
+        "databaseURL": env("F_DATABASE_URL"),
+        "projectId": env("F_PROJECT_ID"),
+        "storageBucket": env("F_STORAGE_BUCKET"),
+        "messagingSenderId": env("F_MESSAGING_SENDER_ID"),
+        "appId": env("F_APP_ID"),
+        "measurementId": env("F_MEASUREMENT_ID")
+    }
     if request.POST:
         auth.sign_in_with_email_and_password(email, password)
         redirect('s-dashboard')
-    return render(request, 'student/login.html')
+    return render(request, 'student/login.html', context)
 
 
 def register(request):
