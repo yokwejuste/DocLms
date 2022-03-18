@@ -1,0 +1,8 @@
+.idea/
+#.gitignore
+.vscode/
+.env
+important.txt
+venv/
+db.sqlite3
+.github/
