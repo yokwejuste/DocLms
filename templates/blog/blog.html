@@ -42,7 +42,15 @@
                                     <ul>
                                         <li><a href="#"><i class="fa fa-calendar"></i>25 Dec 2018</a></li>
                                         <li><a href="#"><i class="fa fa-user"></i>{{ author }}</a></li>
-                                        <li><a href="#"><i class="fa fa-tags"></i>{{ tags }}</a></li>
+                                        <li>
+
+                                            {% for tag in tags %}
+                                                <a href="#" style="float: left"><i class="fa fa-tags"></i>{{ tag }}
+                                                </a>
+                                            {% endfor %}
+
+                                        </li>
+                                        &nbsp;
                                     </ul>
                                     <p>{{ content }}</p>
                                 </div>
