@@ -144,7 +144,10 @@ def teachers(request):
 
 
 def teacher_single(request):
-    return render(request, 'student/teachers-single.html')
+    context = {
+        'teacher': 'active',
+    }
+    return render(request, 'student/teachers-single.html', context)
 
 
 def login(request):
@@ -189,6 +192,7 @@ def blog_summit(request):
         "messagingSenderId": env("F_MESSAGING_SENDER_ID"),
         "appId": env("F_APP_ID"),
         "measurementId": env("F_MEASUREMENT_ID")
+        'blog': 'active',
     }
     if request.method == 'POST':
         file = request.POST.get('url')
