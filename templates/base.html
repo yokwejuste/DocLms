@@ -176,7 +176,7 @@
                         <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item">
-                                    <a class="active" href="{% url 'index2' %}">Home</a>
+                                    <a class="{{ home }}" href="{% url 'index2' %}">Home</a>
                                     <ul class="sub-menu">
                                         <li><a class="active" href="{% url 'index2' %}">Home 01</a></li>
                                         <li><a href="{% url 'index3' %}">Home 02</a></li>
@@ -184,45 +184,45 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{% url 'about' %}">About us</a>
+                                    <a class="{{ about }}" href="{% url 'about' %}">About us</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{% url 'courses' %}">Courses</a>
+                                    <a class="{{ courses }}" href="{% url 'courses' %}">Courses</a>
                                     <ul class="sub-menu">
                                         <li><a href="{% url 'courses' %}">Courses</a></li>
                                         <li><a href="{% url 'courses' %}">Course Single</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{% url 'events' %}">Events</a>
+                                    <a class="{{ events }}" href="{% url 'events' %}">Events</a>
                                     <ul class="sub-menu">
                                         <li><a href="{% url 'events' %}">Events</a></li>
                                         <li><a href="{% url 'event-single' %}">Event Singel</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{% url 'teachers' %}">Our teachers</a>
+                                    <a class="{{ teachers }}" href="{% url 'teachers' %}">Our teachers</a>
                                     <ul class="sub-menu">
                                         <li><a href="{% url 'teachers' %}">teachers</a></li>
                                         <li><a href="{% url 'teacher-single' %}">teacher Single</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{% url 'blog' %}">Blog</a>
+                                    <a class="{{ blog }}" href="{% url 'blog' %}">Blog</a>
                                     <ul class="sub-menu">
                                         <li><a href="{% url 'blog' %}">Blog</a></li>
                                         <li><a href="{% url 'single_blog' %}">Blog Singel</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{% url 'shop' %}">Shop</a>
+                                    <a class="{{ shop }}" href="{% url 'shop' %}">Shop</a>
                                     <ul class="sub-menu">
                                         <li><a href="{% url 'shop' %}">Shop</a></li>
                                         <li><a href="{% url 'single_shop' %}">Shop Single</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{% url 'contact' %}">Contact</a>
+                                    <a class="{{ contact }}" href="{% url 'contact' %}">Contact</a>
                                     <ul class="sub-menu">
                                         <li><a href="{% url 'contact' %}">Contact Us</a></li>
                                         <li><a href="{% url 'contact' %}">Contact Us 2</a></li>

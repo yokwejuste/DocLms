@@ -14,28 +14,44 @@ def index(request):
         # 'name': name,
         # 'stack': stack,
         # 'framework': framework
+        'home': 'active',
     }
     return render(request, 'student/index.html', context)
 
 
 def index_2(request):
-    return render(request, 'student/index-2.html')
+    context = {
+        'home': 'active',
+    }
+    return render(request, 'student/index-2.html', context)
 
 
 def index_3(request):
-    return render(request, 'student/index-3.html')
+    context = {
+        'home': 'active',
+    }
+    return render(request, 'student/index-3.html', context)
 
 
 def index_4(request):
-    return render(request, 'student/index-4.html')
+    context = {
+        'home': 'active',
+    }
+    return render(request, 'student/index-4.html', context)
 
 
 def about(request):
-    return render(request, 'student/events.html')
+    context = {
+        'about': 'active',
+    }
+    return render(request, 'student/events.html', context)
 
 
 def events(request):
-    return render(request, 'student/events.html')
+    context = {
+        'events': 'active',
+    }
+    return render(request, 'student/events.html', context)
 
 
 def blog(request):
