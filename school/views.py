@@ -55,7 +55,7 @@ def events(request):
 
 
 def blog(request):
-    global light, image, content, author, tags
+    global light, image, content, author, tags, tag_array
 
     blogposts = database.child('blog').get()
     for i in blogposts.each():
@@ -64,8 +64,7 @@ def blog(request):
         image = list(i.val().values())[3]
         content = list(i.val().values())[1]
         author = list(i.val().values())[0]
-    for j in database.child('blog').child(light).child('tags').get().each():
-        tags = j.val()
+    tags = list(dict(database.child('blog').child(light).child('tags').get().val()).keys())
 
     context = {
         'blogpost': blogposts,
@@ -218,3 +217,10 @@ def blog_summit(request):
         database.child('blog').child(title).set(data)
         return HttpResponse('success')
     return render(request, 'blog/blog-summit.html', context)
+
+
+def maps_home(request):
+    context = {
+        'maps': 'active',
+    }
+    return render(request, 'maps/maps-index.html', context)
