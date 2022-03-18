@@ -102,28 +102,45 @@ def shop(request):
 
 
 def single_shop(request):
-    return render(request, 'student/shop-single.html')
+    context = {
+        'shop': 'active',
+    }
+    return render(request, 'student/shop-single.html', context)
 
 
 def single_blog(request):
-    return render(request, 'blog/blog-single.html')
+    context = {
+        'blog': 'active',
+    }
+    return render(request, 'blog/blog-single.html', context)
 
 
 def single_course(request):
-    return render(request, 'student/courses-single.html')
+    context = {
+        'course': 'active',
+    }
+    return render(request, 'student/courses-single.html', context)
 
 
 def single_events(request):
-    return render(request, 'student/events-single.html')
+    context = {
+        'events': 'active',
+    }
+    return render(request, 'student/events-single.html', context)
 
 
 def dashboard(request):
-    context = {}
+    context = {
+
+    }
     return render(request, 'student/studentDashboard.html', context)
 
 
 def teachers(request):
-    return render(request, 'student/teachers.html')
+    context = {
+        'teachers': 'active',
+    }
+    return render(request, 'student/teachers.html', context)
 
 
 def teacher_single(request):
