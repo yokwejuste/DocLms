@@ -191,7 +191,7 @@ def blog_summit(request):
         "storageBucket": env("F_STORAGE_BUCKET"),
         "messagingSenderId": env("F_MESSAGING_SENDER_ID"),
         "appId": env("F_APP_ID"),
-        "measurementId": env("F_MEASUREMENT_ID")
+        "measurementId": env("F_MEASUREMENT_ID"),
         'blog': 'active',
     }
     if request.method == 'POST':
