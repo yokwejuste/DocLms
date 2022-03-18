@@ -55,26 +55,25 @@ def events(request):
 
 
 def blog(request):
-    # global light, image, content, author, tags
+    global light, image, content, author, tags
 
-    # blogposts = database.child('blog').get()
-    # yup = database.child('blog').child('blog-1').child('tags').get()
-    # for i in blogposts.each():
-    #     i.key()
-    #     light = list(i.val().values())[4]
-    #     image = list(i.val().values())[2]
-    #     content = list(i.val().values())[1]
-    #     author = list(i.val().values())[0]
-    # for j in yup.each():
-    #     tags = j.val()
+    blogposts = database.child('blog').get()
+    for i in blogposts.each():
+        i.key()
+        light = list(i.val().values())[5]  # blog-title
+        image = list(i.val().values())[3]
+        content = list(i.val().values())[1]
+        author = list(i.val().values())[0]
+    for j in database.child('blog').child(light).child('tags').get().each():
+        tags = j.val()
 
     context = {
-        # 'blogpost': blogposts,
-        # 'blogTitle': light,
-        # 'image': image,
-        # 'content': content,
-        # 'author': author,
-        # 'tags': tags,
+        'blogpost': blogposts,
+        'blogTitle': light,
+        'image': image,
+        'content': content,
+        'author': author,
+        'tags': tags,
         'blog': 'active',
     }
     return render(request, 'blog/blog.html', context)
