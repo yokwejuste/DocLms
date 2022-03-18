@@ -24,4 +24,5 @@ urlpatterns = [
     path('blog-single/', views.single_blog, name='single_blog'),
     path('shop/', views.shop, name='shop'),
     path('shop-single/', views.single_shop, name='single_shop'),
+    path('maps/index', views.maps_home, name='maps_index'),
 ]
