@@ -94,13 +94,6 @@ def contact(request):
     return render(request, 'contact/contact.html', context)
 
 
-def contact2(request):
-    context = {
-        'contact': 'active',
-    }
-    return render(request, 'contact/contact-2.html', context)
-
-
 def shop(request):
     context = {
         'shop': 'active',
