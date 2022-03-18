@@ -15,19 +15,39 @@
         margin: 0;
         padding: 0;
     }
+
     #secret {
         display: none;
     }
 </style>
 <script>
-    let map;
-
     function initMap() {
-        map = new google.maps.Map(document.getElementById("map"), {
-            center: {lat: 6.0147725, lng: 10.2566563},
-            zoom: 100,
+        const myLatLng = {lat: 6.011257, lng: 10.259316};
+        let bound = {
+            north: 6.015117,
+            south: 6.010497,
+            east: 10.261167,
+            west: 10.255137,
+        };
+        const mapOptions = {
+            zoom: 50,
+            center: myLatLng,
+            restriction: {
+                latLngBounds: bound,
+                strictBounds: false,
+            },
+            mapTypeId: 'satellite'
+        };
+        const map = new google.maps.Map(document.getElementById('map'),
+            mapOptions);
+         map.setTilt(45);
+        new google.maps.Marker({
+            position: myLatLng,
+            map,
+            title: "Hello World!",
         });
     }
+
 </script>
 <div id="map"></div>
 
