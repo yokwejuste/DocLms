@@ -75,20 +75,30 @@ def blog(request):
         # 'content': content,
         # 'author': author,
         # 'tags': tags,
+        'blog': 'active',
     }
     return render(request, 'blog/blog.html', context)
 
 
 def courses(request):
-    return render(request, 'student/courses.html')
+    context = {
+        'courses': 'active',
+    }
+    return render(request, 'student/courses.html', context)
 
 
 def contact(request):
-    return render(request, 'student/contact.html')
+    context = {
+        'contact': 'active',
+    }
+    return render(request, 'student/contact.html', context)
 
 
 def shop(request):
-    return render(request, 'student/shop.html')
+    context = {
+        'shop': 'active',
+    }
+    return render(request, 'student/shop.html', context)
 
 
 def single_shop(request):
