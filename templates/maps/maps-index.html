@@ -30,7 +30,7 @@
             west: 10.255137,
         };
         const mapOptions = {
-            zoom: 50,
+            zoom: 0,
             center: myLatLng,
             restriction: {
                 latLngBounds: bound,
@@ -40,7 +40,7 @@
         };
         const map = new google.maps.Map(document.getElementById('map'),
             mapOptions);
-         map.setTilt(45);
+        map.setTilt(45);
         new google.maps.Marker({
             position: myLatLng,
             map,
