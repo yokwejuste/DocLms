@@ -147,7 +147,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'staticfiles'),
 ]
 
-firebase_admin_config_credentials = {
+firebase_credentials = {
     "type": env('FIRESTORE_TYPE'),
     "project_id": env('FIRESTORE_PROJECT_ID'),
     "private_key_id": env('FIRESTORE_PRIVATE_KEY_ID'),
