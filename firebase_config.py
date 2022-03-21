@@ -10,5 +10,5 @@ firebase_admin.initialize_app(cred)
 
 db = firestore.client()
 
-db.collection('users').add(
-    {'name': 'John Doe', 'age': 42, 'favorite_color': 'red', 'favorite_number': 7, 'favorite_food': 'pizza'})
+db.collection('users').document().collection('user1').document('user1').set(
+    {'name': {'first_name': 'Yorker', 'second_name': 'Steve'}, 'email': 'me@gmail.com'})
