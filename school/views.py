@@ -205,8 +205,6 @@ def blog_summit(request):
         arr = []
         for tag in blog__tags:
             arr.append(str(tag).capitalize())
-        arr_2 = arr
-        blog_tags_set = dict(zip(arr, arr_2))
         date = f'{datetime.datetime.now().strftime("%d")} ' \
                f'{datetime.datetime.now().strftime("%b")}' \
                f' {datetime.datetime.now().strftime("%Y")}'
@@ -215,7 +213,7 @@ def blog_summit(request):
             "content": blog_content,
             "first_image_path": file,
             'date': date,
-            "tags": blog_tags_set,
+            "tags": arr,
             "title": title.capitalize(),
         }
         db.collection('blog').document('-'.join(filter(str.isalpha, new_title)).lower()).set(data)
