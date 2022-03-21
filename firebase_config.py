@@ -1,10 +1,11 @@
+import os
+
 import firebase_admin
-import jsonpickle as jsonpickle
 from firebase_admin import credentials, firestore
 
-from doc_lms.settings import firebase_admin_config_credentials
+from doc_lms.settings import BASE_DIR
 
-cred = credentials.Certificate(jsonpickle.encode(firebase_admin_config_credentials))
+cred = credentials.Certificate(os.path.join(BASE_DIR, 'serviceAccountKey.json'))
 firebase_admin.initialize_app(cred)
 
 db = firestore.client()
