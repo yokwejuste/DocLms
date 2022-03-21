@@ -1,8 +1,8 @@
 import os
 from pathlib import Path
+
 import django_heroku
 import environ as django_environ
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -146,3 +146,16 @@ STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'staticfiles'),
 ]
+
+firebase_admin_config_credentials = {
+    "type": env('FIRESTORE_TYPE'),
+    "project_id": env('FIRESTORE_PROJECT_ID'),
+    "private_key_id": env('FIRESTORE_PRIVATE_KEY_ID'),
+    "private_key": env('FIRESTORE_PRIVATE_KEY'),
+    "client_email": env('FIRESTORE_CLIENT_EMAIL'),
+    "client_id": env('FIRESTORE_CLIENT_ID'),
+    "auth_uri": env('FIRESTORE_AUTH_URI'),
+    "token_uri": env('FIRESTORE_TOKEN_URI'),
+    "auth_provider_x509_cert_url": env('FIRESTORE_AUTH_PROVIDER_CERT_URL'),
+    "client_x509_cert_url": env('FIRESTORE_CLIENT_CERT_URL')
+}
