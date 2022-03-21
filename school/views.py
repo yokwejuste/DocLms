@@ -1,10 +1,11 @@
 import datetime
-from doc_lms.settings import env
+
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
-from .pyrebase_settings import database, authed, firebase
+from doc_lms.settings import env
 from firebase_config import db
+from .pyrebase_settings import authed, firebase
 
 
 def index(request):
@@ -56,24 +57,24 @@ def events(request):
 
 
 def blog(request):
-    global light, image, content, author, tags, tag_array
+    global blog_title, image, content, author, tags, tag_array
 
-    blogposts = database.child('blog').get()
-    for i in blogposts.each():
+    blogposts = db.collection('blog').get()
+    """for i in blogposts.each():
         i.key()
-        light = list(i.val().values())[5]  # blog-title
+        blog_title = list(i.val().values())[5]  # blog-title
         image = list(i.val().values())[3]
         content = list(i.val().values())[1]
-        author = list(i.val().values())[0]
-    tags = list(dict(database.child('blog').child(light).child('tags').get().val()).keys())
+        author = list(i.val().values())[0]"""
+    # tags = list(dict(database.child('blog').child(light).child('tags').get().val()).keys())
 
     context = {
         'blogpost': blogposts,
-        'blogTitle': light,
-        'image': image,
-        'content': content,
-        'author': author,
-        'tags': tags,
+        # 'blogTitle': light,
+        # 'image': image,
+        # 'content': content,
+        # 'author': author,
+        # 'tags': tags,
         'blog': 'active',
     }
     return render(request, 'blog/blog.html', context)
@@ -107,7 +108,8 @@ def single_shop(request):
     return render(request, 'shop/shop-single.html', context)
 
 
-def single_blog(request):
+def single_blog(request, pk=None):
+    db.collection('blog').document(pk).get()
     context = {
         'blog': 'active',
     }
@@ -196,6 +198,7 @@ def blog_summit(request):
     if request.method == 'POST':
         file = request.POST.get('url')
         title = request.POST.get('blog_title')
+        new_title = title.split()
         blog_content = request.POST.get('content')
         blog_tags = request.POST.get('tags')
         blog__tags = blog_tags.split(' ')
@@ -210,12 +213,12 @@ def blog_summit(request):
         data = {
             "author": "Manka Velda",
             "content": blog_content,
-            "first-image-path": file,
+            "first_image_path": file,
             'date': date,
             "tags": blog_tags_set,
-            "title": title,
+            "title": title.capitalize(),
         }
-        db.collection('blog').document(title).set(data)
+        db.collection('blog').document('-'.join(filter(str.isalpha, new_title)).lower()).set(data)
         return HttpResponse('success')
     return render(request, 'blog/blog-summit.html', context)
 
