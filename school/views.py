@@ -1,9 +1,10 @@
 import datetime
-
+from doc_lms.settings import env
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
-from .pyrebase_settings import *
+from .pyrebase_settings import database, authed, firebase
+from firebase_config import db
 
 
 def index(request):
