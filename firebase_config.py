@@ -10,5 +10,3 @@ firebase_admin.initialize_app(cred)
 
 db = firestore.client()
 
-db.collection('users').document().collection('user1').document('user1').set(
-    {'name': {'first_name': 'Yorker', 'second_name': 'Steve'}, 'email': 'me@gmail.com'})
