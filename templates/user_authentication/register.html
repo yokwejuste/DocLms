@@ -257,7 +257,7 @@
                                     <a href="{% url 'blog' %}">Blog</a>
                                     <ul class="sub-menu">
                                         <li><a href="{% url 'blog' %}">Blog</a></li>
-                                        <li><a href="{% url 'single_blog' %}">Blog Singel</a></li>
+                                        {#                                        <li><a href="{% url 'single_blog' %}">Blog Singel</a></li>#}
                                     </ul>
                                 </li>
                                 <li class="nav-item">
@@ -274,25 +274,41 @@
                                         <li><a href="{% url 'contact' %}">Contact Us 2</a></li>
                                     </ul>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{% url 'maps_index' %}">Maps</a>
+                                </li>
                             </ul>
                         </div>
                     </nav> <!-- nav -->
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-3 col-4">
                     <div class="right-icon text-right">
-                        {#                        <ul>#}
-                        {#                            <li><a href="#" id="search"><i class="fa fa-user"></i></a></li>#}
-                        {#                        </ul>#}
-                        <div class="dropdown">
-                            <button onclick="myFunction()" class="dropbtn"><i class="fa fa-user"></i></button>
-                            <div id="myDropdown" class="dropdown-content">
-                                <a href="{% url 'index' %}"><i class="fa fa-home"></i>&nbsp;&nbsp;Home</a>
-                                <a href="{% url 'about' %}"><i class="fa fa-book"></i>&nbsp;&nbsp;About</a>
-                                <a href="{% url 'contact' %}"><i class="fa fa-phone"></i>&nbsp;&nbsp;Contact</a>
-                            </div>
-                        </div>
+                        <ul class="nav">
+                            <li class="button-dropdown">
+                                <a href="javascript:void(0)" class="dropdown-toggle">
+                                    <i class="fa fa-user"></i>
+                                </a>
+                                <ul style="left: 0 !important;" class="dropdown-menu dropdown-menu-left">
+                                    <li style="padding: 0 0">
+                                        <a href="{% url 'login' %}">
+                                            <i class="fa fa-sign-in"></i> &nbsp; Login
+                                        </a>
+                                    </li>
+                                    <li style="padding: 0">
+                                        <a href="{% url 'register' %}">
+                                            <i class="fa fa-user-plus"></i> &nbsp; Register
+                                        </a>
+                                    </li>
+                                    <li style="padding: 0 0">
+                                        <a href="#">
+                                            <i class="fa fa-question"></i> &nbsp; Help
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
-                </div> <!-- row -->
+                </div>
             </div> <!-- container -->
         </div>
     </div>
@@ -308,7 +324,7 @@
                             <div class="card-body p-5 text-white">
 
                                 <div class="my-xxl-5">
-                                    <h2 class="text-center mb-5">SignIn Form</h2>
+                                    <h2 class="text-center mb-5">SignUp Form</h2>
 
                                     <form method="POST">
                                         {% csrf_token %}
