@@ -25,7 +25,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    {% if blogpost %}
+                    <!--{% if blogpost %}
                         {% for blog in blogpost.each %}
                             <div class="singel-blog mt-30">
                                 <div class="blog-thum">
@@ -59,7 +59,11 @@
                                         alt="Blog">
                             </div>
                         </div>
-                    {% endif %}<!-- single blog -->
+                    {% endif %}-->
+                    {% for blog in blogpost %}
+                        {{ blog }}
+                    {% endfor %}
+                    <!-- single blog -->
                     <nav class="courses-pagination mt-50">
                         <ul class="pagination justify-content-lg-end justify-content-center">
                             <li class="page-item">
