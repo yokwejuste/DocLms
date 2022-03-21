@@ -6,4 +6,3 @@ important.txt
 venv/
 db.sqlite3
 .github/
-firebase_config.py
