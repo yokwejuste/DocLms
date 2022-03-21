@@ -212,7 +212,7 @@
                                     <a class="{{ blog }}" href="{% url 'blog' %}">Blog</a>
                                     <ul class="sub-menu">
                                         <li><a href="{% url 'blog' %}">Blog</a></li>
-                                        <li><a href="{% url 'single_blog' %}">Blog Singel</a></li>
+{#                                        <li><a href="{% url 'single_blog' %}">Blog Singel</a></li>#}
                                     </ul>
                                 </li>
                                 <li class="nav-item">
@@ -245,18 +245,18 @@
                                 </a>
                                 <ul style="left: 0 !important;" class="dropdown-menu dropdown-menu-left">
                                     <li style="padding: 0 0">
-                                        <a href="#">
-                                            Drop Item 1
+                                        <a href="{% url 'login' %}">
+                                            <i class="fa fa-sign-in"></i> &nbsp; Login
+                                        </a>
+                                    </li>
+                                    <li style="padding: 0">
+                                        <a href="{% url 'register' %}">
+                                            <i class="fa fa-user-plus"></i> &nbsp; Register
                                         </a>
                                     </li>
                                     <li style="padding: 0 0">
                                         <a href="#">
-                                            Drop Item 2
-                                        </a>
-                                    </li>
-                                    <li style="padding: 0 0">
-                                        <a href="#">
-                                            Drop Item 3
+                                            <i class="fa fa-question"></i> &nbsp; Help
                                         </a>
                                     </li>
                                 </ul>
