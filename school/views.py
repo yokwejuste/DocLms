@@ -60,6 +60,7 @@ def blog(request):
     global blog_title, image, content, author, tags, tag_array
 
     blogposts = db.collection('blog').get()
+    blog_title = db.collection('blog').document(blogposts.id).get().to_dict()['title']
     """for i in blogposts.each():
         i.key()
         blog_title = list(i.val().values())[5]  # blog-title
@@ -108,10 +109,21 @@ def single_shop(request):
     return render(request, 'shop/shop-single.html', context)
 
 
-def single_blog(request, pk=None):
-    db.collection('blog').document(pk).get()
+def single_blog(request, pk=id):
+    title = db.collection('blog').document(pk).get().get('title')
+    post_image = db.collection('blog').document(pk).get().get('first_image_path')
+    post_date = db.collection('blog').document(pk).get().get('date')
+    post_content = db.collection('blog').document(pk).get().get('content')
+    post_author = db.collection('blog').document(pk).get().get('author')
+    post_tags = db.collection('blog').document(pk).get().get('tags')
     context = {
         'blog': 'active',
+        'title': title,
+        'image': post_image,
+        'date': post_date,
+        'content': post_content,
+        'author': post_author,
+        'tags': post_tags,
     }
     return render(request, 'blog/blog-single.html', context)
 
