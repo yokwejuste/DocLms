@@ -52,3 +52,6 @@ user-agents==2.2.0
 whitenoise==6.0.0
 wrapt==1.14.0
 firebase-admin==5.2.0
+google-api-python-client==2.41.0
+google-auth-httplib2==0.1.0
+google-auth-oauthlib==0.5.1
