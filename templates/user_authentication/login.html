@@ -261,7 +261,7 @@
                                     <a href="{% url 'blog' %}">Blog</a>
                                     <ul class="sub-menu">
                                         <li><a href="{% url 'blog' %}">Blog</a></li>
-                                        <li><a href="{% url 'single_blog' %}">Blog Singel</a></li>
+{#                                        <li><a href="{% url 'single_blog' %}">Blog Singel</a></li>#}
                                     </ul>
                                 </li>
                                 <li class="nav-item">
@@ -278,10 +278,14 @@
                                         <li><a href="{% url 'contact' %}">Contact Us 2</a></li>
                                     </ul>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{% url 'maps_index' %}">Maps</a>
+                                </li>
                             </ul>
                         </div>
                     </nav> <!-- nav -->
                 </div>
+
                 <div class="col-lg-2 col-md-2 col-sm-3 col-4">
                     <div class="right-icon text-right">
                         <ul class="nav">
@@ -289,20 +293,20 @@
                                 <a href="javascript:void(0)" class="dropdown-toggle">
                                     <i class="fa fa-user"></i>
                                 </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="#">
-                                            Drop Item 1
+                                <ul style="left: 0 !important;" class="dropdown-menu dropdown-menu-left">
+                                    <li style="padding: 0 0">
+                                        <a href="{% url 'login' %}">
+                                            <i class="fa fa-sign-in"></i> &nbsp; Login
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="#">
-                                            Drop Item 2
+                                    <li style="padding: 0">
+                                        <a href="{% url 'register' %}">
+                                            <i class="fa fa-user-plus"></i> &nbsp; Register
                                         </a>
                                     </li>
-                                    <li>
+                                    <li style="padding: 0 0">
                                         <a href="#">
-                                            Drop Item 3
+                                            <i class="fa fa-question"></i> &nbsp; Help
                                         </a>
                                     </li>
                                 </ul>
@@ -350,6 +354,7 @@
 
                                     </form>
                                     <div class="text-center">
+                                        <p class="text text-success"><a class="text text-success" href="{% url 'register' %}">Don't have an account?</a></p>
                                         <p>or sign in with:</p>
                                         <button type="button" class="btn btn-light btn-floating mx-1">
                                             <i class="fab fa-facebook-f"></i>
