@@ -127,33 +127,27 @@
                                     <h3>Leave a comment</h3>
                                 </div> <!-- title -->
                                 <div class="comment-form">
-                                    <form action="#">
+                                    <form action="{% url 'single_blog/<pk>' %}">
+                                        {% csrf_token %}
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-singel">
                                                     <label>
-                                                        <input type="text" placeholder="Name">
+                                                        <input name="comment_tags" type="text" placeholder="Tags Tags tags tAgs">
                                                     </label>
-                                                </div> <!-- form singel -->
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-singel">
-                                                    <label>
-                                                        <input type="email" placeholder="email">
-                                                    </label>
-                                                </div> <!-- form singel -->
+                                                </div> <!-- form single -->
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-singel">
                                                     <label>
-                                                        <textarea placeholder="Comment"></textarea>
+                                                        <textarea name="comment_content" placeholder="Comment"></textarea>
                                                     </label>
-                                                </div> <!-- form singel -->
+                                                </div> <!-- form single -->
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-singel">
-                                                    <button class="main-btn">Submit</button>
-                                                </div> <!-- form singel -->
+                                                    <button class="main-btn">Comment</button>
+                                                </div> <!-- form single -->
                                             </div>
                                         </div> <!-- row -->
                                     </form>
@@ -173,7 +167,7 @@
                                         </label>
                                         <button type="button"><i class="fa fa-search"></i></button>
                                     </form>
-                                </div> <!-- saidbar search -->
+                                </div> <!-- sidebar search -->
                                 <div class="categories mt-30">
                                     <h4>Categories</h4>
                                     <ul>
@@ -216,7 +210,7 @@
                                                         <h6>How to build a game with java</h6>
                                                         <span>10 Dec 2018</span>
                                                     </div>
-                                                </div> <!-- singel post -->
+                                                </div> <!-- single post -->
                                             </a>
                                         </li>
                                         <li>
@@ -230,14 +224,14 @@
                                                         <h6>Basic accounting from primary</h6>
                                                         <span>07 Dec 2018</span>
                                                     </div>
-                                                </div> <!-- singel post -->
+                                                </div> <!-- single post -->
                                             </a>
                                         </li>
                                     </ul>
-                                </div> <!-- saidbar post -->
+                                </div> <!-- sidebar post -->
                             </div>
                         </div> <!-- row -->
-                    </div> <!-- saidbar -->
+                    </div> <!-- sidebar -->
                 </div>
             </div> <!-- row -->
         </div> <!-- container -->
