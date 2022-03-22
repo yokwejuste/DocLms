@@ -118,6 +118,19 @@ def single_blog(request, pk=id):
     post_content = db.collection('blog').document(pk).get().get('content')
     post_author = db.collection('blog').document(pk).get().get('author')
     post_tags = db.collection('blog').document(pk).get().get('tags')
+    comment_tags = request.POST.get('comment_tags')
+    comment_content = request.POST.get('comment_content')
+    # ========================= comments =========================
+    if request.method == 'POST':
+        if comment_tags and comment_content:
+            db.collection('blog').document(pk).collection('comments').add({
+                'tags': comment_tags,
+                'content': comment_content,
+                'date': f'{datetime.datetime.now().strftime("%b")}'
+                        f'{datetime.datetime.now().strftime("%d")}, '
+                        f' {datetime.datetime.now().strftime("%Y")}'
+            })
+
     context = {
         'blog': 'active',
         'title': title,
