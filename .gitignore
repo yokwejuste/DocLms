@@ -6,4 +6,4 @@ important.txt
 venv/
 db.sqlite3
 .github/
-serviceAccountKey.json
+#serviceAccountKey.json
