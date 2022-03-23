@@ -59,6 +59,7 @@ def events(request):
 def blog(request):
     global blog_title, image, content, author, tags, tag_array
     docs = db.collection('blog').get()
+    blog_title = db.collection('blog').get()
     for doc in docs:
         print(doc.to_dict())
 
