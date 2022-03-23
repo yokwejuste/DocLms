@@ -24,7 +24,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    {% if blogpost %}
+                    {% if blogpost is not None %}
                         {% for blog in blogpost.each %}
                             <div class="singel-blog mt-30">
                                 <div class="blog-thum">
@@ -50,7 +50,7 @@
                                 </div>
                             </div>
                         {% endfor %}
-                    {% else %}
+                    {% elif blogpost is None %}
                         <div class="singel-blog mt-30">
                             <div class="blog-thum">
                                 <img
