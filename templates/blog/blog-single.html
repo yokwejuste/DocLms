@@ -39,7 +39,8 @@
                             <ul>
                                 <li><a href="#"><i class="fa fa-calendar"></i>{{ date }}</a></li>
                                 <li><a href="#"><i class="fa fa-user"></i>{{ author }}</a></li>
-                                <li><a href="#"><i class="fa fa-tags"></i>{% for tag in tags %}{{ tag }},&nbsp;{% endfor %}
+                                <li><a href="#"><i class="fa fa-tags"></i>{% for tag in tags %}{{ tag }},
+                                    &nbsp;{% endfor %}
                                 </a></li>
                             </ul>
                             {{ content }}
@@ -127,20 +128,22 @@
                                     <h3>Leave a comment</h3>
                                 </div> <!-- title -->
                                 <div class="comment-form">
-                                    <form method="post" action="{% url 'single_blog' pk='hello_world_google' %}">
+                                    <form method="post" action="{% url 'single_blog' pk=blog_id %}">
                                         {% csrf_token %}
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-singel">
                                                     <label>
-                                                        <input name="comment_tags" type="text" placeholder="Tags Tags tags tAgs">
+                                                        <input name="comment_tags" required type="text"
+                                                               placeholder="Tags Tags tags tAgs">
                                                     </label>
                                                 </div> <!-- form single -->
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-singel">
                                                     <label>
-                                                        <textarea name="comment_content" placeholder="Comment"></textarea>
+                                                        <textarea name="comment_content" required
+                                                                  placeholder="Comment"></textarea>
                                                     </label>
                                                 </div> <!-- form single -->
                                             </div>
