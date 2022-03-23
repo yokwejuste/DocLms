@@ -118,7 +118,6 @@ def single_blog(request, pk=id):
     post_content = db.collection('blog').document(pk).get().get('content')
     post_author = db.collection('blog').document(pk).get().get('author')
     post_tags = db.collection('blog').document(pk).get().get('tags')
-    blog_id = db.collection('blog').document(pk).get().get('id')
     comment_tags = request.POST.get('comment_tags')
     comment_content = request.POST.get('comment_content')
     # ========================= comments =========================
@@ -141,7 +140,7 @@ def single_blog(request, pk=id):
         'content': post_content,
         'author': post_author,
         'tags': post_tags,
-        'blog_id': blog_id,
+        # 'blog_id': blog_id,
     }
     return render(request, 'blog/blog-single.html', context)
 
@@ -246,7 +245,7 @@ def blog_summit(request):
             "tags": arr,
             "title": title.capitalize(),
         }
-        db.collection('blog').document('-'.join(filter(str.isalpha, new_title)).lower()).set(data)
+        db.collection('blog').document('_'.join(filter(str.isalpha, new_title)).lower()).set(data)
         return HttpResponse('success')
     return render(request, 'blog/blog-summit.html', context)
 
