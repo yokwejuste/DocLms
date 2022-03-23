@@ -123,7 +123,7 @@ def single_blog(request, pk=id):
     comments = db.collection('blog').document(pk).collection('comments').get()
     comment_content = request.POST.get('comment_content')
     blog_id = '_'.join(filter(str.isalpha, title.split())).lower()
-    username = 'steve'.capitalize()
+    username = 'steve'.capitalize().replace(' ', '')
     # ========================= comments =========================
     if request.method == 'POST':
         if comment_tags and comment_content:
