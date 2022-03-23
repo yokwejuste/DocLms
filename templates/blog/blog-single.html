@@ -127,7 +127,7 @@
                                     <h3>Leave a comment</h3>
                                 </div> <!-- title -->
                                 <div class="comment-form">
-                                    <form action="{% url 'single_blog' pk= %}">
+                                    <form method="post" action="{% url 'single_blog' pk='hello_world_google' %}">
                                         {% csrf_token %}
                                         <div class="row">
                                             <div class="col-md-6">
