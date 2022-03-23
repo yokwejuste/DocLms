@@ -65,13 +65,16 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>
-                            <input type="text" name="blog_title" class="form-control" placeholder="The post title"
+                            <input type="text" name="blog_title" readonly onfocus="this.removeAttribute('readonly');"
+                                   class="form-control" placeholder="The post title" autocomplete="off"
                                    value=""/>
                         </label>
                     </div>
                     <div class="form-group">
                         <label>
-                            <input id='tags' type="text" autocomplete="of" name="tags" class="form-control"
+                            <input id='tags' type="text" autocomplete="off" readonly
+                                   onfocus="this.removeAttribute('readonly');"
+                                   name="tags" class="form-control"
                                    placeholder="Post tags" value=""/>
                         </label>
                     </div>
