@@ -119,21 +119,26 @@ def single_blog(request, pk=id):
     post_author = db.collection('blog').document(pk).get().get('author')
     post_tags = db.collection('blog').document(pk).get().get('tags')
     comment_tags = request.POST.get('comment_tags')
-    print(comment_tags)
-    # arr = [str(i).capitalize() for i in range(len(comment_tags.split()))]
+    # ======================= comment retrieval =========================== #
+    comments = db.collection('blog').document(pk).collection('comments').get()
     comment_content = request.POST.get('comment_content')
     blog_id = '_'.join(filter(str.isalpha, title.split())).lower()
+    username = 'steve'.capitalize()
     # ========================= comments =========================
     if request.method == 'POST':
         if comment_tags and comment_content:
-            db.collection('blog').document(pk).collection('comments').add({
-                'tags': comment_tags,
-                'comment': [str(i).capitalize() for i in comment_tags.split()],
-                'commenter_username': 'Snoop Dog',
-                'date': f'{datetime.datetime.now().strftime("%b")}'
-                        f'{datetime.datetime.now().strftime("%d")}, '
-                        f' {datetime.datetime.now().strftime("%Y")}'
-            })
+            db.collection('blog').document(pk).collection('comments').document(
+                f'{username}_{blog_id}_{datetime.datetime.now().strftime("%b")}'
+                f'_{datetime.datetime.now().strftime("%d")}'
+                f'_{datetime.datetime.now().strftime("%Y")}').set(
+                {
+                    'tags': comment_tags,
+                    'comment': [str(i).capitalize() for i in comment_tags.split()],
+                    'commenter_username': username,
+                    'date': f'{datetime.datetime.now().strftime("%b")}'
+                            f'{datetime.datetime.now().strftime("%d")}, '
+                            f' {datetime.datetime.now().strftime("%Y")}'
+                })
 
     context = {
         'blog': 'active',
