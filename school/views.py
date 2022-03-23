@@ -119,14 +119,17 @@ def single_blog(request, pk=id):
     post_author = db.collection('blog').document(pk).get().get('author')
     post_tags = db.collection('blog').document(pk).get().get('tags')
     comment_tags = request.POST.get('comment_tags')
+    print(comment_tags)
+    # arr = [str(i).capitalize() for i in range(len(comment_tags.split()))]
     comment_content = request.POST.get('comment_content')
+    blog_id = '_'.join(filter(str.isalpha, title.split())).lower()
     # ========================= comments =========================
     if request.method == 'POST':
         if comment_tags and comment_content:
             db.collection('blog').document(pk).collection('comments').add({
                 'tags': comment_tags,
-                'comment': comment_content,
-                'commenter_username': 'Yokwejuste',
+                'comment': [str(i).capitalize() for i in comment_tags.split()],
+                'commenter_username': 'Snoop Dog',
                 'date': f'{datetime.datetime.now().strftime("%b")}'
                         f'{datetime.datetime.now().strftime("%d")}, '
                         f' {datetime.datetime.now().strftime("%Y")}'
@@ -140,7 +143,7 @@ def single_blog(request, pk=id):
         'content': post_content,
         'author': post_author,
         'tags': post_tags,
-        # 'blog_id': blog_id,
+        'blog_id': blog_id,
     }
     return render(request, 'blog/blog-single.html', context)
 
