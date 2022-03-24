@@ -133,8 +133,8 @@ def single_blog(request, pk=id):
                 f'_{datetime.datetime.now().strftime("%d")}'
                 f'_{datetime.datetime.now().strftime("%Y")}').set(
                 {
-                    'tags': comment_tags,
-                    'comment': [str(i).capitalize() for i in comment_tags.split()],
+                    'tags': [str(i).capitalize() for i in comment_tags.split()],
+                    'comment': comment_content,
                     'commenter_username': username,
                     'date': f'{datetime.datetime.now().strftime("%b")}'
                             f'{datetime.datetime.now().strftime("%d")}, '
