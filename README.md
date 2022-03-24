@@ -42,4 +42,4 @@ The DocLms though being free for all has a source of revenue. Using the google A
 
 5. **[Good Health and Wellbeing](https://sdg-tracker.org/no-poverty)**:<img src="https://i0.wp.com/www.un.org/sustainabledevelopment/wp-content/uploads/2019/02/SDG-3.gif?ssl=1" width="100px" height="100px" align="left">
 From its name, The Doctor Learning Managemnet System is a health advisor. Giving you advices and constant updates about the measures you can take to naturally protect yourself from diseases and getting day-to-day tips to stay healthy. The DocLMS takes care of the user's health too. We are cary, opened, free and keep you updated.<br><br><br><br>
-<sub align="right">Project under the MIT License. [Aboyo Team initiative](https://github.com/SolutionChallenge2022)</sub>
+<sub float="right" align="right">Project under the MIT License. [Aboyo Team initiative](https://github.com/SolutionChallenge2022)</sub>
