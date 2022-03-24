@@ -15,7 +15,7 @@ def index(request):
     context = {
         # 'name': name,
         # 'stack': stack,
-        # 'framework': framework
+        # 'framework': framework,
         'home': 'active',
     }
     return render(request, 'home/index.html', context)
@@ -58,28 +58,28 @@ def events(request):
 
 def blog(request):
     global blog_title, image, content, author, tags, tag_array
-    docs = db.collection('blog').get()
-    blog_title = db.collection('blog').get()
-    for doc in docs:
-        print(doc.to_dict())
-
     blogposts = db.collection('blog').get()
-    """for i in blogposts.each():
-        i.key()
-        blog_title = list(i.val().values())[5]  # blog-title
-        image = list(i.val().values())[3]
-        content = list(i.val().values())[1]
-        author = list(i.val().values())[0]"""
-    # tags = list(dict(database.child('blog').child(light).child('tags').get().val()).keys())
-
+    blog_array = []
+    for i in blogposts:
+        i_identifier = i.id
+        blog_array.append(i_identifier)
+    print(blog_array.__len__())
+    for blog_p in blogposts:
+        blog_p_id = blog_p.id
+        blog_title = db.collection('blog').document(blog_p_id).get().to_dict()['title']
+        image = db.collection('blog').document(blog_p_id).get().to_dict()['first_image_path']
+        content = db.collection('blog').document(blog_p_id).get().to_dict()['content']
+        author = db.collection('blog').document(blog_p_id).get().to_dict()['author']
+        tags = db.collection('blog').document(blog_p_id).get().to_dict()['tags']
     context = {
         'blogpost': blogposts,
-        # 'blogTitle': light,
-        # 'image': image,
-        # 'content': content,
-        # 'author': author,
-        # 'tags': tags,
+        'blogTitle': blog_title,
+        'image': image,
+        'content': content,
+        'author': author,
+        'tags': tags,
         'blog': 'active',
+        'blog_array': blog_array,
     }
     return render(request, 'blog/blog.html', context)
 
