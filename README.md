@@ -22,3 +22,24 @@ The Doctor LMS is more than a normal LMS. It doesn't only help you by teaching y
 
 - **[The Library Management system](https://doc-lms.herokuapp.com)**: In our try to solve our local communoty problems and linking it up to the [UN Development Goals](https://sdgs.un.org/goals), we noticed the poor management system in our library, will the help of firebase and some machine learning technologies we achieved a simple e-library managemnet system to help our users and mates to get appropriate books for free and ontime. The books are encrypted to be accessed only on the website and download not being possible elsewhere. Access to books are done periodically, by getting a token from the library manager.
 
+## Our impact
+![UNSDP](https://sdgaruba.com/pages/wp-content/uploads/2021/09/SDG-Website-Loop-2.gif)
+
+Our primary in **django-admin startproject thisproject** was to solve some few goals on the United Nations Sustainable Development Goals. As engineers to be we opted to solve some real life problems. Below are the points which inspired us to give birth to this platform.
+
+Below are the point we targetted on these goals.
+
+1. **[Quality Education](https://sdg-tracker.org/quality-education)** : <img src="https://static.wixstatic.com/media/e55088_8510ee57b2cf47239bfe9bf9fe0f2643~mv2.gif" width="100px" height="100px" align="left">The future is education and education is the feature. DocLMS is a learning world where everyone is free of leatning at his/her ease. What's best if it's not to offer an appropriate means of educating the next generation. <br><br><br><br>
+
+
+2. **[Gender Equality](https://sdg-tracker.org/gender-equality)**: <img src="https://www.aperam.com/sites/default/files/images/E_GIF_05.gif" width="100px" height="100px" align="left"> AS free as DocLMS is, gender equality is one of our happiness. Making user's gender private from both the teachers and their mates gives thesame   education material and quality to people of both sex. Non binaries, Female, Male and Transgender are welcomed and encouraged to our platform. <br><br><br>
+
+3. **[Reduced Inequalities](https://sdg-tracker.org/inequality)**:<img src="https://www.un.org/sites/un2.un.org/files/field/image/e_gif_10.gif" width="100px" height="100px" align="left">
+Inequalities existing because of gender, sex, tribe, country, physical disabilities, financial state and origins are restricted and prohibited. At DocLms, we offer eduction for free. We're a free service platform charge.<br><br><br><br>
+
+4. **[No Poverty](https://sdg-tracker.org/no-poverty)**:<img src="https://bumbukucreatives.com/wp-content/uploads/2020/06/1-no-poverty.gif" width="100px" height="100px" align="left">
+The DocLms though being free for all has a source of revenue. Using the google Ads in the feature we will generate income per ads viewed on the website, this money in turn will be used to feed the orphans of our local orphanges. We usually provide bags of rice, spaghetti and some detergents to help them. <br><br><br>
+
+5. **[Good Health and Wellbeing](https://sdg-tracker.org/no-poverty)**:<img src="https://i0.wp.com/www.un.org/sustainabledevelopment/wp-content/uploads/2019/02/SDG-3.gif?ssl=1" width="100px" height="100px" align="left">
+From its name, The Doctor Learning Managemnet System is a health advisor. Giving you advices and constant updates about the measures you can take to naturally protect yourself from diseases and getting day-to-day tips to stay healthy. The DocLMS takes care of the user's health too. We are cary, opened, free and keep you updated.<br><br><br><br>
+<sub float="right" align="right">Project under the MIT License. [Aboyo Team initiative](https://github.com/SolutionChallenge2022)</sub>
