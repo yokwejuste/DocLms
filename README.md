@@ -22,3 +22,17 @@ The Doctor LMS is more than a normal LMS. It doesn't only help you by teaching y
 
 - **[The Library Management system](https://doc-lms.herokuapp.com)**: In our try to solve our local communoty problems and linking it up to the [UN Development Goals](https://sdgs.un.org/goals), we noticed the poor management system in our library, will the help of firebase and some machine learning technologies we achieved a simple e-library managemnet system to help our users and mates to get appropriate books for free and ontime. The books are encrypted to be accessed only on the website and download not being possible elsewhere. Access to books are done periodically, by getting a token from the library manager.
 
+## Our impact
+![UNSDP](https://sdgaruba.com/pages/wp-content/uploads/2021/09/SDG-Website-Loop-2.gif)
+
+Our primary in **django-admin startproject thisproject** was to solve some few goals on the United Nations Sustainable Development Goals. As engineers to be we opted to solve some real life problems. Below are the points which inspired us to give birth to this platform.
+
+Below are the point we targetted on these goals.
+
+1. **[Quality Education](https://sdg-tracker.org/quality-education)** :
+<img src="https://static.wixstatic.com/media/e55088_8510ee57b2cf47239bfe9bf9fe0f2643~mv2.gif" width="100px" height="100px" align="left">
+The future is education and education is the feature. DocLMS is a learning world where everyone is free of leatning at his/her ease. What's best if it's not to offer an appropriate means of educating the next generation
+
+2. **[Gender Equality]()**:
+<img src="https://www.aperam.com/sites/default/files/images/E_GIF_05.gif" width="100px" height="100px" align="left">
+AS free as DocLMS is, gender equality is one of our happiness. Making user's gender private from both the teachers and their mates gives thesame education material and quality to people of both sex. Non binaries, Female, Male and Transgender are welcomed and encouraged to our platform. 
