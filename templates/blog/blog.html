@@ -23,9 +23,13 @@
     <section id="blog-page" class="pt-90 pb-120 gray-bg">
         <div class="container">
             <div class="row">
+            <!--{% for i in blog_array %}
+                {{ blogpost }}
+            {% endfor %}
+            <h1>{% cycle blogpost blogTitle author %}</h1>-->
                 <div class="col-lg-8">
-                    {% if blogpost is not None %}
-                        {% for blog in blogpost.each %}
+                    {% if blogpost != none %}
+                        {% for blog in blogpost %}
                             <div class="singel-blog mt-30">
                                 <div class="blog-thum">
                                     <img src="{{ image }}" alt="Blog">
@@ -42,7 +46,6 @@
                                                 <a href="#" style="float: left"><i class="fa fa-tags"></i>{{ tag }}
                                                 </a>
                                             {% endfor %}
-
                                         </li>
                                         &nbsp;
                                     </ul>
@@ -50,7 +53,7 @@
                                 </div>
                             </div>
                         {% endfor %}
-                    {% elif blogpost is None %}
+                    {% else %}
                         <div class="singel-blog mt-30">
                             <div class="blog-thum">
                                 <img
@@ -59,23 +62,26 @@
                             </div>
                         </div>
                     {% endif %}<!-- single blog -->
-                    <nav class="courses-pagination mt-50">
-                        <ul class="pagination justify-content-lg-end justify-content-center">
-                            <li class="page-item">
-                                <a href="#" aria-label="Previous">
-                                    <i class="fa fa-angle-left"></i>
-                                </a>
-                            </li>
-                            <li class="page-item"><a class="active" href="#">1</a></li>
-                            <li class="page-item"><a href="#">2</a></li>
-                            <li class="page-item"><a href="#">3</a></li>
-                            <li class="page-item">
-                                <a href="#" aria-label="Next">
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>  <!-- courses pagination -->
+                    {% if blogpost != None %}
+                        <nav class="courses-pagination mt-50">
+                            <ul class="pagination justify-content-lg-end justify-content-center">
+                                <li class="page-item">
+                                    <a href="#" aria-label="Previous">
+                                        <i class="fa fa-angle-left"></i>
+                                    </a>
+                                </li>
+                                <li class="page-item"><a class="active" href="#">1</a></li>
+                                <li class="page-item"><a href="#">2</a></li>
+                                <li class="page-item"><a href="#">3</a></li>
+                                <li class="page-item">
+                                    <a href="#" aria-label="Next">
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>  <!-- courses pagination -->
+                    {% else %}
+                    {% endif %}
                 </div>
                 <div class="col-lg-4">
                     <div class="saidbar">
