@@ -122,6 +122,11 @@ def single_blog(request, pk=id):
     comment_tags = request.POST.get('comment_tags')
     # ======================= comment retrieval =========================== #
     comments = db.collection('blog').document(pk).collection('comments').get()
+    commenter_username = comments['commenter_username']
+    comment = comments['comment']
+    comment_date = comments['date']
+    comment_tags_retrieve = comments['tags']
+
     comment_content = request.POST.get('comment_content')
     blog_id = '_'.join(filter(str.isalpha, title.split())).lower()
     username = 'steve'.capitalize().replace(' ', '').replace('  ', '').replace('   ', '')
@@ -136,7 +141,7 @@ def single_blog(request, pk=id):
                     'tags': [str(i).capitalize() for i in comment_tags.split()],
                     'comment': comment_content,
                     'commenter_username': username,
-                    'date': f'{datetime.datetime.now().strftime("%b")}'
+                    'date': f'{datetime.datetime.now().strftime("%b")} '
                             f'{datetime.datetime.now().strftime("%d")}, '
                             f' {datetime.datetime.now().strftime("%Y")}'
                 })
@@ -150,6 +155,10 @@ def single_blog(request, pk=id):
         'author': post_author,
         'tags': post_tags,
         'blog_id': blog_id,
+        'commenter_username': commenter_username,
+        'comment_tag': comment_tags_retrieve,
+        'comment': comment,
+        'comment_date': comment_date,
     }
     return render(request, 'blog/blog-single.html', context)
 
