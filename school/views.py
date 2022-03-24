@@ -15,7 +15,7 @@ def index(request):
     context = {
         # 'name': name,
         # 'stack': stack,
-        # 'framework': framework
+        # 'framework': framework,
         'home': 'active',
     }
     return render(request, 'home/index.html', context)
@@ -58,27 +58,28 @@ def events(request):
 
 def blog(request):
     global blog_title, image, content, author, tags, tag_array
-    docs = db.collection('blog').get()
-    for doc in docs:
-        print(doc.to_dict())
-
     blogposts = db.collection('blog').get()
-    """for i in blogposts.each():
-        i.key()
-        blog_title = list(i.val().values())[5]  # blog-title
-        image = list(i.val().values())[3]
-        content = list(i.val().values())[1]
-        author = list(i.val().values())[0]"""
-    # tags = list(dict(database.child('blog').child(light).child('tags').get().val()).keys())
-
+    blog_array = []
+    for i in blogposts:
+        i_identifier = i.id
+        blog_array.append(i_identifier)
+    print(blog_array.__len__())
+    for blog_p in blogposts:
+        blog_p_id = blog_p.id
+        blog_title = db.collection('blog').document(blog_p_id).get().to_dict()['title']
+        image = db.collection('blog').document(blog_p_id).get().to_dict()['first_image_path']
+        content = db.collection('blog').document(blog_p_id).get().to_dict()['content']
+        author = db.collection('blog').document(blog_p_id).get().to_dict()['author']
+        tags = db.collection('blog').document(blog_p_id).get().to_dict()['tags']
     context = {
         'blogpost': blogposts,
-        # 'blogTitle': light,
-        # 'image': image,
-        # 'content': content,
-        # 'author': author,
-        # 'tags': tags,
+        'blogTitle': blog_title,
+        'image': image,
+        'content': content,
+        'author': author,
+        'tags': tags,
         'blog': 'active',
+        'blog_array': blog_array,
     }
     return render(request, 'blog/blog.html', context)
 
@@ -119,18 +120,31 @@ def single_blog(request, pk=id):
     post_author = db.collection('blog').document(pk).get().get('author')
     post_tags = db.collection('blog').document(pk).get().get('tags')
     comment_tags = request.POST.get('comment_tags')
+    # ======================= comment retrieval =========================== #
+    comments = db.collection('blog').document(pk).collection('comments').get()
+    commenter_username = comments['commenter_username']
+    comment = comments['comment']
+    comment_date = comments['date']
+    comment_tags_retrieve = comments['tags']
+
     comment_content = request.POST.get('comment_content')
+    blog_id = '_'.join(filter(str.isalpha, title.split())).lower()
+    username = 'steve'.capitalize().replace(' ', '').replace('  ', '').replace('   ', '')
     # ========================= comments =========================
     if request.method == 'POST':
         if comment_tags and comment_content:
-            db.collection('blog').document(pk).collection('comments').add({
-                'tags': comment_tags,
-                'comment': comment_content,
-                'commenter_username': 'Yokwejuste',
-                'date': f'{datetime.datetime.now().strftime("%b")}'
-                        f'{datetime.datetime.now().strftime("%d")}, '
-                        f' {datetime.datetime.now().strftime("%Y")}'
-            })
+            db.collection('blog').document(pk).collection('comments').document(
+                f'{username}_{blog_id}_{datetime.datetime.now().strftime("%b")}'
+                f'_{datetime.datetime.now().strftime("%d")}'
+                f'_{datetime.datetime.now().strftime("%Y")}').set(
+                {
+                    'tags': [str(i).capitalize() for i in comment_tags.split()],
+                    'comment': comment_content,
+                    'commenter_username': username,
+                    'date': f'{datetime.datetime.now().strftime("%b")} '
+                            f'{datetime.datetime.now().strftime("%d")}, '
+                            f' {datetime.datetime.now().strftime("%Y")}'
+                })
 
     context = {
         'blog': 'active',
@@ -140,7 +154,11 @@ def single_blog(request, pk=id):
         'content': post_content,
         'author': post_author,
         'tags': post_tags,
-        # 'blog_id': blog_id,
+        'blog_id': blog_id,
+        'commenter_username': commenter_username,
+        'comment_tag': comment_tags_retrieve,
+        'comment': comment,
+        'comment_date': comment_date,
     }
     return render(request, 'blog/blog-single.html', context)
 
