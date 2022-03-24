@@ -212,7 +212,7 @@
                                     <a class="{{ blog }}" href="{% url 'blog' %}">Blog</a>
                                     <ul class="sub-menu">
                                         <li><a href="{% url 'blog' %}">Blog</a></li>
-{#                                        <li><a href="{% url 'single_blog' %}">Blog Singel</a></li>#}
+                                        {#                                        <li><a href="{% url 'single_blog' %}">Blog Singel</a></li>#}
                                     </ul>
                                 </li>
                                 <li class="nav-item">
@@ -239,28 +239,43 @@
                 <div class="col-lg-2 col-md-2 col-sm-3 col-4">
                     <div class="right-icon text-right">
                         <ul class="nav">
-                            <li class="button-dropdown">
-                                <a href="javascript:void(0)" class="dropdown-toggle">
-                                    <i class="fa fa-user"></i>
-                                </a>
-                                <ul style="left: 0 !important;" class="dropdown-menu dropdown-menu-left">
-                                    <li style="padding: 0 0">
-                                        <a href="{% url 'login' %}">
-                                            <i class="fa fa-sign-in"></i> &nbsp; Login
+                            {% if user.isauthentified %}
+                                {% if notifications %}
+                                    <li>
+                                        <a href="">
+                                            <i class="fa fa-bell"></i>
                                         </a>
                                     </li>
-                                    <li style="padding: 0">
-                                        <a href="{% url 'register' %}">
-                                            <i class="fa fa-user-plus"></i> &nbsp; Register
-                                        </a>
-                                    </li>
-                                    <li style="padding: 0 0">
-                                        <a href="#">
-                                            <i class="fa fa-question"></i> &nbsp; Help
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
+                                {% endif %}
+                                <li class="button-dropdown">
+                                    <a href="javascript:void(0)" class="dropdown-toggle">
+                                        <i class="fa fa-user"></i>
+                                    </a>
+                                    <ul style="left: 0 !important;" class="dropdown-menu dropdown-menu-left">
+                                        <li style="padding: 0 0">
+                                            <a href="{% url 'login' %}">
+                                                <i class="fa fa-sign-in"></i> &nbsp; Login
+                                            </a>
+                                        </li>
+                                        <li style="padding: 0">
+                                            <a href="{% url 'register' %}">
+                                                <i class="fa fa-user-plus"></i> &nbsp; Register
+                                            </a>
+                                        </li>
+                                        <li style="padding: 0 0">
+                                            <a href="#">
+                                                <i class="fa fa-question"></i> &nbsp; Help
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            {% else %}
+                                <li>
+                                    <a href="{% url 'login' %}" class="btn btn-primary btn-sm">
+                                        Login | Signup
+                                    </a>
+                                </li>
+                            {% endif %}
                         </ul>
                     </div>
                 </div> <!-- row -->
