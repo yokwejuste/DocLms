@@ -2,6 +2,7 @@
 {% load static %}
 {% include 'base-search.html' %}
 {% block content %}
+    {#    <button onclick="myFunction()">Show Snackbar</button>#}
     <section id="page-banner" class="pt-105 pb-130 bg_cover" data-overlay="8"
              style="background-image: url({% static 'images/page-banner-4.jpg' %})">
         <div class="container">
@@ -39,7 +40,8 @@
                             <ul>
                                 <li><a href="#"><i class="fa fa-calendar"></i>{{ date }}</a></li>
                                 <li><a href="#"><i class="fa fa-user"></i>{{ author }}</a></li>
-                                <li><a href="#"><i class="fa fa-tags"></i>{% for tag in tags %}{{ tag }},
+                                <li><a href="#"><i class="fa fa-tags"></i>{% for tag in tags %}{{ tag }}
+                                    &nbsp;&nbsp;
                                     &nbsp;{% endfor %}
                                 </a></li>
                             </ul>
@@ -134,16 +136,20 @@
                                             <div class="col-md-6">
                                                 <div class="form-singel">
                                                     <label>
-                                                        <input name="comment_tags" required autocomplete="off" aria-autocomplete="none" type="text"
-                                                               placeholder="Tags Tags tags tAgs" onfocus="this.removeAttribute('readonly');">
+                                                        <input name="comment_tags" required autocomplete="off"
+                                                               aria-autocomplete="none" type="text"
+                                                               placeholder="Tags Tags tags tAgs"
+                                                               onfocus="this.removeAttribute('readonly');">
                                                     </label>
                                                 </div> <!-- form single -->
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-singel">
                                                     <label>
-                                                        <textarea name="comment_content" aria-autocomplete="none" required
-                                                                  placeholder="Comment" onfocus="this.removeAttribute('readonly');" ></textarea>
+                                                        <textarea name="comment_content" aria-autocomplete="none"
+                                                                  required
+                                                                  placeholder="Comment"
+                                                                  onfocus="this.removeAttribute('readonly');"></textarea>
                                                     </label>
                                                 </div> <!-- form single -->
                                             </div>
@@ -239,4 +245,16 @@
             </div> <!-- row -->
         </div> <!-- container -->
     </section>
+    {% for message in messages %}
+        <div id="snackbar">
+            <div class="container-fluid p-0">
+                <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="True">&times;</span>
+                    </button>
+                    {{ message }}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
 {% endblock %}
