@@ -164,7 +164,10 @@ def dashboard(request):
 
 
 def teachers(request):
+    teacher_list = db.collection('teachers').order_by('name',
+                                                      direction=firestore.Query.DESCENDING).get()
     context = {
+        'teachers_list': [teacher_elt.to_dict() for teacher_elt in teacher_list],
         'teachers': 'active',
     }
     return render(request, 'teachers/teachers.html', context)
