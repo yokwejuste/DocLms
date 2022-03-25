@@ -4,6 +4,7 @@ from pathlib import Path
 import django_heroku
 import environ as django_environ
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import pyrebase.pyrebase
 from django.contrib.messages import constants as messages
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -107,7 +108,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 django_heroku.settings(locals())
-
 # Messages Tags
 MESSAGE_TAGS = {
     messages.DEBUG: 'alert-info',
