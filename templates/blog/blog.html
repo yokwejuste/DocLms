@@ -20,36 +20,33 @@
             </div> <!-- row -->
         </div> <!-- container -->
     </section>
+
     <section id="blog-page" class="pt-90 pb-120 gray-bg">
         <div class="container">
             <div class="row">
-            <!--{% for i in blog_array %}
-                {{ blogpost }}
-            {% endfor %}
-            <h1>{% cycle blogpost blogTitle author %}</h1>-->
                 <div class="col-lg-8">
-                    {% if blogpost != none %}
+                    {% if blogpost  != none %}
                         {% for blog in blogpost %}
                             <div class="singel-blog mt-30">
                                 <div class="blog-thum">
-                                    <img src="{{ image }}" alt="Blog">
+                                    <img src="{{ blog.first_image_path }}" alt="Blog">
                                 </div>
                                 <div class="blog-cont">
-                                    <a href="blog-single.html"><h3>{{ blogTitle }}</h3>
+                                    <a href="#"><h3>{{ blog.title }}</h3>
                                     </a>
                                     <ul>
                                         <li><a href="#"><i class="fa fa-calendar"></i>25 Dec 2018</a></li>
-                                        <li><a href="#"><i class="fa fa-user"></i>{{ author }}</a></li>
+                                        <li><a href="#"><i class="fa fa-user"></i>{{ blog.author }}</a></li>
                                         <li>
 
-                                            {% for tag in tags %}
+                                            {% for tag in blog.tags %}
                                                 <a href="#" style="float: left"><i class="fa fa-tags"></i>{{ tag }}
                                                 </a>
                                             {% endfor %}
                                         </li>
                                         &nbsp;
                                     </ul>
-                                    <p>{{ content }}</p>
+                                    <p>{{ blog.content }}</p>
                                 </div>
                             </div>
                         {% endfor %}
