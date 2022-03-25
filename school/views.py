@@ -1,6 +1,6 @@
 import datetime
 
-from django.http import HttpResponse
+from django.contrib import messages
 from django.shortcuts import render, redirect
 
 from doc_lms.settings import env
@@ -57,29 +57,10 @@ def events(request):
 
 
 def blog(request):
-    global blog_title, image, content, author, tags, tag_array
-    blogposts = db.collection('blog').get()
-    blog_array = []
-    for i in blogposts:
-        i_identifier = i.id
-        blog_array.append(i_identifier)
-    print(blog_array.__len__())
-    for blog_p in blogposts:
-        blog_p_id = blog_p.id
-        blog_title = db.collection('blog').document(blog_p_id).get().to_dict()['title']
-        image = db.collection('blog').document(blog_p_id).get().to_dict()['first_image_path']
-        content = db.collection('blog').document(blog_p_id).get().to_dict()['content']
-        author = db.collection('blog').document(blog_p_id).get().to_dict()['author']
-        tags = db.collection('blog').document(blog_p_id).get().to_dict()['tags']
+    blogpost = db.collection('blog').get()
     context = {
-        'blogpost': blogposts,
-        'blogTitle': blog_title,
-        'image': image,
-        'content': content,
-        'author': author,
-        'tags': tags,
+        'blogpost': [building.to_dict() for building in blogpost],
         'blog': 'active',
-        'blog_array': blog_array,
     }
     return render(request, 'blog/blog.html', context)
 
@@ -120,13 +101,6 @@ def single_blog(request, pk=id):
     post_author = db.collection('blog').document(pk).get().get('author')
     post_tags = db.collection('blog').document(pk).get().get('tags')
     comment_tags = request.POST.get('comment_tags')
-    # ======================= comment retrieval =========================== #
-    comments = db.collection('blog').document(pk).collection('comments').get()
-    commenter_username = comments['commenter_username']
-    comment = comments['comment']
-    comment_date = comments['date']
-    comment_tags_retrieve = comments['tags']
-
     comment_content = request.POST.get('comment_content')
     blog_id = '_'.join(filter(str.isalpha, title.split())).lower()
     username = 'steve'.capitalize().replace(' ', '').replace('  ', '').replace('   ', '')
@@ -145,6 +119,7 @@ def single_blog(request, pk=id):
                             f'{datetime.datetime.now().strftime("%d")}, '
                             f' {datetime.datetime.now().strftime("%Y")}'
                 })
+            messages.success(request, "Comment successfully posted")
 
     context = {
         'blog': 'active',
@@ -155,10 +130,10 @@ def single_blog(request, pk=id):
         'author': post_author,
         'tags': post_tags,
         'blog_id': blog_id,
-        'commenter_username': commenter_username,
-        'comment_tag': comment_tags_retrieve,
-        'comment': comment,
-        'comment_date': comment_date,
+        # 'commenter_username': commenter_username,
+        # 'comment_tag': comment_tags_retrieve,
+        # 'comment': comment,
+        # 'comment_date': comment_date,
     }
     return render(request, 'blog/blog-single.html', context)
 
@@ -264,7 +239,7 @@ def blog_summit(request):
             "title": title.capitalize(),
         }
         db.collection('blog').document('_'.join(filter(str.isalpha, new_title)).lower()).set(data)
-        return HttpResponse('success')
+        return messages.success(request, 'Blog posted successfully')
     return render(request, 'blog/blog-summit.html', context)
 
 
