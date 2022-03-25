@@ -10,13 +10,13 @@ from .pyrebase_settings import authed, firebase
 
 
 def index(request):
-    # name = database.child('Data').child('Name').get().val()
-    # stack = database.child('Data').child('Stack').get().val()
-    # framework = database.child('Data').child('Framework').get().val()
+    blogpost = db.collection('blog').order_by('date',
+                                              direction=firestore.Query.DESCENDING).limit(4).get()
+    the_post = db.collection('blog').order_by('date',
+                                              direction=firestore.Query.DESCENDING).limit_to_last(1).get()
     context = {
-        # 'name': name,
-        # 'stack': stack,
-        # 'framework': framework,
+        'blogpost': [blog_elt.to_dict() for blog_elt in blogpost],
+        'unique_post': [blog_elt.to_dict() for blog_elt in the_post],
         'home': 'active',
     }
     return render(request, 'home/index.html', context)
@@ -112,11 +112,12 @@ def single_blog(request, pk=id):
             db.collection('blog').document(pk).collection('comments').document(
                 f'{username}_{blog_id}_'
                 f'{datetime.datetime.now().strftime("%b")}_'
+                f'{datetime.datetime.now().strftime("%d")}_'
+                f'_{datetime.datetime.now().strftime("%Y")}_'
                 f'{datetime.datetime.now().hour}_'
                 f'{datetime.datetime.now().minute}_'
                 f'{datetime.datetime.now().second}'
-                f'_{datetime.datetime.now().strftime("%d")}'
-                f'_{datetime.datetime.now().strftime("%Y")}').set(
+            ).set(
                 {
                     'tags': [str(i).capitalize() for i in comment_tags.split()],
                     'comment': comment_content,

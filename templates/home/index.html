@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+
     <div class="preloader">
         <div class="loader rubix-cube">
             <div class="layer layer-1"></div>
@@ -304,7 +305,8 @@
                                 <li><i class="fa fa-star"></i></li>
                             </ul>
                             <span>(20 Reviws)</span>
-                            <a href="../courses/courses-single.html"><h4>Learn basis javascirpt from start for beginner</h4></a>
+                            <a href="../courses/courses-single.html"><h4>Learn basis javascirpt from start for
+                                beginner</h4></a>
                             <div class="course-teacher">
                                 <div class="thum">
                                     <a href="#"><img src="{% static 'images/course/teacher/t-1.jpg' %}"
@@ -342,7 +344,8 @@
                                 <li><i class="fa fa-star"></i></li>
                             </ul>
                             <span>(20 Reviws)</span>
-                            <a href="../courses/courses-single.html"><h4>Learn basis javascirpt from start for beginner</h4></a>
+                            <a href="../courses/courses-single.html"><h4>Learn basis javascirpt from start for
+                                beginner</h4></a>
                             <div class="course-teacher">
                                 <div class="thum">
                                     <a href="#"><img src="{% static 'images/course/teacher/t-2.jpg' %}"
@@ -380,7 +383,8 @@
                                 <li><i class="fa fa-star"></i></li>
                             </ul>
                             <span>(20 Reviws)</span>
-                            <a href="../courses/courses-single.html"><h4>Learn basis javascirpt from start for beginner</h4></a>
+                            <a href="../courses/courses-single.html"><h4>Learn basis javascirpt from start for
+                                beginner</h4></a>
                             <div class="course-teacher">
                                 <div class="thum">
                                     <a href="#"><img src="{% static 'images/course/teacher/t-3.jpg' %}"
@@ -418,7 +422,8 @@
                                 <li><i class="fa fa-star"></i></li>
                             </ul>
                             <span>(20 Reviws)</span>
-                            <a href="../courses/courses-single.html"><h4>Learn basis javascirpt from start for beginner</h4></a>
+                            <a href="../courses/courses-single.html"><h4>Learn basis javascirpt from start for
+                                beginner</h4></a>
                             <div class="course-teacher">
                                 <div class="thum">
                                     <a href="#"><img src="{% static 'images/course/teacher/t-4.jpg' %}"
@@ -456,7 +461,8 @@
                                 <li><i class="fa fa-star"></i></li>
                             </ul>
                             <span>(20 Reviws)</span>
-                            <a href="../courses/courses-single.html"><h4>Learn basis javascirpt from start for beginner</h4></a>
+                            <a href="../courses/courses-single.html"><h4>Learn basis javascirpt from start for
+                                beginner</h4></a>
                             <div class="course-teacher">
                                 <div class="thum">
                                     <a href="#"><img src="{% static 'images/course/teacher/t-5.jpg' %}"
@@ -808,89 +814,52 @@
                 <div class="col-lg-6">
                     <div class="section-title pb-50">
                         <h5>Latest News</h5>
-                        <h2>From the news</h2>
+                        <h2>From the Blog</h2>
                     </div> <!-- section title -->
                 </div>
             </div> <!-- row -->
             <div class="row">
+                {% for unique in unique_post %}
+                    <div class="col-lg-6">
+                        <div class="singel-news mt-30">
+                            <div class="news-thum pb-25">
+                                <img src="{{ unique.first_image_path }}" alt="News">
+                            </div>
+                            <div class="news-cont">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-calendar"></i>{{ unique.date }}</a></li>
+                                    <li><a href="#"><span>By</span>&nbsp;{{ unique.author }}</a></li>
+                                </ul>
+                                <a href="{% url 'single_blog' pk=unique.blog_path %}"><h3>{{ unique.title }}</h3></a>
+                                <p id="blog-unique">{{ unique.content }}</p>
+                            </div>
+                        </div> <!-- singel news -->
+                    </div>
+                {% endfor %}
                 <div class="col-lg-6">
-                    <div class="singel-news mt-30">
-                        <div class="news-thum pb-25">
-                            <img src="{% static 'images/news/n-1.jpg' %}" alt="News">
-                        </div>
-                        <div class="news-cont">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-calendar"></i>2 December 2018 </a></li>
-                                <li><a href="#"> <span>By</span> Adam linn</a></li>
-                            </ul>
-                            <a href="../blog/blog-single.html"><h3>Tips to grade high cgpa in university life</h3></a>
-                            <p>Lorem ipsum gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit
-                                cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit
-                                amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt .</p>
-                        </div>
-                    </div> <!-- singel news -->
-                </div>
-                <div class="col-lg-6">
-                    <div class="singel-news news-list">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div class="news-thum mt-30">
-                                    <img src="{% static 'images/news/ns-1.jpg' %}" alt="News">
-                                </div>
+                    {% if blogpost %}
+                        {% for blog in blogpost %}
+                            <div class="singel-news news-list">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="news-thum mt-30">
+                                            <img src="{{ blog.first_image_path }}" alt="News">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="news-cont mt-30">
+                                            <ul>
+                                                <li><a href="#"><i class="fa fa-calendar"></i>{{ blog.date }}</a></li>
+                                                <li><a href="#"> <span>By</span>&nbsp;{{ blog.author }}</a></li>
+                                            </ul>
+                                            <a href="{% url 'single_blog' pk=blog.blog_path %}">
+                                                <h3>{{ blog.title }}</h3></a>
+                                        </div>
+                                    </div>
+                                </div> <!-- row -->
                             </div>
-                            <div class="col-sm-8">
-                                <div class="news-cont mt-30">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-calendar"></i>2 December 2018 </a></li>
-                                        <li><a href="#"> <span>By</span> Adam linn</a></li>
-                                    </ul>
-                                    <a href="../blog/blog-single.html"><h3>Intellectual communication</h3></a>
-                                    <p>Gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons
-                                        vel.</p>
-                                </div>
-                            </div>
-                        </div> <!-- row -->
-                    </div> <!-- singel news -->
-                    <div class="singel-news news-list">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div class="news-thum mt-30">
-                                    <img src="{% static 'images/news/ns-2.jpg' %}" alt="News">
-                                </div>
-                            </div>
-                            <div class="col-sm-8">
-                                <div class="news-cont mt-30">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-calendar"></i>2 December 2018 </a></li>
-                                        <li><a href="#"> <span>By</span> Adam linn</a></li>
-                                    </ul>
-                                    <a href="../blog/blog-single.html"><h3>Study makes you perfect</h3></a>
-                                    <p>Gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons
-                                        vel.</p>
-                                </div>
-                            </div>
-                        </div> <!-- row -->
-                    </div> <!-- singel news -->
-                    <div class="singel-news news-list">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div class="news-thum mt-30">
-                                    <img src="{% static 'images/news/ns-3.jpg' %}" alt="News">
-                                </div>
-                            </div>
-                            <div class="col-sm-8">
-                                <div class="news-cont mt-30">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-calendar"></i>2 December 2018 </a></li>
-                                        <li><a href="#"> <span>By</span> Adam linn</a></li>
-                                    </ul>
-                                    <a href="../blog/blog-single.html"><h3>Technology edcution is now....</h3></a>
-                                    <p>Gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons
-                                        vel.</p>
-                                </div>
-                            </div>
-                        </div> <!-- row -->
-                    </div> <!-- singel news -->
+                        {% endfor %}
+                    {% endif %}
                 </div>
             </div> <!-- row -->
         </div> <!-- container -->

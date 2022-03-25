@@ -67,12 +67,28 @@
             #back-logo {
                 display: none
             }
+
+            #login-computer {
+                display: block;
+            }
+
+            #login_phone {
+                display: none;
+            }
         }
 
         @media only screen and (max-width: 958px) {
             #head-1 {
                 display: none;
                 align-content: center;
+            }
+
+            #login-computer {
+                display: none;
+            }
+
+            #login_phone {
+                display: block;
             }
 
             #back-logo {
@@ -204,10 +220,14 @@
         .nav li .dropdown-menu a {
             width: 100%;
         }
+
+        #read-more:hover, #read-more:focus {
+            color: blue;
+        }
     </style>
 
 </head>
-<body  onload="myFunctionPop()">
+<body onload="myFunctionPop()">
 <header id="header-part">
 
     <div class="header-logo-support pt-30 pb-30" id="head-1">
@@ -336,9 +356,14 @@
                                     </ul>
                                 </li>
                             {% else %}
-                                <li>
+                                <li id="login-computer">
                                     <a href="{% url 'login' %}" class="btn btn-primary btn-group-toggle">
                                         Login | Signup
+                                    </a>
+                                </li>
+                                <li id="login_phone">
+                                    <a href="{% url 'login' %}">
+                                        <i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Login
                                     </a>
                                 </li>
                             {% endif %}
@@ -445,15 +470,15 @@
     </div> <!-- footer top -->
 </footer>
 {% if messages %}
-<script>
-    function myFunctionPop() {
-        const x = document.getElementById("snackbar");
-        x.className = "show";
-        setTimeout(function () {
-            x.className = x.className.replace("show", "");
-        }, 5000);
-    }
-</script>
+    <script>
+        function myFunctionPop() {
+            const x = document.getElementById("snackbar");
+            x.className = "show";
+            setTimeout(function () {
+                x.className = x.className.replace("show", "");
+            }, 5000);
+        }
+    </script>
 {% endif %}
 <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
 <script src="{% static 'js/vendor/modernizr-3.6.0.min.js' %}"></script>

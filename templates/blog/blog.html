@@ -39,14 +39,27 @@
                                         <li><a href="#"><i class="fa fa-user"></i>{{ blog.author }}</a></li>
                                         <li>
 
-                                            {% for tag in blog.tags %}
-                                                <a href="#" style="float: left"><i class="fa fa-tags"></i>{{ tag }}
-                                                </a>
-                                            {% endfor %}
+
+                                            <a href="#">
+                                                <i class="fa fa-tags">
+                                                </i>
+                                                {% for tag in blog.tags %}
+                                                    {{ tag }}&nbsp;&nbsp;
+                                                {% endfor %}
+                                            </a>
+
                                         </li>
                                         &nbsp;
                                     </ul>
-                                    <p>{{ blog.content }}</p>
+                                    <p class="overflow-hidden mx-3"
+                                       style="height: 24px; white-space: nowrap;
+                                       overflow: hidden; text-overflow: ellipsis;">
+                                        {{ blog.content }}
+                                    </p>
+                                    <a href="{% url 'single_blog' pk=blog.blog_path %}"
+                                       type="button" id="read-more"
+                                       class="btn btn-primary px-3 bg-transparent float-right"><i
+                                            class="fa fa-eye"></i>&nbsp;&nbsp;Read more</a>
                                 </div>
                             </div>
                         {% endfor %}
