@@ -58,9 +58,10 @@ def events(request):
 
 
 def blog(request):
-    blogpost = db.collection('blog').order_by('date', direction=firestore.Query.DESCENDING).get()
+    blogpost = db.collection('blog').order_by('date',
+                                              direction=firestore.Query.DESCENDING).get()
     context = {
-        'blogpost': [building.to_dict() for building in blogpost],
+        'blogpost': [blog_elt.to_dict() for blog_elt in blogpost],
         'blog': 'active',
     }
     return render(request, 'blog/blog.html', context)
@@ -109,7 +110,11 @@ def single_blog(request, pk=id):
     if request.method == 'POST':
         if comment_tags and comment_content:
             db.collection('blog').document(pk).collection('comments').document(
-                f'{username}_{blog_id}_{datetime.datetime.now().strftime("%b")}'
+                f'{username}_{blog_id}_'
+                f'{datetime.datetime.now().strftime("%b")}_'
+                f'{datetime.datetime.now().hour}_'
+                f'{datetime.datetime.now().minute}_'
+                f'{datetime.datetime.now().second}'
                 f'_{datetime.datetime.now().strftime("%d")}'
                 f'_{datetime.datetime.now().strftime("%Y")}').set(
                 {
@@ -121,8 +126,9 @@ def single_blog(request, pk=id):
                             f' {datetime.datetime.now().strftime("%Y")}'
                 })
             messages.success(request, "Comment successfully posted")
-
+    blogpost = db.collection('blog').order_by('date', direction=firestore.Query.DESCENDING).limit(3).get()
     context = {
+        'blogpost': [blog_elt.to_dict() for blog_elt in blogpost],
         'blog': 'active',
         'title': title,
         'image': post_image,
@@ -174,6 +180,7 @@ def login(request):
     auth = firebase.auth()
     email = request.POST.get('email')
     password = request.POST.get('password')
+    user = firebase.auth().sign_in_with_email_and_password('email', 'password')
     context = {
         "apiKey": env("F_API"),
         "authDomain": env("F_AUTH_DOMAIN"),
@@ -182,11 +189,12 @@ def login(request):
         "storageBucket": env("F_STORAGE_BUCKET"),
         "messagingSenderId": env("F_MESSAGING_SENDER_ID"),
         "appId": env("F_APP_ID"),
-        "measurementId": env("F_MEASUREMENT_ID")
+        "measurementId": env("F_MEASUREMENT_ID"),
+        'user': user,
     }
     if request.POST:
         auth.sign_in_with_email_and_password(email, password)
-        redirect('s-dashboard')
+        return redirect('s-dashboard')
     return render(request, 'user_authentication/login.html', context)
 
 
@@ -199,7 +207,11 @@ def register(request):
 
 
 def logout(request):
-    return None
+    try:
+        del request.session['uid']
+    except:
+        pass
+    return render(request, "Login.html")
 
 
 def blog_summit(request):
