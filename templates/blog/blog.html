@@ -32,10 +32,10 @@
                                     <img src="{{ blog.first_image_path }}" alt="Blog">
                                 </div>
                                 <div class="blog-cont">
-                                    <a href="#"><h3>{{ blog.title }}</h3>
+                                    <a href="{% url 'single_blog' pk=blog.blog_path %}"><h3>{{ blog.title }}</h3>
                                     </a>
                                     <ul>
-                                        <li><a href="#"><i class="fa fa-calendar"></i>25 Dec 2018</a></li>
+                                        <li><a href="#"><i class="fa fa-calendar"></i>{{ blog.date }}</a></li>
                                         <li><a href="#"><i class="fa fa-user"></i>{{ blog.author }}</a></li>
                                         <li>
 
