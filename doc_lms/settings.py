@@ -3,8 +3,9 @@ from pathlib import Path
 
 import django_heroku
 import environ as django_environ
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from django.contrib.messages import constants as messages
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Setting up environment variables
@@ -106,6 +107,15 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 django_heroku.settings(locals())
+
+# Messages Tags
+MESSAGE_TAGS = {
+    messages.DEBUG: 'alert-info',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
