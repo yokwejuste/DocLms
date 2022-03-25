@@ -2,6 +2,7 @@ import datetime
 
 from django.contrib import messages
 from django.shortcuts import render, redirect
+from google.cloud import firestore
 
 from doc_lms.settings import env
 from firebase_config import db
@@ -57,7 +58,7 @@ def events(request):
 
 
 def blog(request):
-    blogpost = db.collection('blog').get()
+    blogpost = db.collection('blog').order_by('date', direction=firestore.Query.DESCENDING).get()
     context = {
         'blogpost': [building.to_dict() for building in blogpost],
         'blog': 'active',
@@ -130,10 +131,6 @@ def single_blog(request, pk=id):
         'author': post_author,
         'tags': post_tags,
         'blog_id': blog_id,
-        # 'commenter_username': commenter_username,
-        # 'comment_tag': comment_tags_retrieve,
-        # 'comment': comment,
-        # 'comment_date': comment_date,
     }
     return render(request, 'blog/blog-single.html', context)
 
@@ -237,9 +234,10 @@ def blog_summit(request):
             'date': date,
             "tags": arr,
             "title": title.capitalize(),
+            'blog_path': '_'.join(filter(str.isalpha, new_title)).lower()
         }
         db.collection('blog').document('_'.join(filter(str.isalpha, new_title)).lower()).set(data)
-        return messages.success(request, 'Blog posted successfully')
+        messages.success(request, 'Blog posted successfully')
     return render(request, 'blog/blog-summit.html', context)
 
 
