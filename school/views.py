@@ -87,9 +87,12 @@ def contact(request):
 
 
 def library(request):
-    # library = db.collection('library')
+    library_list = db.collection('blog') \
+        .order_by('date',
+                  direction=firestore.Query.DESCENDING).get()
     context = {
         'library': 'active',
+        'library_list': [lib_elt.to_dict() for lib_elt in library_list],
     }
     return render(request, 'library/library.html', context)
 
