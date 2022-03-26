@@ -89,14 +89,16 @@ def contact(request):
 def library(request):
     library_list = db.collection('library').get()
     context = {
-        'library': 'active',
         'library_list': [lib_elt.to_dict() for lib_elt in library_list],
+        'library': 'active',
     }
     return render(request, 'library/library.html', context)
 
 
 def single_library_book(request, pk):
+    library_list = db.collection('library').document(pk).get().to_dict()['all_images']
     context = {
+        'library_list': library_list,
         'library': 'active',
     }
     return render(request, 'library/library_single_book.html', context)
