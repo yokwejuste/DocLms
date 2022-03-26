@@ -58,9 +58,14 @@ def events(request):
 
 
 def blog(request):
-    blogpost = db.collection('blog').order_by('date',
-                                              direction=firestore.Query.DESCENDING).get()
+    blogpost = db.collection('blog') \
+        .order_by('date',
+                  direction=firestore.Query.DESCENDING).get()
+    blogpost_recent = db.collection('blog') \
+        .order_by('date', direction=firestore.
+                  Query.DESCENDING).limit(3).get()
     context = {
+        'blogpost_recent': [blog_elt.to_dict() for blog_elt in blogpost_recent],
         'blogpost': [blog_elt.to_dict() for blog_elt in blogpost],
         'blog': 'active',
     }
