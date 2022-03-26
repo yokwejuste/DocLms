@@ -94,7 +94,7 @@ def library(request):
     return render(request, 'shop/shop.html', context)
 
 
-def single_library_book(request):
+def single_library_book(request, pk):
     context = {
         'shop': 'active',
     }
