@@ -16,10 +16,10 @@
                                 <li class="breadcrumb-item active" aria-current="page"><a
                                         href="{% url 'teachers' %}"></a>Teachers
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page"><a
-                                        href="{% url 'teacher-single' pk=single_teacher.single_teacher_path %}">
-                                    {{ single_teacher.name }}
-                                </a>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    <a href="{% url 'teacher-single' pk=single_teacher.single_teacher_path %}">
+                                        {{ single_teacher.name }}
+                                    </a>
                                 </li>
                             </ol>
                         </nav>
