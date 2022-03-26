@@ -278,19 +278,22 @@
                                         <h6>Leave A Comment</h6>
                                     </div>
                                     <div class="reviews-form">
-                                        <form action="#">
+                                        <form action="{% url 'teacher-single' pk=single_teacher_path %}" method="post"
+                                              name="reviewForm">
+                                            {% csrf_token %}
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-singel">
                                                         <label>
-                                                            <input type="text" placeholder="Fast name">
+                                                            <input type="text" name="first_name"
+                                                                   placeholder="First name">
                                                         </label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-singel">
                                                         <label>
-                                                            <input type="text" placeholder="Last Name">
+                                                            <input type="text" name="last_name" placeholder="Last Name">
                                                         </label>
                                                     </div>
                                                 </div>
@@ -298,17 +301,21 @@
                                                     <div class="form-singel">
                                                         <div class="rate-wrapper">
                                                             <div class="rate-label">Your Rating:</div>
-                                                            <div class="rate">
-                                                                <div class="rate-item"><i class="fa fa-star"
-                                                                                          aria-hidden="true"></i></div>
-                                                                <div class="rate-item"><i class="fa fa-star"
-                                                                                          aria-hidden="true"></i></div>
-                                                                <div class="rate-item"><i class="fa fa-star"
-                                                                                          aria-hidden="true"></i></div>
-                                                                <div class="rate-item"><i class="fa fa-star"
-                                                                                          aria-hidden="true"></i></div>
-                                                                <div class="rate-item"><i class="fa fa-star"
-                                                                                          aria-hidden="true"></i></div>
+                                                            <div class="rating">
+                                                <span><input type="radio" name="rating" id="str5" value="5"><label
+                                                        for="str5"></label></span>
+                                                                <span><input type="radio" name="rating" id="str4"
+                                                                             value="4"><label
+                                                                        for="str4"></label></span>
+                                                                <span><input type="radio" name="rating" id="str3"
+                                                                             value="3"><label
+                                                                        for="str3"></label></span>
+                                                                <span><input type="radio" name="rating" id="str2"
+                                                                             value="2"><label
+                                                                        for="str2"></label></span>
+                                                                <span><input type="radio" name="rating" id="str1"
+                                                                             value="1"><label
+                                                                        for="str1"></label></span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -316,17 +323,37 @@
                                                 <div class="col-lg-12">
                                                     <div class="form-singel">
                                                         <label>
-                                                            <textarea placeholder="Comment"></textarea>
+                                                            <textarea name="review_comment"
+                                                                      placeholder="Comment"></textarea>
                                                         </label>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12">
                                                     <div class="form-singel">
-                                                        <button type="button" class="main-btn">Submit review</button>
+                                                        <button type="submit" class="main-btn">Submit review</button>
                                                     </div>
                                                 </div>
                                             </div> <!-- row -->
+                                            <input name="starRating" hidden value="dd" type="text">
                                         </form>
+                                        <script>
+                                            $(document).ready(function () {
+                                                // Check Radio-box
+                                                $(".rating input:radio").attr("checked", false);
+
+                                                $('.rating input').click(function () {
+                                                    $(".rating span").removeClass('checked');
+                                                    $(this).parent().addClass('checked');
+                                                });
+
+                                                $('input:radio').change(
+                                                    function () {
+                                                        var userRating = this.value;
+                                                        var Myelement = document.forms['reviewForm']['starRating'];
+                                                        Myelement.setAttribute('value', userRating);
+                                                    });
+                                            });
+                                        </script>
                                     </div>
                                 </div> <!-- reviews cont -->
                             </div>
