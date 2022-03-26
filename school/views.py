@@ -89,16 +89,16 @@ def contact(request):
 def library(request):
     # library = db.collection('library')
     context = {
-        'shop': 'active',
+        'library': 'active',
     }
-    return render(request, 'shop/shop.html', context)
+    return render(request, 'library/library.html', context)
 
 
 def single_library_book(request, pk):
     context = {
-        'shop': 'active',
+        'library': 'active',
     }
-    return render(request, 'shop/shop-single.html', context)
+    return render(request, 'library/library_single_book.html', context)
 
 
 def single_blog(request, pk=id):
