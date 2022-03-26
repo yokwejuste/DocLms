@@ -168,16 +168,18 @@
                                         <button type="button"><i class="fa fa-search"></i></button>
                                     </form>
                                 </div> <!-- sidebar search -->
-                                <div class="categories mt-30">
-                                    <h4>Categories</h4>
-                                    {% if categories %}
+                                {% if categories %}
+                                    <div class="categories mt-30">
+                                        <h4>Categories</h4>
+
                                         {% for category in categories %}
                                             <ul>
                                                 <li><a href="#">{{ category }}</a></li>
                                             </ul>
                                         {% endfor %}
-                                    {% endif %}
-                                </div>
+
+                                    </div>
+                                {% endif %}
                             </div> <!-- categories -->
                             <div class="col-lg-12 col-md-6">
                                 <div class="saidbar-post mt-30">
