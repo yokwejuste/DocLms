@@ -13,7 +13,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Shop</li>
+                                <li class="breadcrumb-item active" aria-current="page">Library</li>
                             </ol>
                         </nav>
                     </div>  <!-- page banner cont -->
@@ -28,7 +28,7 @@
 
     <section id="shop-page" class="pt-120 pb-120 gray-bg">
         <div class="container">
-            <div class="row">
+            <!--<div class="row">
                 <div class="col-lg-12">
                     <div class="shop-top-search">
                         <div class="shop-bar">
@@ -42,11 +42,11 @@
                                        aria-controls="shop-list" aria-selected="false"><i class="fa fa-th-list"></i></a>
                                 </li>
                                 <li class="nav-item">Showning 4 0f 24 Results</li>
-                            </ul> <!-- nav -->
-                        </div><!-- shop bar -->
+                            </ul>
+                        </div>
                         <div class="shop-select">
                             <label>
-                                <select>
+                                <select class="btn btn-light px-5 py-3">
                                     <option value="1">Sort by</option>
                                     <option value="1">Sort by 01</option>
                                     <option value="2">Sort by 02</option>
@@ -55,10 +55,10 @@
                                     <option value="5">Sort by 05</option>
                                 </select>
                             </label>
-                        </div> <!-- shop select -->
-                    </div> <!-- shop top search -->
+                        </div>
+                    </div>
                 </div>
-            </div> <!-- row -->
+            </div>-->
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="shop-grid" role="tabpanel" aria-labelledby="shop-grid-tab">
                     <div class="row justify-content-center">
@@ -76,160 +76,6 @@
                                 <div class="cont">
                                     <div class="name">
                                         <a href="shop-single.html"><h6>Magazine</h6></a>
-                                        <span>$50.00</span>
-                                    </div>
-                                    <div class="button text-right">
-                                        <a href="#" class="main-btn">Buy Now</a>
-                                    </div>
-                                </div>
-                            </div> <!-- singel publication -->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-8">
-                            <div class="singel-publication mt-30">
-                                <div class="image">
-                                    <img src="{% static 'images/publication/p-2.jpg' %}" alt="Publication">
-                                    <div class="add-cart">
-                                        <ul>
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="cont">
-                                    <div class="name">
-                                        <a href="shop-single.html"><h6>Notebook </h6></a>
-                                        <span>$50.00</span>
-                                    </div>
-                                    <div class="button text-right">
-                                        <a href="#" class="main-btn">Buy Now</a>
-                                    </div>
-                                </div>
-                            </div> <!-- singel publication -->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-8">
-                            <div class="singel-publication mt-30">
-                                <div class="image">
-                                    <img src="{% static 'images/publication/p-3.jpg' %}" alt="Publication">
-                                    <div class="add-cart">
-                                        <ul>
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="cont">
-                                    <div class="name">
-                                        <a href="shop-single.html"><h6>Staionary set </h6></a>
-                                        <span>$50.00</span>
-                                    </div>
-                                    <div class="button text-right">
-                                        <a href="#" class="main-btn">Buy Now</a>
-                                    </div>
-                                </div>
-                            </div> <!-- singel publication -->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-8">
-                            <div class="singel-publication mt-30">
-                                <div class="image">
-                                    <img src="{% static 'images/publication/p-4.jpg' %}" alt="Publication">
-                                    <div class="add-cart">
-                                        <ul>
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="cont">
-                                    <div class="name">
-                                        <a href="shop-single.html"><h6>Set for life </h6></a>
-                                        <span>$50.00</span>
-                                    </div>
-                                    <div class="button text-right">
-                                        <a href="#" class="main-btn">Buy Now</a>
-                                    </div>
-                                </div>
-                            </div> <!-- singel publication -->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-8">
-                            <div class="singel-publication mt-30">
-                                <div class="image">
-                                    <img src="{% static 'images/publication/p-5.jpg' %}" alt="Publication">
-                                    <div class="add-cart">
-                                        <ul>
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="cont">
-                                    <div class="name">
-                                        <a href="shop-single.html"><h6>Set for life </h6></a>
-                                        <span>$50.00</span>
-                                    </div>
-                                    <div class="button text-right">
-                                        <a href="#" class="main-btn">Buy Now</a>
-                                    </div>
-                                </div>
-                            </div> <!-- singel publication -->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-8">
-                            <div class="singel-publication mt-30">
-                                <div class="image">
-                                    <img src="{% static 'images/publication/p-6.jpg' %}" alt="Publication">
-                                    <div class="add-cart">
-                                        <ul>
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="cont">
-                                    <div class="name">
-                                        <a href="shop-single.html"><h6>Set for life </h6></a>
-                                        <span>$50.00</span>
-                                    </div>
-                                    <div class="button text-right">
-                                        <a href="#" class="main-btn">Buy Now</a>
-                                    </div>
-                                </div>
-                            </div> <!-- singel publication -->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-8">
-                            <div class="singel-publication mt-30">
-                                <div class="image">
-                                    <img src="{% static 'images/publication/p-7.jpg' %}" alt="Publication">
-                                    <div class="add-cart">
-                                        <ul>
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="cont">
-                                    <div class="name">
-                                        <a href="shop-single.html"><h6>Magazine </h6></a>
-                                        <span>$50.00</span>
-                                    </div>
-                                    <div class="button text-right">
-                                        <a href="#" class="main-btn">Buy Now</a>
-                                    </div>
-                                </div>
-                            </div> <!-- singel publication -->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-8">
-                            <div class="singel-publication mt-30">
-                                <div class="image">
-                                    <img src="{% static 'images/publication/p-8.jpg' %}" alt="Publication">
-                                    <div class="add-cart">
-                                        <ul>
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="cont">
-                                    <div class="name">
-                                        <a href="shop-single.html"><h6>Set for life </h6></a>
                                         <span>$50.00</span>
                                     </div>
                                     <div class="button text-right">
@@ -377,6 +223,7 @@
                     </div> <!-- row -->
                 </div>
             </div> <!-- tab content -->
+            {% if more %}
             <div class="row">
                 <div class="col-lg-12">
                     <nav class="courses-pagination mt-50">
@@ -397,7 +244,8 @@
                         </ul>
                     </nav>  <!-- courses pagination -->
                 </div>
-            </div>  <!-- row -->
+            </div>
+            {% endif %}
         </div> <!-- container -->
     </section>
 {% endblock %}
