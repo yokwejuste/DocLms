@@ -96,7 +96,7 @@ def library(request):
 
 
 def single_library_book(request, pk):
-    library_list_pictures = db.collection('library').document(pk).get().to_dict()['all_images']
+    library_list_pictures = db.collection('library').document(pk).get().to_dict()
     context = {
         'library_list': library_list_pictures,
         'library': 'active',
