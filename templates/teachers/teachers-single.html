@@ -186,39 +186,35 @@
                                         <h6>Student Reviews</h6>
                                     </div>
                                     {% if reviews %}
+
                                         <ul>
-                                            <li>
-                                                <div class="singel-reviews">
-                                                    <div class="reviews-author">
-                                                        <div class="author-thum">
-                                                            <img src="{% static 'images/review/r-1.jpg' %}"
-                                                                 alt="Reviews">
+                                            {% for view in reviews %}
+                                                <li>
+                                                    <div class="singel-reviews">
+                                                        <div class="reviews-author">
+                                                            <div class="author-thum">
+                                                                <img src="{{ view.user_picture }}"
+                                                                     alt="Reviews">
+                                                            </div>
+                                                            <div class="author-name">
+                                                                <h6>{{ view.first_name }} {{ view.last_name }}</h6>
+                                                                <span>{{ view.date }}</span>
+                                                            </div>
                                                         </div>
-                                                        <div class="author-name">
-                                                            <h6>Bobby Aktar</h6>
-                                                            <span>April 03, 2019</span>
+                                                        <div class="reviews-description pt-20">
+                                                            <p>{{ view.comment }}</p>
+                                                            <div class="rating">
+                                                                <ul>
+                                                                    {% for star in view.rating %}
+                                                                        <li><i class="fa fa-star"></i></li>
+                                                                    {% endfor %}
+                                                                </ul>
+                                                                <span>/ {{ view.rating }} Star</span>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="reviews-description pt-20">
-                                                        <p>There are many variations of passages of Lorem Ipsum
-                                                            available,
-                                                            but
-                                                            the majority have suffered alteration in some form, by
-                                                            injected
-                                                            humour, or randomised words which.</p>
-                                                        <div class="rating">
-                                                            <ul>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                            </ul>
-                                                            <span>/ 5 Star</span>
-                                                        </div>
-                                                    </div>
-                                                </div> <!-- singel reviews -->
-                                            </li>
+                                                    </div> <!-- singel reviews -->
+                                                </li>
+                                            {% endfor %}
                                         </ul>
                                     {% else %}
                                         <ul>
