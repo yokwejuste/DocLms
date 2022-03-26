@@ -209,7 +209,7 @@ def teacher_single(request, pk=id):
                             f'{datetime.datetime.now().strftime("%d")}, '
                             f' {datetime.datetime.now().strftime("%Y")}'
                 })
-            messages.success(request, f"{username} review successfully posted")
+            messages.success(request, f"{username.capitalize()}'s review successfully posted")
     context = {
         'single_teacher': single_teacher.to_dict(),
         'achievements': db.collection('teachers').document(pk).collection('achievements').document(
