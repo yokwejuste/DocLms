@@ -97,6 +97,34 @@ def library(request):
 
 def single_library_book(request, pk):
     library_list_pictures = db.collection('library').document(pk).get().to_dict()
+    username = 'Yokwejuste'
+    single_first_name = request.POST.get('first_name')
+    single_last_name = request.POST.get('last_name')
+    single_star_rating = request.POST.get('starRating')
+    review_comment = request.POST.get('review_comment')
+    variable = single_star_rating and single_first_name and single_last_name and review_comment
+    if request.POST:
+        if variable:
+            db.collection('library').document(pk).collection(
+                'reviews').document(
+                f'{username}_python_reviews_'
+                f'{datetime.datetime.now().strftime("%b")}_'
+                f'{datetime.datetime.now().strftime("%d")}_'
+                f'_{datetime.datetime.now().strftime("%Y")}_'
+                f'{datetime.datetime.now().hour}_'
+                f'{datetime.datetime.now().minute}_'
+                f'{datetime.datetime.now().second}'
+            ).set(
+                {
+                    'images': 'https://firebasestorage.googleapis.com/v0/b/doclms.appspot.com/o/unknown_user'
+                              '.png?alt=media&token=a4a5f801-a777-4c8e-a96a-509dfcdd633b',
+                    'first_name': single_first_name.capitalize(),
+                    'last_name': single_last_name.capitalize(),
+                    'added_by': username.replace(' ', '').lower(),
+                    'rating': single_star_rating,
+                    'comment': review_comment
+                })
+            messages.success(request, f"{username.capitalize()}'s review successfully posted")
     context = {
         'library_list': library_list_pictures,
         'library': 'active',
