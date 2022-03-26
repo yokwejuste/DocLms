@@ -186,7 +186,9 @@ def teacher_single(request, pk=id):
     last_name = request.POST.get('last_name')
     star_rating = request.POST.get('starRating')
     review_comment = request.POST.get('review_comment')
-    reviews = db.collection('teachers').document(pk).collection('reviews').get()
+    reviews = db.collection('teachers').document(username).collection('reviews') \
+        .order_by('date',
+                  direction=firestore.Query.DESCENDING).get()
     if request.method == 'POST':
         if first_name and last_name and star_rating and review_comment:
             """db.collection('teachers').document(pk).collection(
@@ -219,6 +221,7 @@ def teacher_single(request, pk=id):
             f'yokwejuste_achievements').get().to_dict(),
         'teacher': 'active',
         'single_teacher_path': pk,
+        'reviews': [review_elt.to_dict() for review_elt in reviews],
     }
     return render(request, 'teachers/teachers-single.html', context)
 
