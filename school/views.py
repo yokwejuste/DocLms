@@ -180,8 +180,36 @@ def teachers(request):
 
 
 def teacher_single(request, pk=id):
-    # teacher_list = db.collection('teachers').document()
+    username = 'Yonkeu'.lower().replace(' ', '').replace('  ', '').replace('   ', '')
+    single_teacher = db.collection('teachers').document(pk).get()
+    comment_tags = request.POST.get('comment_tags')
+    review_comment = request.POST.get('comment_content')
+    if request.method == 'POST':
+        if comment_tags and review_comment:
+            db.collection('teachers').document(pk).collection(
+                db.collection('teachers').document(pk).get().to_dict()['name'].split()[0].lower()).document(
+                f'{username}_python_reviews_'
+                f'{datetime.datetime.now().strftime("%b")}_'
+                f'{datetime.datetime.now().strftime("%d")}_'
+                f'_{datetime.datetime.now().strftime("%Y")}_'
+                f'{datetime.datetime.now().hour}_'
+                f'{datetime.datetime.now().minute}_'
+                f'{datetime.datetime.now().second}'
+            ).set(
+                {
+                    'first_name': 'Jonas',
+                    'last_name': 'Hkey',
+                    'rating': username,
+                    'comment': review_comment,
+                    'date': f'{datetime.datetime.now().strftime("%b")} '
+                            f'{datetime.datetime.now().strftime("%d")}, '
+                            f' {datetime.datetime.now().strftime("%Y")}'
+                })
+            messages.success(request, "Your review successfully posted")
     context = {
+        'single_teacher': single_teacher.to_dict(),
+        'achievements': db.collection('teachers').document(pk).collection('achievements').document(
+            f'yokwejuste_achievements').get().to_dict(),
         'teacher': 'active',
     }
     return render(request, 'teachers/teachers-single.html', context)
