@@ -87,7 +87,7 @@ def contact(request):
 
 
 def library(request):
-    library
+    # library = db.collection('library')
     context = {
         'shop': 'active',
     }
