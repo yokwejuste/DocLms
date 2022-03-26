@@ -182,12 +182,16 @@ def teachers(request):
 def teacher_single(request, pk=id):
     username = 'Yonkeu'.lower().replace(' ', '').replace('  ', '').replace('   ', '')
     single_teacher = db.collection('teachers').document(pk).get()
-    comment_tags = request.POST.get('comment_tags')
-    review_comment = request.POST.get('comment_content')
+    first_name = request.POST.get('first_name')
+    last_name = request.POST.get('last_name')
+    star_rating = request.POST.get('starRating')
+    review_comment = request.POST.get('review_comment')
     if request.method == 'POST':
-        if comment_tags and review_comment:
+        if first_name and last_name and star_rating and review_comment:
+            """db.collection('teachers').document(pk).collection(
+                db.collection('teachers').document(pk).get().to_dict()['name'].split()[0].lower()).document("""
             db.collection('teachers').document(pk).collection(
-                db.collection('teachers').document(pk).get().to_dict()['name'].split()[0].lower()).document(
+                'reviews').document(
                 f'{username}_python_reviews_'
                 f'{datetime.datetime.now().strftime("%b")}_'
                 f'{datetime.datetime.now().strftime("%d")}_'
@@ -197,20 +201,21 @@ def teacher_single(request, pk=id):
                 f'{datetime.datetime.now().second}'
             ).set(
                 {
-                    'first_name': 'Jonas',
-                    'last_name': 'Hkey',
-                    'rating': username,
+                    'first_name': first_name.capitalize(),
+                    'last_name': last_name.capitalize(),
+                    'rating': star_rating,
                     'comment': review_comment,
                     'date': f'{datetime.datetime.now().strftime("%b")} '
                             f'{datetime.datetime.now().strftime("%d")}, '
                             f' {datetime.datetime.now().strftime("%Y")}'
                 })
-            messages.success(request, "Your review successfully posted")
+            messages.success(request, f"{username} review successfully posted")
     context = {
         'single_teacher': single_teacher.to_dict(),
         'achievements': db.collection('teachers').document(pk).collection('achievements').document(
             f'yokwejuste_achievements').get().to_dict(),
         'teacher': 'active',
+        'single_teacher_path': pk,
     }
     return render(request, 'teachers/teachers-single.html', context)
 
