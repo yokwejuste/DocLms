@@ -36,7 +36,8 @@
                             <img src="{{ teachers.picture }}" alt="Teachers">
                         </div>
                         <div class="cont">
-                            <a href="#"><h6>{{ teachers.name }}</h6></a>
+                            <a href="{% url 'teacher-single' pk=teachers.single_teacher_path %}">
+                                <h6>{{ teachers.name }}</h6></a>
                             <span>{{ teachers.title }}</span>
                         </div>
                     </div>
