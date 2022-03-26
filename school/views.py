@@ -86,14 +86,15 @@ def contact(request):
     return render(request, 'contact/contact.html', context)
 
 
-def shop(request):
+def library(request):
+    library
     context = {
         'shop': 'active',
     }
     return render(request, 'shop/shop.html', context)
 
 
-def single_shop(request):
+def single_library_book(request):
     context = {
         'shop': 'active',
     }
