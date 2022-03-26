@@ -164,8 +164,9 @@ def dashboard(request):
 
 
 def teachers(request):
-    teacher_list = db.collection('teachers').order_by('name',
-                                                      direction=firestore.Query.DESCENDING).get()
+    teacher_list = db.collection('teachers') \
+        .order_by('name',
+                  direction=firestore.Query.DESCENDING).get()
     context = {
         'teachers_list': [teacher_elt.to_dict() for teacher_elt in teacher_list],
         'teachers': 'active',
@@ -173,7 +174,8 @@ def teachers(request):
     return render(request, 'teachers/teachers.html', context)
 
 
-def teacher_single(request):
+def teacher_single(request, pk=id):
+    # teacher_list = db.collection('teachers').document()
     context = {
         'teacher': 'active',
     }
