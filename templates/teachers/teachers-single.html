@@ -41,14 +41,17 @@
                             <h6>{{ single_teacher.name }}</h6>
                             <span>{{ single_teacher.title }}</span>
                         </div>
-                        <div class="social">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
-                            </ul>
-                        </div>
+                        {% if socials %}
+                            <div class="social">
+                                <ul>
+                                    <li><a href=""><i class="fa fa-facebook-square"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-github-square"></i></a></li>
+                                </ul>
+                            </div>
+                        {% endif %}
                         <div class="description">
                             <p>{{ single_teacher.summary }}</p>
                         </div>
@@ -193,7 +196,8 @@
                                                     <div class="singel-reviews">
                                                         <div class="reviews-author">
                                                             <div class="author-thum">
-                                                                <img src="{{ view.user_picture }}"
+                                                                <img width="70px" height="70px"
+                                                                     src="{{ view.user_picture }}"
                                                                      alt="Reviews">
                                                             </div>
                                                             <div class="author-name">
@@ -205,9 +209,11 @@
                                                             <p>{{ view.comment }}</p>
                                                             <div class="rating">
                                                                 <ul>
-                                                                    {% for star in view.rating %}
-                                                                        <li><i class="fa fa-star"></i></li>
-                                                                    {% endfor %}
+                                                                    {% with ''|center:view.rating as range %}
+                                                                        {% for star in range %}
+                                                                            <li><i class="fa fa-star"></i></li>
+                                                                        {% endfor %}
+                                                                    {% endwith %}
                                                                 </ul>
                                                                 <span>/ {{ view.rating }} Star</span>
                                                             </div>
