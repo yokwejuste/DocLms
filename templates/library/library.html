@@ -67,7 +67,7 @@
                             <div class="col-lg-3 col-md-6 col-sm-8">
                                 <div class="singel-publication mt-30">
                                     <div class="image">
-                                        <img src="{{ book.picture }}" alt="Publication">
+                                        <img src="{{ book.images }}" width="35px" height="280px" alt="Publication">
                                         <div class="add-cart">
                                             <ul>
                                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
@@ -78,10 +78,10 @@
                                     <div class="cont">
                                         <div class="name">
                                             <a href="library_single_book.html"><h6>{{ book.type }}</h6></a>
-                                            <span>{{ book.posted_by }}</span>
+                                            <span>{{ book.added_by }}</span>
                                         </div>
                                         <div class="button text-right">
-                                            <a href="#" class="main-btn">View about</a>
+                                            <a href="{{ book.path }}" class="main-btn">View about</a>
                                         </div>
                                     </div>
                                 </div> <!-- single publication -->
