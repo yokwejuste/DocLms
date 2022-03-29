@@ -35,7 +35,7 @@ Doctor LMS is more than a normal LMS. It doesn't only help you by teaching you b
 ## Our impact
 ![UNSDP](https://sdgaruba.com/pages/wp-content/uploads/2021/09/SDG-Website-Loop-2.gif)
 
-Our primary focus is on **the Django-admin start project.** this project was to solve a few goals on the United Nations Sustainable Development Goals. As engineers to be we opted to solve some real-life problems. Below are the points which inspired us to give birth to this platform.
+Our primary focus when typing **django-admin start project doclms** was to solve a few goals on the United Nations Sustainable Development Goals. As engineers to be we opted to solve some real-life problems. Below are the points which inspired us to give birth to this platform.
 Below are the points we targetted on these goals.
 
 1. **[Quality Education](https://sdg-tracker.org/quality-education)** : <img src="https://static.wixstatic.com/media/e55088_8510ee57b2cf47239bfe9bf9fe0f2643~mv2.gif" width="100px" height="100px" align="left">The future is education and education is the feature. DocLMS is a learning world where everyone is free of learning at his/her ease. What's best if it's not to offer an appropriate means of educating the next generation. <br><br><br><br>
