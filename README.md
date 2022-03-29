@@ -47,7 +47,7 @@ Below are the points we targetted on these goals.
  Inequalities existing because of gender, sex, tribe, country, physical disabilities, financial state, and origins are restricted and prohibited. At DocLms, we offer education for free. We're a free service platform charge.<br><br><br><br>
 
 4. **[No Poverty](https://sdg-tracker.org/no-poverty)**:<img src="https://bumbukucreatives.com/wp-content/uploads/2020/06/1-no-poverty.gif" width="100px" height="100px" align="left">
- The DocLms though being free for all has a source of revenue. Using the Google Ads in the feature we will generate income per ad viewed on the website, this money in turn will be used to feed the orphans of our local orphanages. We usually provide bags of rice, spaghetti, and some detergents to help them.  <br><br><br>
+What's best way to forget poverty than to not think about it. While building DocLms we though it wise not to only reduce the gap between the poor and the richs but to eliminate it at all. The DocLms is a free charged service platform and offers all of it content to its users completely for free.  <br><br><br>
 
 5. **[Good Health and Wellbeing](https://sdg-tracker.org/no-poverty)**:<img src="https://i0.wp.com/www.un.org/sustainabledevelopment/wp-content/uploads/2019/02/SDG-3.gif?ssl=1" width="100px" height="100px" align="left">
  From its name, The Doctor Learning Management System is a health advisor. Giving you advice and constant updates about the measures you can take to naturally protect yourself from diseases and getting day-to-day tips to stay healthy. The DocLMS takes care of the user's health too. We are very, open, free and keep you updated.<br><br><br><br>
