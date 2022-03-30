@@ -36,15 +36,15 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="shop-left pt-30">
-                                <div class="tab-content" id="pills-tabContent">
-                                    <div class="tab-pane fade show active" id="pills-image-1" role="tabpanel"
-                                         aria-labelledby="pills-image-1-tab">
-                                        <div class="shop-image">
-                                            <a href="#" class="shop-items"><img
-                                                    src="{{ library_list.images }}" alt="Shop"></a>
-                                        </div>
+                            <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pills-image-1" role="tabpanel"
+                                     aria-labelledby="pills-image-1-tab">
+                                    <div class="shop-image">
+                                        <a href="#" class="shop-items"><img
+                                                src="{{ library_list.images }}" alt="Shop"></a>
                                     </div>
                                 </div>
+                            </div>
                         </div> <!-- shop left -->
                     </div>
                     <div class="col-lg-6">
@@ -86,32 +86,32 @@
                                 <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
                                     <div class="reviews-cont">
                                         <ul>
-                                            <li>
-                                                <div class="singel-reviews">
-                                                    <div class="reviews-author">
-                                                        <div class="author-thum">
-                                                            <img src="{% static 'images/review/r-1.jpg' %}"
-                                                                 alt="Reviews">
+                                            {% for review in library_review %}
+                                                <li>
+                                                    <div class="singel-reviews">
+                                                        <div class="reviews-author">
+                                                            <div class="author-thum">
+                                                                <img width="70px" height="70px" src="{{ review.reviewer_picture }}"
+                                                                     alt="Reviews">
+                                                            </div>
+                                                            <div class="author-name">
+                                                                <h6>{{ review.reviewer_first_name }}&nbsp;
+                                                                    {{ review.reviewer_last_name }}</h6>
+                                                                <span>April 03, 2019</span>
+                                                            </div>
                                                         </div>
-                                                        <div class="author-name">
-                                                            <h6>Bobby Aktar</h6>
-                                                            <span>April 03, 2019</span>
+                                                        <div class="reviews-description pt-20">
+                                                            <p>{{ review.review_content}}</p>
+                                                            <div class="rating">
+                                                                <ul>
+                                                                    <li><i class="fa fa-star"></i></li>
+                                                                </ul>
+                                                                <span>/ 5 Star</span>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="reviews-description pt-20">
-                                                        <p>There are many variations of passages of Lorem Ipsum
-                                                            available,
-                                                            but the majority have suffered alteration in some form, by
-                                                            injected humour, or randomised words which.</p>
-                                                        <div class="rating">
-                                                            <ul>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                            </ul>
-                                                            <span>/ 5 Star</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
+                                                </li>
+                                            {% endfor %}
                                         </ul>
                                         <div class="reviews-form">
                                             <form action="#">
