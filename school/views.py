@@ -97,6 +97,7 @@ def library(request):
 
 def single_library_book(request, pk):
     library_list_pictures = db.collection('library').document(pk).get().to_dict()
+    library_review = db.collection('library').document(pk).collection('reviews').get()
     username = 'Yokwejuste'
     single_first_name = request.POST.get('first_name')
     single_last_name = request.POST.get('last_name')
@@ -128,6 +129,7 @@ def single_library_book(request, pk):
     context = {
         'library_list': library_list_pictures,
         'library': 'active',
+        'library_review': [review_elt.to_dict() for review_elt in library_review],
     }
     return render(request, 'library/library_single_book.html', context)
 
