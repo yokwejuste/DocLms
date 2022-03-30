@@ -267,7 +267,6 @@ def login(request):
     auth = firebase.auth()
     email = request.POST.get('email')
     password = request.POST.get('password')
-    user = firebase.auth().sign_in_with_email_and_password('email', 'password')
     context = {
         "apiKey": env("F_API"),
         "authDomain": env("F_AUTH_DOMAIN"),
@@ -277,11 +276,14 @@ def login(request):
         "messagingSenderId": env("F_MESSAGING_SENDER_ID"),
         "appId": env("F_APP_ID"),
         "measurementId": env("F_MEASUREMENT_ID"),
-        'user': user,
     }
     if request.POST:
-        auth.sign_in_with_email_and_password(email, password)
-        return redirect('s-dashboard')
+        try:
+            user = auth.sign_in_with_email_and_password(email, password)
+            request.session['user'] = user
+            return redirect('s-dashboard')
+        except:
+            messages.error(request, 'Invalid Credentials, Please try again')
     return render(request, 'user_authentication/login.html', context)
 
 
