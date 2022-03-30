@@ -35,7 +35,7 @@ Doctor LMS is more than a normal LMS. It doesn't only help you by teaching you b
 ## Our impact
 ![UNSDP](https://sdgaruba.com/pages/wp-content/uploads/2021/09/SDG-Website-Loop-2.gif)
 
-Our primary focus is on **the Django-admin start project.** this project was to solve a few goals on the United Nations Sustainable Development Goals. As engineers to be we opted to solve some real-life problems. Below are the points which inspired us to give birth to this platform.
+Our primary focus when typing **django-admin start project doclms** was to solve a few goals on the United Nations Sustainable Development Goals. As engineers to be we opted to solve some real-life problems. Below are the points which inspired us to give birth to this platform.
 Below are the points we targetted on these goals.
 
 1. **[Quality Education](https://sdg-tracker.org/quality-education)** : <img src="https://static.wixstatic.com/media/e55088_8510ee57b2cf47239bfe9bf9fe0f2643~mv2.gif" width="100px" height="100px" align="left">The future is education and education is the feature. DocLMS is a learning world where everyone is free of learning at his/her ease. What's best if it's not to offer an appropriate means of educating the next generation. <br><br><br><br>
@@ -47,7 +47,7 @@ Below are the points we targetted on these goals.
  Inequalities existing because of gender, sex, tribe, country, physical disabilities, financial state, and origins are restricted and prohibited. At DocLms, we offer education for free. We're a free service platform charge.<br><br><br><br>
 
 4. **[No Poverty](https://sdg-tracker.org/no-poverty)**:<img src="https://bumbukucreatives.com/wp-content/uploads/2020/06/1-no-poverty.gif" width="100px" height="100px" align="left">
- The DocLms though being free for all has a source of revenue. Using the Google Ads in the feature we will generate income per ad viewed on the website, this money in turn will be used to feed the orphans of our local orphanages. We usually provide bags of rice, spaghetti, and some detergents to help them.  <br><br><br>
+What's best way to forget poverty than to not think about it. While building DocLms we though it wise not to only reduce the gap between the poor and the richs but to eliminate it at all. The DocLms is a free charged service platform and offers all of it content to its users completely for free.  <br><br><br>
 
 5. **[Good Health and Wellbeing](https://sdg-tracker.org/no-poverty)**:<img src="https://i0.wp.com/www.un.org/sustainabledevelopment/wp-content/uploads/2019/02/SDG-3.gif?ssl=1" width="100px" height="100px" align="left">
  From its name, The Doctor Learning Management System is a health advisor. Giving you advice and constant updates about the measures you can take to naturally protect yourself from diseases and getting day-to-day tips to stay healthy. The DocLMS takes care of the user's health too. We are very, open, free and keep you updated.<br><br><br><br>

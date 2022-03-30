@@ -48,472 +48,511 @@
             title: "Hello World!",
         });
 
-        infoWindow = new google.maps.InfoWindow();
+        //add markers with coordinates, title, content and icon
+        let markers = [
+            {
+                coords: {lat: 6.0149989, lng: 0.2560062},
+                title: 'HITL',
+                content: '<h1>Hello World!</h1>',
+                {#icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'#}
+            },
+            {
+                coords: {lat: 6.0144931, lng: 10.2557393},
+                title: 'HICM ADMINISTRATION',
+                content: '<h1>Hello World!</h1>',
+                {#icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'#}
+            },
+            {
+                coords: {lat: 6.0144394, lng: 10.2561319},
+                title: 'HICM ICT CENTER',
+                content: '<h1>Hello World!</h1>',
+                {#icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'#}
+            },
+            {
+                coords: {lat: 6.0147725, lng: 10.2566563},
+                title: 'HOSTEL GIRL1',
+                {#content: '<h1>Hello World!</h1>',#}
+                {#icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'#}
+            },
+            {
+                coords: {lat: 6.0149332, lng: 10.2574449},
+                title: 'HOSTEL GIRL2',
+                {#content: '<h1>Hello World!</h1>',#}
+                {#icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'#}
+            },
+            {
+                coords: {lat: 6.0140603, lng: 10.2574013},
+                title: 'HOSTEL BOY',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0112054, lng: 10.2585389},
+                title: 'Smart Photos',
+                {#content: '<h1>Hello World!</h1>',#}
+                icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+            },
+            {
+                coords: {lat: 6.0149989, lng: 10.2560062},
+                title: 'HITL',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0143394, lng: 10.2551526},
+                title: 'LAST GATE',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0144931, lng: 10.2557393},
+                title: 'HICM ADMINISTRATION',
+                {#content: '<h1>Hello World!</h1>',#}
+                icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
 
-          const locationButton = document.createElement("button");
+                
+            },
+            {
+                coords: {lat: 6.0144394, lng: 10.2561319},
+                title: 'HICM ICT CENTER',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0137985, lng: 10.2562100},
+                title: 'NAHPISA BUILDING',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0129229, lng: 10.2564709},
+                title: 'SCHOOL RESTAURANT',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0136138, lng: 10.2565091},
+                title: 'TOILET',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0133050, lng: 10.2567458},
+                title: 'COLTECH ANIMAL PRODUCTION',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat:6.0131843, lng: 10.2568685},
+                title: 'COLTECH FOOD SCIENCE TECH LAB',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0130076, lng: 10.2570248},
+                title: 'COLTECH BUILDING',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0130810, lng: 10.2571072},
+                title: 'SOWETO HALL',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0126599, lng: 10.2571622},
+                title: 'ENS BOILOGY LAB',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0122694, lng: 10.2573825},
+                title: 'LC 01- 07',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0120900, lng: 10.2569661},
+                title: 'LC 08',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0124178, lng: 10.2569604},
+                title: 'LC09',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0125635, lng: 10.2570814},
+                title: 'ENS LC10',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0126855, lng: 10.2574251},
+                title: 'NAHPI SA',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0127139, lng: 10.2576906},
+                title: 'NAHPI TOILET',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0129753, lng: 10.2578164},
+                title: 'BUIDLINGS',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0127189, lng: 10.2582076},
+                title: 'PBA',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0127095, lng: 10.2589905},
+                title: 'PBB',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0136048, lng: 10.2590830},
+                title: 'PBC',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0138029, lng: 10.2589573},
+                title: 'AMPHI 650',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0128479, lng: 10.2579273},
+                title: 'FED SA',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0110651, lng: 10.2586177},
+                title: 'CENTRAL LIBRARY',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0107663, lng: 10.2585298},
+                title: 'CENTRAL ADMINISTRATION BUILDING',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0108120, lng: 10.2582680},
+                title: 'ASANJI HALL',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0104959, lng: 10.2593308},
+                title: 'FS ADMINISTRATIVE BLOCK',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0105999, lng: 10.2593318},
+                title: 'FS SA',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0111331, lng: 10.2579521},
+                title: 'SCHOOL PRINTING PRESS',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0109333, lng: 10.2580752},
+                title: 'SECOND GATE',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0114478, lng: 10.2582519},
+                title: 'IT CENTER',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0117839, lng: 10.2586012},
+                title: 'COLTECH MAIN ADMINISTRATION',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0119703, lng: 10.2587451},
+                title: 'HTTC(DPT OF PHYSICS)',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0120647, lng: 10.2588074},
+                title: 'HTTTC(DPT OF PHYSICS)',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0121864, lng: 10.2588936},
+                title: 'DIRECTORATE OF ADMINISTRATIVE AFFAIRS',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0122871, lng: 10.2591427},
+                title: 'DIRECTORATE OF STUDENT AFFAIRS',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0121550, lng: 10.2598810},
+                title: 'SOA BLOCK(01-16)',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0123094, lng: 10.2593298},
+                title: 'ACADEMIC AFFAIRS',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0119667, lng: 10.2601754},
+                title: 'AMPHI 340',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0118513, lng: 10.2604134},
+                title: 'FHS BUILDING',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0125045, lng: 10.2593013},
+                title: 'ENSET SA(AMPHI 100)',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0129143, lng: 10.2596024},
+                title: 'ENSET WORKSHOP',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0140239, lng: 10.2596912},
+                title: 'FS LABS',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0126255, lng: 10.2594414},
+                title: 'ENSET WORSHOP TOILET',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0121470, lng: 10.2565980},
+                title: 'THIRD GATE',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0099004, lng: 10.2593459},
+                title: 'FIRST GATE',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat:6.0102532, lng: 10.2587662},
+                title: 'MAIN GATE',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0108460, lng: 10.2590042},
+                title: 'HTTC DIRECTORATE',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0109600, lng: 10.2589647},
+                title: 'ADMINISTRATIVE AND SCIENCE BUILDING',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0118173, lng: 10.2577345},
+                title: 'CAMPUS FOOTBALL FIELD',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0114712, lng: 10.2603634},
+                title: 'HTTTC DIRECTORATE',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0112658, lng: 10.2603940},
+                title: 'HTTTC SG OFFICE',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0110124, lng: 10.2603450},
+                title: 'HTTC DPT OF ECONOMICS',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0109107, lng: 10.2602548},
+                title: 'HTTC STUDENT AFFAIRS AND EXAMS',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0108056, lng: 10.2601918},
+                title: 'HTTC DIVISION OF COUNSELLING AND ORIENTATION',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0106183, lng: 10.2600593},
+                title: 'HTTC DEPARTMENT OF SCIENCE OF EDUCATION',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0104679, lng: 10.2599266},
+                title: 'HTTC DEPARTMENTS(GEOLOGY, MATHEMATICS CHEMISTRY AND GEOGRAPHY)',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0105952, lng: 10.2597418},
+                title: 'UBa TOWNCRYER',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0102415, lng: 10.2598163},
+                title: 'CENTRAL ADMINISTRATION ACCOUNTING',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0102415, lng: 10.2598163},
+                title: 'FED ADMISSIONS AND RECORDS OFFICE',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            },
+            {
+                coords: {lat: 6.0099814, lng: 10.2596517},
+                title: 'FS BLOCK B(DEAN\'S OFFICE)',
+                {#content: '<h1>Hello World!</h1>',#}
+                
+            }
 
-          locationButton.textContent = "Go to current location";
-          locationButton.classList.add("custom-map-control-button");
-          map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
-          locationButton.addEventListener("click", () => {
-            // Try HTML5 geolocation.
-            if (navigator.geolocation) {
-              navigator.geolocation.getCurrentPosition(
+
+
+        ];
+
+        //loop through markers
+        for (let i = 0; i < markers.length; i++) {
+            //add marker
+            addMarker({
+                map: map,
+                coords: markers[i].coords,
+                title: markers[i].title,
+                content: markers[i].content,
+                icon: markers[i].icon
+            });
+        }
+    }
+
+
+    //add marker function
+    function addMarker(props) {
+        const marker = new google.maps.Marker({
+            position: props.coords,
+            map: props.map,
+            title: props.title,
+            icon: props.icon ? props.icon : 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+        });
+        if (props.content) {
+            const infoWindow = new google.maps.InfoWindow({
+                content: props.content
+            });
+            marker.addListener('click', function () {
+                infoWindow.open(map, marker);
+            });
+        }
+    }
+
+
+    infoWindow = new google.maps.InfoWindow();
+
+    const locationButton = document.createElement("button");
+
+    locationButton.textContent = "Go to current location";
+    locationButton.classList.add("custom-map-control-button");
+    map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
+    locationButton.addEventListener("click", () => {
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
                 (position) => {
-                  const pos = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude,
-                  };
+                    const pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude,
+                    };
 
-                  infoWindow.setPosition(pos);
-                  infoWindow.setContent("Location found.");
-                  infoWindow.open(map);
-                  map.setCenter(pos);
+                    infoWindow.setPosition(pos);
+                    infoWindow.setContent("Location found.");
+                    infoWindow.open(map);
+                    map.setCenter(pos);
                 },
                 () => {
-                  handleLocationError(true, infoWindow, map.getCenter());
+                    handleLocationError(true, infoWindow, map.getCenter());
                 }
-              );
-            } else {
-              // Browser doesn't support Geolocation
-              handleLocationError(false, infoWindow, map.getCenter());
-            }
-          });
+            );
+        } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
         }
-          initGallPeters();
-          map.mapTypes.set("gallPeters", gallPetersMapType);
-          map.setMapTypeId("gallPeters");
-
-          // Show the lat and lng under the mouse cursor.
-          const coordsDiv = document.getElementById("coords");
-
-          map.controls[google.maps.ControlPosition.TOP_CENTER].push(coordsDiv);
-          map.addListener("mousemove", (event) => {
-            coordsDiv.textContent =
-              "lat: " +
-              Math.round(event.latLng.lat()) +
-              ", " +
-              "lng: " +
-              Math.round(event.latLng.lng());
-          });
-          // Add some markers to the map.
-          map.data.setStyle((feature) => {
-            return {
-              title: feature.getProperty("name"),
-              optimized: false,
-            };
-          });
-          map.data.addGeoJson(cities);
-
-                  let gallPetersMapType;
-
-        function initGallPeters() {
-          const GALL_PETERS_RANGE_X = 800;
-          const GALL_PETERS_RANGE_Y = 512;
-
-          // Fetch Gall-Peters tiles stored locally on our server.
-          gallPetersMapType = new google.maps.ImageMapType({
-            getTileUrl: function (coord, zoom) {
-              const scale = 1 << zoom;
-              // Wrap tiles horizontally.
-              const x = ((coord.x % scale) + scale) % scale;
-              // Don't wrap tiles vertically.
-              const y = coord.y;
-
-              if (y < 0 || y >= scale) return "";
-              return (
-                "https://developers.google.com/maps/documentation/" +
-                "javascript/examples/full/images/gall-peters_" +
-                zoom +
-                "_" +
-                x +
-                "_" +
-                y +
-                ".png"
-              );
-            },
-            tileSize: new google.maps.Size(GALL_PETERS_RANGE_X, GALL_PETERS_RANGE_Y),
-            minZoom: 0,
-            maxZoom: 1,
-            name: "Gall-Peters",
-          });
-          // Describe the Gall-Peters projection used by these tiles.
-          gallPetersMapType.projection = {
-            fromLatLngToPoint: function (latLng) {
-              const latRadians = (latLng.lat() * Math.PI) / 180;
-              return new google.maps.Point(
-                GALL_PETERS_RANGE_X * (0.5 + latLng.lng() / 360),
-                GALL_PETERS_RANGE_Y * (0.5 - 0.5 * Math.sin(latRadians))
-              );
-            },
-            fromPointToLatLng: function (point, noWrap) {
-              const x = point.x / GALL_PETERS_RANGE_X;
-              const y = Math.max(0, Math.min(1, point.y / GALL_PETERS_RANGE_Y));
-              return new google.maps.LatLng(
-                (Math.asin(1 - 2 * y) * 180) / Math.PI,
-                -180 + 360 * x,
-                noWrap
-              );
-            },
-          };
-        }
-
-        // GeoJSON, describing the locations and names of some cities.
-        const cities = {
-            type: "FeatureCollection",
-            features: [
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0112054, 10.2585389]},
-                    properties: {name: "Photography "},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0149989, 10.2560062]},
-                    properties: {name: "HITL"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0143394, 10.2551526]},
-                    properties: {name: "LAST GATE"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0144931, 10.2557393]},
-                    properties: {name: "HICM ADMINISTRATION"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0144394, 10.2561319]},
-                    properties: {name: "HICM ICT CENTER"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0147725, 10.2566563]},
-                    properties: {name: "HOSTEL GIRL 1"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0149332, 10.2574449]},
-                    properties: {name: "HOSTEL GIRL 2"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0140603, 10.2574013]},
-                    properties: {name: "HOSTEL BOY "},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0137985, 10.2562100]},
-                    properties: {name: "NAHPISA BUILDING"},
-                },
-
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0129229, 10.2564709]},
-                    properties: {name: "SCHOOL RESTAURANT"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0136138, 10.2565091]},
-                    properties: {name: "TOILET"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0133050, 10.2567458]},
-                    properties: {name: "COLTECH ANIMAL PRODUCTION"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0131843, 10.2568685]},
-                    properties: {name: "COLTECH FOOD SCIENCE AND TECH LAB"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0130076, 10.2570248]},
-                    properties: {name: "COLTECH HND"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0130810, 10.2571072]},
-                    properties: {name: "SOWETO HALL"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0122694, 10.2573825]},
-                    properties: {name: "ENS LC01-LC07"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0120900, 10.2569661]},
-                    properties: {name: "ENS LC08"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0124178, 10.2569604]},
-                    properties: {name: "LC09"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0125635, 10.2570814]},
-                    properties: {name: "LC10"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0126855, 10.2574251]},
-                    properties: {name: "NAHPI SA"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0127139, 10.2576906]},
-                    properties: {name: "NAHPI TOILET"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0129753, 10.2578164]},
-                    properties: {name: "blogpost"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0127189, 10.2582076]},
-                    properties: {name: "PBA"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0127095, 10.2589905]},
-                    properties: {name: "PBB"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0136048, 10.2590830]},
-                    properties: {name: "PBC"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0138029, 10.2589573]},
-                    properties: {name: "AMPHI 650"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0128479, 10.2579273]},
-                    properties: {name: "FED"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0110651, 10.2586177]},
-                    properties: {name: "CENTRAL LIBRARY"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0107663, 10.2585298]},
-                    properties: {name: "CENTRAL ADMINISTRATIVE BUILDING"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0108120, 10.2582680]},
-                    properties: {name: "SUBCENTRAL ADMINISTRATIVE BUILDING"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0103425, 10.2590911]},
-                    properties: {name: "ASANJI HALL"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0104959, 10.2593308]},
-                    properties: {name: "FS AB"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0105999, 10.2593318]},
-                    properties: {name: "FS SA"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0111331, 10.2579521]},
-                    properties: {name: "SCHOOL PRINTING PRESS"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0109333, 10.2580752]},
-                    properties: {name: "SECOND GATE"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0114478, 10.2582519]},
-                    properties: {name: "IT CENTER"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0117839, 10.2586012]},
-                    properties: {name: "COLTECH MAIN ADMINISTRATION"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0117839, 10.2586012]},
-                    properties: {name: "DPPI(DIRECTORATE OF DEVELOPMENT, PHYSICAL PLANT INFRASTRUCTURE)"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0119703, 10.2587451]},
-                    properties: {name: "HTTTC(DPT OF PHYSICS)"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0120647, 10.2588074]},
-                    properties: {name: "HTTC(DPT OF PHYSICS)"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0121864, 10.2588936]},
-                    properties: {name: "DIRECTORATE OF ADMINISTRATIVE AFFAIRS"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0121550, 10.2598810]},
-                    properties: {name: "SOA BLOCK(01-16)"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0123094, 10.2593298]},
-                    properties: {name: "ACADEMIC AFFAIRS"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0122871, 10.2591427]},
-                    properties: {name: "DIRECTORATE OF STUDENT AFFAIRS"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0119667, 10.2601754]},
-                    properties: {name: "AMPHI 340"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0118513, 10.2604134]},
-                    properties: {name: "FHS BUILDING"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0140239, 10.2596912]},
-                    properties: {name: "FS LABS"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0126599, 10.2571622]},
-                    properties: {name: "ENS BIOLOGY LAB"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0129143, 10.2596024]},
-                    properties: {name: "ENSET WORKSHOP"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0126255, 10.2594414]},
-                    properties: {name: "ENSET WORKSHOP TOILET"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0121470, 10.2565980]},
-                    properties: {name: "THIRD GATE"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0099004, 10.2593459]},
-                    properties: {name: "FIRST GATE"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0102532, 10.2587662]},
-                    properties: {name: "MAIN GATE"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0108460, 10.259004]},
-                    properties: {name: "HTTC DIRECTORATE"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0109600, 10.2589647]},
-                    properties: {name: "ADMINISTRATION AND SCIENCE BUILDING"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0118173, 10.2577345]},
-                    properties: {name: "CAMPUS FOOTBALL FIELD"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0114712, 10.2603634]},
-                    properties: {name: "HTTTC DIRECTORATE"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0112658, 10.2603940]},
-                    properties: {name: "HTTTC SG OFFICE"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0110124, 10.2603450]},
-                    properties: {name: "HTTC DPT OF ECONOMICS"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0140603, 10.2574013]},
-                    properties: {name: "HTTC STUDENT AFFAIRS AND EXAMS"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0108056, 10.2601918]},
-                    properties: {name: "HTTC DIVISION OF COUNSELLING AND ORIENTATION"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0106183, 10.2600593]},
-                    properties: {name: "HTTC DEPARTMENT OF SCIENCE AND EDUCATION"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0104679, 10.2599266]},
-                    properties: {name: "HTTC DEPARTMENTS(GEOLOGY, MATHEMATICS, CHEMISTRY, AND GEOGRAPHY)"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0105952, 10.2597418]},
-                    properties: {name: "UBa TOWNCRYER"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0102415, 10.2598163]},
-                    properties: {name: "CENTRAL ADMINISTRATION ACCOUNTING"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0102415, 10.2598163]},
-                    properties: {name: "FED ADMISSIONS AND RECORDS OFFICE"},
-                },
-                {
-                    type: "Feature",
-                    geometry: {type: "Point", coordinates: [6.0099814, 10.2596517]},
-                    properties: {name: "FS BLOCK B(DEAN' OFFICE)"},
-                },
-            ],
-
-        };
+    });
 
 
-        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-          infoWindow.setPosition(pos);
-          infoWindow.setContent(
+
+
+
+
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(
             browserHasGeolocation
-              ? "Error: The Geolocation service failed."
-              : "Error: Your browser doesn't support geolocation."
-          );
-          infoWindow.open(map);
+                ? "Error: The Geolocation service failed."
+                : "Error: Your browser doesn't support geolocation."
+        );
+        infoWindow.open(map);
 
 
     }
+
 
 </script>
 <div id="map"></div>
