@@ -28,21 +28,22 @@
 
     <section id="teachers-page" class="pt-90 pb-120 gray-bg">
         <div class="container">
-            {% for teachers in teachers_list %}
-                <div class="row">
-                <div class="col-lg-3 col-sm-6">
-                    <div class="singel-teachers mt-30 text-center">
-                        <div class="image">
-                            <img src="{{ teachers.picture }}" alt="Teachers">
-                        </div>
-                        <div class="cont">
-                            <a href="{% url 'teacher-single' pk=teachers.single_teacher_path %}">
-                                <h6>{{ teachers.name }}</h6></a>
-                            <span>{{ teachers.title }}</span>
+            <div class="row">
+                {% for teachers in teachers_list %}
+
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="singel-teachers mt-30 text-center">
+                            <div class="image">
+                                <img height="350px" width="345px" src="{{ teachers.picture }}" alt="Teachers">
+                            </div>
+                            <div class="cont">
+                                <a href="{% url 'teacher-single' pk=teachers.single_teacher_path %}">
+                                    <h6>{{ teachers.name }}</h6></a>
+                                <span>{{ teachers.title }}</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
             </div>
         </div> <!-- row -->
         <div class="row">
