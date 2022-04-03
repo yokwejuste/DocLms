@@ -1,7 +1,7 @@
-{#{% extends 'base.html' %}#}
-{#{% load static%}#}
-{#{% block title %}#}
-{#{% endblock %}#}
+{% extends 'base.html' %}
+{% load static %}
+{% include 'base-search.html' %}
+{% block content %}
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 <style>
     #map {
@@ -562,3 +562,4 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkKn6uueCK_Z3TvjhT6vvKUBw_z93HNWg&callback=initMap&v=weekly"
         async
 ></script>
+{% endblock %}
