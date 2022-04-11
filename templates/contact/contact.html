@@ -35,7 +35,8 @@
                             <h2>Keep in touch</h2>
                         </div> <!-- section title -->
                         <div class="main-form pt-45">
-                            <form id="contact-form" action="#" method="post" data-toggle="validator">
+                            <form method="post">
+                                {% csrf_token %}
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="singel-form form-group">
@@ -62,7 +63,7 @@
                                                        data-error="Subject is required." required="required">
                                             </label>
                                             <div class="help-block with-errors"></div>
-                                        </div> <!-- singel form -->
+                                        </div> <!-- single form -->
                                     </div>
                                     <div class="col-md-6">
                                         <div class="singel-form form-group">
@@ -71,12 +72,12 @@
                                                        data-error="Phone is required." required="required">
                                             </label>
                                             <div class="help-block with-errors"></div>
-                                        </div> <!-- singel form -->
+                                        </div> <!-- single form -->
                                     </div>
                                     <div class="col-md-12">
                                         <div class="singel-form form-group">
                                             <label>
-                                                <textarea name="messege" placeholder="Messege"
+                                                <textarea name="message" placeholder="Message"
                                                           data-error="Please,leave us a message."
                                                           required="required"></textarea>
                                             </label>
@@ -87,7 +88,7 @@
                                     <div class="col-md-12">
                                         <div class="singel-form">
                                             <button type="submit" class="main-btn">Send</button>
-                                        </div> <!-- singel form -->
+                                        </div> <!-- single form -->
                                     </div>
                                 </div> <!-- row -->
                             </form>
@@ -103,7 +104,7 @@
                                         <i class="fa fa-home"></i>
                                     </div>
                                     <div class="cont">
-                                        <p>143 castle road 517 district, kiyev port south Canada</p>
+                                        <p>ENS Street Bambili - Bamenda Cameroon </p>
                                     </div>
                                 </div> <!-- singel address -->
                             </li>
@@ -113,8 +114,8 @@
                                         <i class="fa fa-phone"></i>
                                     </div>
                                     <div class="cont">
-                                        <p>+3 123 456 789</p>
-                                        <p>+1 222 345 342</p>
+                                        <p>+237 656 248 161</p>
+                                        <p>+237 677 123 206</p>
                                     </div>
                                 </div> <!-- singel address -->
                             </li>
@@ -124,8 +125,8 @@
                                         <i class="fa fa-envelope-o"></i>
                                     </div>
                                     <div class="cont">
-                                        <p>info@yourmail.com</p>
-                                        <p>info@yourmail.com</p>
+                                        <p>yokwejuste@gmail.com</p>
+                                        <p>yokwejuste@yahoo.com</p>
                                     </div>
                                 </div> <!-- singel address -->
                             </li>
