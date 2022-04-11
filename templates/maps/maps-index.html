@@ -2,564 +2,559 @@
 {% load static %}
 {% include 'base-search.html' %}
 {% block content %}
-<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-<style>
-    #map {
-        height: 100%;
-    }
-
-    /* Optional: Makes the sample page fill the window. */
-    html,
-    body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-    }
-
-    #secret {
-        display: none;
-    }
-</style>
-<script>
-    function initMap() {
-        const myLatLng = {lat: 6.011257, lng: 10.259316};
-        let bound = {
-            north: 6.015480800238992,
-            south: 6.0094096736182125,
-            east: 10.26324570825536,
-            west: 10.254533893218694
-        };
-
-        const mapOptions = {
-            zoom: 0,
-            center: myLatLng,
-            restriction: {
-                latLngBounds: bound,
-                strictBounds: false,
-            },
-            mapTypeId: 'satellite'
-        };
-        const map = new google.maps.Map(document.getElementById('map'),
-            mapOptions);
-        map.setTilt(45);
-        new google.maps.Marker({
-            position: myLatLng,
-            map,
-            title: "Hello World!",
-        });
-
-        //add markers with coordinates, title, content and icon
-        let markers = [
-            {
-                coords: {lat: 6.0149989, lng: 0.2560062},
-                title: 'HITL',
-                content: '<h1>Hello World!</h1>',
-                {#icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'#}
-            },
-            {
-                coords: {lat: 6.0144931, lng: 10.2557393},
-                title: 'HICM ADMINISTRATION',
-                content: '<h1>Hello World!</h1>',
-                {#icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'#}
-            },
-            {
-                coords: {lat: 6.0144394, lng: 10.2561319},
-                title: 'HICM ICT CENTER',
-                content: '<h1>Hello World!</h1>',
-                {#icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'#}
-            },
-            {
-                coords: {lat: 6.0147725, lng: 10.2566563},
-                title: 'HOSTEL GIRL1',
-                {#content: '<h1>Hello World!</h1>',#}
-                {#icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'#}
-            },
-            {
-                coords: {lat: 6.0149332, lng: 10.2574449},
-                title: 'HOSTEL GIRL2',
-                {#content: '<h1>Hello World!</h1>',#}
-                {#icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'#}
-            },
-            {
-                coords: {lat: 6.0140603, lng: 10.2574013},
-                title: 'HOSTEL BOY',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0112054, lng: 10.2585389},
-                title: 'Smart Photos',
-                {#content: '<h1>Hello World!</h1>',#}
-                icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
-            },
-            {
-                coords: {lat: 6.0149989, lng: 10.2560062},
-                title: 'HITL',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0143394, lng: 10.2551526},
-                title: 'LAST GATE',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0144931, lng: 10.2557393},
-                title: 'HICM ADMINISTRATION',
-                {#content: '<h1>Hello World!</h1>',#}
-                icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
-
-                
-            },
-            {
-                coords: {lat: 6.0144394, lng: 10.2561319},
-                title: 'HICM ICT CENTER',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0137985, lng: 10.2562100},
-                title: 'NAHPISA BUILDING',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0129229, lng: 10.2564709},
-                title: 'SCHOOL RESTAURANT',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0136138, lng: 10.2565091},
-                title: 'TOILET',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0133050, lng: 10.2567458},
-                title: 'COLTECH ANIMAL PRODUCTION',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat:6.0131843, lng: 10.2568685},
-                title: 'COLTECH FOOD SCIENCE TECH LAB',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0130076, lng: 10.2570248},
-                title: 'COLTECH BUILDING',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0130810, lng: 10.2571072},
-                title: 'SOWETO HALL',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0126599, lng: 10.2571622},
-                title: 'ENS BOILOGY LAB',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0122694, lng: 10.2573825},
-                title: 'LC 01- 07',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0120900, lng: 10.2569661},
-                title: 'LC 08',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0124178, lng: 10.2569604},
-                title: 'LC09',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0125635, lng: 10.2570814},
-                title: 'ENS LC10',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0126855, lng: 10.2574251},
-                title: 'NAHPI SA',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0127139, lng: 10.2576906},
-                title: 'NAHPI TOILET',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0129753, lng: 10.2578164},
-                title: 'BUIDLINGS',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0127189, lng: 10.2582076},
-                title: 'PBA',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0127095, lng: 10.2589905},
-                title: 'PBB',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0136048, lng: 10.2590830},
-                title: 'PBC',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0138029, lng: 10.2589573},
-                title: 'AMPHI 650',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0128479, lng: 10.2579273},
-                title: 'FED SA',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0110651, lng: 10.2586177},
-                title: 'CENTRAL LIBRARY',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0107663, lng: 10.2585298},
-                title: 'CENTRAL ADMINISTRATION BUILDING',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0108120, lng: 10.2582680},
-                title: 'ASANJI HALL',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0104959, lng: 10.2593308},
-                title: 'FS ADMINISTRATIVE BLOCK',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0105999, lng: 10.2593318},
-                title: 'FS SA',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0111331, lng: 10.2579521},
-                title: 'SCHOOL PRINTING PRESS',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0109333, lng: 10.2580752},
-                title: 'SECOND GATE',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0114478, lng: 10.2582519},
-                title: 'IT CENTER',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0117839, lng: 10.2586012},
-                title: 'COLTECH MAIN ADMINISTRATION',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0119703, lng: 10.2587451},
-                title: 'HTTC(DPT OF PHYSICS)',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0120647, lng: 10.2588074},
-                title: 'HTTTC(DPT OF PHYSICS)',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0121864, lng: 10.2588936},
-                title: 'DIRECTORATE OF ADMINISTRATIVE AFFAIRS',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0122871, lng: 10.2591427},
-                title: 'DIRECTORATE OF STUDENT AFFAIRS',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0121550, lng: 10.2598810},
-                title: 'SOA BLOCK(01-16)',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0123094, lng: 10.2593298},
-                title: 'ACADEMIC AFFAIRS',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0119667, lng: 10.2601754},
-                title: 'AMPHI 340',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0118513, lng: 10.2604134},
-                title: 'FHS BUILDING',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0125045, lng: 10.2593013},
-                title: 'ENSET SA(AMPHI 100)',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0129143, lng: 10.2596024},
-                title: 'ENSET WORKSHOP',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0140239, lng: 10.2596912},
-                title: 'FS LABS',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0126255, lng: 10.2594414},
-                title: 'ENSET WORSHOP TOILET',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0121470, lng: 10.2565980},
-                title: 'THIRD GATE',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0099004, lng: 10.2593459},
-                title: 'FIRST GATE',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat:6.0102532, lng: 10.2587662},
-                title: 'MAIN GATE',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0108460, lng: 10.2590042},
-                title: 'HTTC DIRECTORATE',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0109600, lng: 10.2589647},
-                title: 'ADMINISTRATIVE AND SCIENCE BUILDING',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0118173, lng: 10.2577345},
-                title: 'CAMPUS FOOTBALL FIELD',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0114712, lng: 10.2603634},
-                title: 'HTTTC DIRECTORATE',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0112658, lng: 10.2603940},
-                title: 'HTTTC SG OFFICE',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0110124, lng: 10.2603450},
-                title: 'HTTC DPT OF ECONOMICS',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0109107, lng: 10.2602548},
-                title: 'HTTC STUDENT AFFAIRS AND EXAMS',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0108056, lng: 10.2601918},
-                title: 'HTTC DIVISION OF COUNSELLING AND ORIENTATION',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0106183, lng: 10.2600593},
-                title: 'HTTC DEPARTMENT OF SCIENCE OF EDUCATION',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0104679, lng: 10.2599266},
-                title: 'HTTC DEPARTMENTS(GEOLOGY, MATHEMATICS CHEMISTRY AND GEOGRAPHY)',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0105952, lng: 10.2597418},
-                title: 'UBa TOWNCRYER',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0102415, lng: 10.2598163},
-                title: 'CENTRAL ADMINISTRATION ACCOUNTING',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0102415, lng: 10.2598163},
-                title: 'FED ADMISSIONS AND RECORDS OFFICE',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            },
-            {
-                coords: {lat: 6.0099814, lng: 10.2596517},
-                title: 'FS BLOCK B(DEAN\'S OFFICE)',
-                {#content: '<h1>Hello World!</h1>',#}
-                
-            }
-
-
-
-        ];
-
-        //loop through markers
-        for (let i = 0; i < markers.length; i++) {
-            //add marker
-            addMarker({
-                map: map,
-                coords: markers[i].coords,
-                title: markers[i].title,
-                content: markers[i].content,
-                icon: markers[i].icon
-            });
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <style>
+        #map {
+            height: 100%;
         }
-    }
 
-
-    //add marker function
-    function addMarker(props) {
-        const marker = new google.maps.Marker({
-            position: props.coords,
-            map: props.map,
-            title: props.title,
-            icon: props.icon ? props.icon : 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
-        });
-        if (props.content) {
-            const infoWindow = new google.maps.InfoWindow({
-                content: props.content
-            });
-            marker.addListener('click', function () {
-                infoWindow.open(map, marker);
-            });
+        /* Optional: Makes the sample page fill the window. */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
         }
-    }
 
+        #secret {
+            display: none;
+        }
+    </style>
+    <script>
+        function initMap() {
+            const myLatLng = {lat: 6.011257, lng: 10.259316};
+            let bound = {
+                north: 6.015480800238992,
+                south: 6.0094096736182125,
+                east: 10.26324570825536,
+                west: 10.254533893218694
+            };
 
-    infoWindow = new google.maps.InfoWindow();
-
-    const locationButton = document.createElement("button");
-
-    locationButton.textContent = "Go to current location";
-    locationButton.classList.add("custom-map-control-button");
-    map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
-    locationButton.addEventListener("click", () => {
-        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(
-                (position) => {
-                    const pos = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude,
-                    };
-
-                    infoWindow.setPosition(pos);
-                    infoWindow.setContent("Location found.");
-                    infoWindow.open(map);
-                    map.setCenter(pos);
+            const mapOptions = {
+                zoom: 0,
+                center: myLatLng,
+                restriction: {
+                    latLngBounds: bound,
+                    strictBounds: false,
                 },
-                () => {
-                    handleLocationError(true, infoWindow, map.getCenter());
+                mapTypeId: 'satellite'
+            };
+            const map = new google.maps.Map(document.getElementById('map'),
+                mapOptions);
+            map.setTilt(45);
+            new google.maps.Marker({
+                position: myLatLng,
+                map,
+                title: "Hello World!",
+            });
+
+            //add markers with coordinates, title, content and icon
+            let markers = [
+                {
+                    coords: {lat: 6.0149989, lng: 0.2560062},
+                    title: 'HITL',
+                    content: '<h1>Hello World!</h1>',
+                    {#icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'#}
+                },
+                {
+                    coords: {lat: 6.0144931, lng: 10.2557393},
+                    title: 'HICM ADMINISTRATION',
+                    content: '<h1>Hello World!</h1>',
+                    {#icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'#}
+                },
+                {
+                    coords: {lat: 6.0144394, lng: 10.2561319},
+                    title: 'HICM ICT CENTER',
+                    content: '<h1>Hello World!</h1>',
+                    {#icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'#}
+                },
+                {
+                    coords: {lat: 6.0147725, lng: 10.2566563},
+                    title: 'HOSTEL GIRL1',
+                    {#content: '<h1>Hello World!</h1>',#}
+                    {#icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'#}
+                },
+                {
+                    coords: {lat: 6.0149332, lng: 10.2574449},
+                    title: 'HOSTEL GIRL2',
+                    {#content: '<h1>Hello World!</h1>',#}
+                    {#icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'#}
+                },
+                {
+                    coords: {lat: 6.0140603, lng: 10.2574013},
+                    title: 'HOSTEL BOY',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0112054, lng: 10.2585389},
+                    title: 'Smart Photos',
+                    {#content: '<h1>Hello World!</h1>',#}
+                    icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+                },
+                {
+                    coords: {lat: 6.0149989, lng: 10.2560062},
+                    title: 'HITL',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0143394, lng: 10.2551526},
+                    title: 'LAST GATE',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0144931, lng: 10.2557393},
+                    title: 'HICM ADMINISTRATION',
+                    {#content: '<h1>Hello World!</h1>',#}
+                    icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+
+
+                },
+                {
+                    coords: {lat: 6.0144394, lng: 10.2561319},
+                    title: 'HICM ICT CENTER',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0137985, lng: 10.2562100},
+                    title: 'NAHPISA BUILDING',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0129229, lng: 10.2564709},
+                    title: 'SCHOOL RESTAURANT',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0136138, lng: 10.2565091},
+                    title: 'TOILET',
+                    icon: ""
+
+                },
+                {
+                    coords: {lat: 6.0133050, lng: 10.2567458},
+                    title: 'COLTECH ANIMAL PRODUCTION',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0131843, lng: 10.2568685},
+                    title: 'COLTECH FOOD SCIENCE TECH LAB',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0130076, lng: 10.2570248},
+                    title: 'COLTECH BUILDING',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0130810, lng: 10.2571072},
+                    title: 'SOWETO HALL',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0126599, lng: 10.2571622},
+                    title: 'ENS BOILOGY LAB',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0122694, lng: 10.2573825},
+                    title: 'LC 01- 07',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0120900, lng: 10.2569661},
+                    title: 'LC 08',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0124178, lng: 10.2569604},
+                    title: 'LC09',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0125635, lng: 10.2570814},
+                    title: 'ENS LC10',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0126855, lng: 10.2574251},
+                    title: 'NAHPI SA',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0127139, lng: 10.2576906},
+                    title: 'NAHPI TOILET',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0129753, lng: 10.2578164},
+                    title: 'BUIDLINGS',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0127189, lng: 10.2582076},
+                    title: 'PBA',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0127095, lng: 10.2589905},
+                    title: 'PBB',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0136048, lng: 10.2590830},
+                    title: 'PBC',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0138029, lng: 10.2589573},
+                    title: 'AMPHI 650',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0128479, lng: 10.2579273},
+                    title: 'FED SA',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0110651, lng: 10.2586177},
+                    title: 'CENTRAL LIBRARY',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0107663, lng: 10.2585298},
+                    title: 'CENTRAL ADMINISTRATION BUILDING',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0108120, lng: 10.2582680},
+                    title: 'ASANJI HALL',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0104959, lng: 10.2593308},
+                    title: 'FS ADMINISTRATIVE BLOCK',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0105999, lng: 10.2593318},
+                    title: 'FS SA',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0111331, lng: 10.2579521},
+                    title: 'SCHOOL PRINTING PRESS',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0109333, lng: 10.2580752},
+                    title: 'SECOND GATE',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0114478, lng: 10.2582519},
+                    title: 'IT CENTER',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0117839, lng: 10.2586012},
+                    title: 'COLTECH MAIN ADMINISTRATION',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0119703, lng: 10.2587451},
+                    title: 'HTTC(DPT OF PHYSICS)',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0120647, lng: 10.2588074},
+                    title: 'HTTTC(DPT OF PHYSICS)',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0121864, lng: 10.2588936},
+                    title: 'DIRECTORATE OF ADMINISTRATIVE AFFAIRS',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0122871, lng: 10.2591427},
+                    title: 'DIRECTORATE OF STUDENT AFFAIRS',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0121550, lng: 10.2598810},
+                    title: 'SOA BLOCK(01-16)',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0123094, lng: 10.2593298},
+                    title: 'ACADEMIC AFFAIRS',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0119667, lng: 10.2601754},
+                    title: 'AMPHI 340',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0118513, lng: 10.2604134},
+                    title: 'FHS BUILDING',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0125045, lng: 10.2593013},
+                    title: 'ENSET SA(AMPHI 100)',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0129143, lng: 10.2596024},
+                    title: 'ENSET WORKSHOP',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0140239, lng: 10.2596912},
+                    title: 'FS LABS',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0126255, lng: 10.2594414},
+                    title: 'ENSET WORSHOP TOILET',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0121470, lng: 10.2565980},
+                    title: 'THIRD GATE',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0099004, lng: 10.2593459},
+                    title: 'FIRST GATE',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0102532, lng: 10.2587662},
+                    title: 'MAIN GATE',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0108460, lng: 10.2590042},
+                    title: 'HTTC DIRECTORATE',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0109600, lng: 10.2589647},
+                    title: 'ADMINISTRATIVE AND SCIENCE BUILDING',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0118173, lng: 10.2577345},
+                    title: 'CAMPUS FOOTBALL FIELD',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0114712, lng: 10.2603634},
+                    title: 'HTTTC DIRECTORATE',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0112658, lng: 10.2603940},
+                    title: 'HTTTC SG OFFICE',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0110124, lng: 10.2603450},
+                    title: 'HTTC DPT OF ECONOMICS',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0109107, lng: 10.2602548},
+                    title: 'HTTC STUDENT AFFAIRS AND EXAMS',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0108056, lng: 10.2601918},
+                    title: 'HTTC DIVISION OF COUNSELLING AND ORIENTATION',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0106183, lng: 10.2600593},
+                    title: 'HTTC DEPARTMENT OF SCIENCE OF EDUCATION',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0104679, lng: 10.2599266},
+                    title: 'HTTC DEPARTMENTS(GEOLOGY, MATHEMATICS CHEMISTRY AND GEOGRAPHY)',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0105952, lng: 10.2597418},
+                    title: 'UBa TOWNCRYER',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0102415, lng: 10.2598163},
+                    title: 'CENTRAL ADMINISTRATION ACCOUNTING',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0102415, lng: 10.2598163},
+                    title: 'FED ADMISSIONS AND RECORDS OFFICE',
+                    {#content: '<h1>Hello World!</h1>',#}
+
+                },
+                {
+                    coords: {lat: 6.0099814, lng: 10.2596517},
+                    title: 'FS BLOCK B(DEAN\'S OFFICE)',
+                    {#content: '<h1>Hello World!</h1>',#}
+
                 }
-            );
-        } else {
-            // Browser doesn't support Geolocation
-            handleLocationError(false, infoWindow, map.getCenter());
+
+
+            ];
+
+            //loop through markers
+            for (let i = 0; i < markers.length; i++) {
+                //add marker
+                addMarker({
+                    map: map,
+                    coords: markers[i].coords,
+                    title: markers[i].title,
+                    content: markers[i].content,
+                    icon: markers[i].icon
+                });
+            }
         }
-    });
 
 
+        //add marker function
+        function addMarker(props) {
+            const marker = new google.maps.Marker({
+                position: props.coords,
+                map: props.map,
+                title: props.title,
+                icon: props.icon ? props.icon : 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+            });
+            if (props.content) {
+                const infoWindow = new google.maps.InfoWindow({
+                    content: props.content
+                });
+                marker.addListener('click', function () {
+                    infoWindow.open(map, marker);
+                });
+            }
+        }
 
 
+        infoWindow = new google.maps.InfoWindow();
+
+        const locationButton = document.createElement("button");
+
+        locationButton.textContent = "Go to current location";
+        locationButton.classList.add("custom-map-control-button");
+        map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
+        locationButton.addEventListener("click", () => {
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const pos = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude,
+                        };
+
+                        infoWindow.setPosition(pos);
+                        infoWindow.setContent("Location found.");
+                        infoWindow.open(map);
+                        map.setCenter(pos);
+                    },
+                    () => {
+                        handleLocationError(true, infoWindow, map.getCenter());
+                    }
+                );
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+        });
 
 
-    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(
-            browserHasGeolocation
-                ? "Error: The Geolocation service failed."
-                : "Error: Your browser doesn't support geolocation."
-        );
-        infoWindow.open(map);
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(
+                browserHasGeolocation
+                    ? "Error: The Geolocation service failed."
+                    : "Error: Your browser doesn't support geolocation."
+            );
+            infoWindow.open(map);
 
 
-    }
+        }
 
 
-</script>
-<div id="map"></div>
+    </script>
+    <div id="map"></div>
 
-<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-<script id="secret"
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkKn6uueCK_Z3TvjhT6vvKUBw_z93HNWg&callback=initMap&v=weekly"
-        async
-></script>
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script id="secret"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkKn6uueCK_Z3TvjhT6vvKUBw_z93HNWg&callback=initMap&v=weekly"
+            async
+    ></script>
 {% endblock %}
