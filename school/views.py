@@ -25,27 +25,6 @@ def index(request):
     return render(request, 'home/index.html', context)
 
 
-def index_2(request):
-    context = {
-        'home': 'active',
-    }
-    return render(request, 'home/index-2.html', context)
-
-
-def index_3(request):
-    context = {
-        'home': 'active',
-    }
-    return render(request, 'home/index-3.html', context)
-
-
-def index_4(request):
-    context = {
-        'home': 'active',
-    }
-    return render(request, 'home/index-4.html', context)
-
-
 def about(request):
     context = {
         'about': 'active',
