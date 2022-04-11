@@ -83,6 +83,32 @@ def courses(request):
 
 
 def contact(request):
+    name = request.POST.get('name')
+    email = request.POST.get('email')
+    subject = request.POST.get('subject')
+    phone = request.POST.get('phone')
+    message = request.POST.get('message')
+    date = f'{datetime.datetime.now().strftime("%b")}_' \
+           f'{datetime.datetime.now().strftime("%d")}_' \
+           f'{datetime.datetime.now().strftime("%Y")}_' \
+           f'{datetime.datetime.now().hour}_' \
+           f'{datetime.datetime.now().minute}_' \
+           f'{datetime.datetime.now().second}'
+
+    content = {
+        'name': name,
+        'email': email,
+        'subject': subject,
+        'phone': phone,
+        'date': date,
+        'message': message,
+    }
+
+    if name and email and message:
+        if request.method == 'POST':
+            db.collection('contact').document(date).set(content)
+            messages.success(request, 'Your email has been sent successfully')
+
     context = {
         'contact': 'active',
     }
@@ -230,8 +256,6 @@ def teacher_single(request, pk=id):
         f'{username}_socials').get().to_dict()
     if request.method == 'POST':
         if first_name and last_name and star_rating and review_comment:
-            """db.collection('teachers').document(pk).collection(
-                db.collection('teachers').document(pk).get().to_dict()['name'].split()[0].lower()).document("""
             db.collection('teachers').document(pk).collection(
                 'reviews').document(
                 f'{username}_python_reviews_'
