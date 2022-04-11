@@ -14,9 +14,12 @@ def index(request):
                                               direction=firestore.Query.DESCENDING).limit(4).get()
     the_post = db.collection('blog').order_by('date',
                                               direction=firestore.Query.DESCENDING).limit_to_last(1).get()
+
+    library_list = db.collection('library').order_by('title', direction=firestore.Query.DESCENDING).limit(4).get()
     context = {
         'blogpost': [blog_elt.to_dict() for blog_elt in blogpost],
         'unique_post': [blog_elt.to_dict() for blog_elt in the_post],
+        'library_list': [lib_elt.to_dict() for lib_elt in library_list],
         'home': 'active',
     }
     return render(request, 'home/index.html', context)
