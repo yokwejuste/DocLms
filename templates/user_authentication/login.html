@@ -132,7 +132,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
-    <script>
+    <!--<script>
         const options = {
             bottom: '64px', // default: '32px'
             right: 'unset', // default: '32px'
@@ -153,7 +153,7 @@
         }
 
         window.addEventListener('load', addDarkmodeWidget);
-    </script>
+    </script>-->
     <style>
         @media only screen and (min-width: 569px) and (max-width: 11768px) {
             #back-logo {
@@ -236,30 +236,18 @@
                                 </li>
                                 <li class="nav-item">
                                     <a href="{% url 'events' %}">Events</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="{% url 'events' %}">Events</a></li>
-                                        <li><a href="{% url 'event-single' %}">Event Singel</a></li>
-                                    </ul>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{% url 'teachers' %}">Our teachers</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{% url 'blog' %}">Blog</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="{% url 'blog' %}">Blog</a></li>
-                                        {#                                        <li><a href="{% url 'single_blog' %}">Blog Singel</a></li>#}
-                                    </ul>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{% url 'library' %}">Shop</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{% url 'contact' %}">Contact</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
-                                        <li><a href="{% url 'contact' %}">Contact Us 2</a></li>
-                                    </ul>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{% url 'maps_index' %}">Maps</a>
