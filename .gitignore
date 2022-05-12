@@ -2,8 +2,12 @@
 #.gitignore
 .vscode/
 .env
+.env.example
 important.txt
 venv/
 db.sqlite3
 .github/
+__pycache__/
+*doclms_env
+
 #serviceAccountKey.json
