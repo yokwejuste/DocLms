@@ -273,8 +273,6 @@ def teacher_single(request, pk=id):
 
 def login(request):
     auth = firebase.auth()
-    email = request.POST.get('email')
-    password = request.POST.get('password')
     context = {
         "apiKey": env("F_API"),
         "authDomain": env("F_AUTH_DOMAIN"),
@@ -286,6 +284,8 @@ def login(request):
         "measurementId": env("F_MEASUREMENT_ID"),
     }
     if request.POST:
+        email = request.POST.get('email')
+        password = request.POST.get('password')
         try:
             user = auth.sign_in_with_email_and_password(email, password)
             request.session['user'] = user
@@ -296,10 +296,11 @@ def login(request):
 
 
 def register(request):
-    email = request.POST.get('email')
-    password = request.POST.get('password')
     if request.POST:
+        email = request.POST.get('email')
+        password = request.POST.get('password')
         authed.create_user_with_email_and_password(email, password)
+        return redirect('login')
     return render(request, 'user_authentication/register.html')
 
 

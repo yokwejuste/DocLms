@@ -1,331 +1,482 @@
-{% extends 'base.html' %}
-{% load static %}
-{% include 'base-search.html' %}
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% include 'base-search.html' %} {%
+block content %}
 
-    <section id="page-banner" class="pt-105 pb-130 bg_cover" data-overlay="8"
-             style="background-image: url({% static 'images/page-banner-3.jpg' %})">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="page-banner-cont">
-                        <h2>Teachers</h2>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page"><a
-                                        href="{% url 'teachers' %}">Teachers</a>
-                                </li>
-                                <li class="breadcrumb-item active" aria-current="page">
-                                    <a href="{% url 'teacher-single' pk=single_teacher.single_teacher_path %}">
-                                        {{ single_teacher.name }}
-                                    </a>
-                                </li>
-                            </ol>
-                        </nav>
-                    </div> <!-- page banner cont -->
+<section
+  id="page-banner"
+  class="pt-105 pb-130 bg_cover"
+  data-overlay="8"
+  style="background-image: url({%static'images/page-banner-3.jpg'%})"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="page-banner-cont">
+          <h2>Teachers</h2>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="{% url 'index' %}">Home</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                <a href="{% url 'teachers' %}">Teachers</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                <a
+                  href="{% url 'teacher-single' pk=single_teacher.single_teacher_path %}"
+                >
+                  {{ single_teacher.name }}
+                </a>
+              </li>
+            </ol>
+          </nav>
+        </div>
+        <!-- page banner cont -->
+      </div>
+    </div>
+    <!-- row -->
+  </div>
+  <!-- container -->
+</section>
+
+<!--====== PAGE BANNER PART ENDS ======-->
+
+<!--====== TEACHERS PART START ======-->
+
+<section id="teachers-singel" class="pt-70 pb-120 gray-bg">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-4 col-md-8">
+        <div class="teachers-left mt-50">
+          <div class="hero">
+            <img src="{{ single_teacher.picture }}" alt="Teachers" />
+          </div>
+          <div class="name">
+            <h6>{{ single_teacher.name }}</h6>
+            <span>{{ single_teacher.title }}</span>
+          </div>
+          {% if socials %}
+          <div class="social">
+            <ul>
+              <li>
+                <a href="{{ socials.facebook }}"
+                  ><i class="fa fa-facebook-square"></i
+                ></a>
+              </li>
+              <li>
+                <a href="{{ socials.twitter }}"
+                  ><i class="fa fa-twitter-square"></i
+                ></a>
+              </li>
+              <li>
+                <a href="{{ socials.gmail }}"
+                  ><i class="fa fa-google-plus-square"></i
+                ></a>
+              </li>
+              <li>
+                <a href="{{ socials.linkedin }}"
+                  ><i class="fa fa-linkedin-square"></i
+                ></a>
+              </li>
+              <li>
+                <a href="{{ socials.github }}"
+                  ><i class="fa fa-github-square"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+          {% endif %}
+          <div class="description">
+            <p>{{ single_teacher.summary }}</p>
+          </div>
+        </div>
+        <!-- teachers left -->
+      </div>
+      <div class="col-lg-8">
+        <div class="teachers-right mt-50">
+          <ul class="nav nav-justified" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a
+                class="active"
+                id="dashboard-tab"
+                data-toggle="tab"
+                href="#dashboard"
+                role="tab"
+                aria-controls="dashboard"
+                aria-selected="true"
+                >Dashboard</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                id="courses-tab"
+                data-toggle="tab"
+                href="#courses"
+                role="tab"
+                aria-controls="courses"
+                aria-selected="false"
+                >Courses</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                id="reviews-tab"
+                data-toggle="tab"
+                href="#reviews"
+                role="tab"
+                aria-controls="reviews"
+                aria-selected="false"
+                >Reviews</a
+              >
+            </li>
+          </ul>
+          <!-- nav -->
+          <div class="tab-content" id="myTabContent">
+            <div
+              class="tab-pane fade show active"
+              id="dashboard"
+              role="tabpanel"
+              aria-labelledby="dashboard-tab"
+            >
+              <div class="dashboard-cont">
+                <div class="singel-dashboard pt-40">
+                  <h5>About</h5>
+                  <p>{{ single_teacher.about }}</p>
                 </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </section>
-
-    <!--====== PAGE BANNER PART ENDS ======-->
-
-    <!--====== TEACHERS PART START ======-->
-
-    <section id="teachers-singel" class="pt-70 pb-120 gray-bg">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-8">
-                    <div class="teachers-left mt-50">
-                        <div class="hero">
-                            <img src="{{ single_teacher.picture }}" alt="Teachers">
-                        </div>
-                        <div class="name">
-                            <h6>{{ single_teacher.name }}</h6>
-                            <span>{{ single_teacher.title }}</span>
-                        </div>
-                        {% if socials %}
-                            <div class="social">
-                                <ul>
-                                    <li><a href="{{ socials.facebook }}"><i class="fa fa-facebook-square"></i></a></li>
-                                    <li><a href="{{ socials.twitter }}"><i class="fa fa-twitter-square"></i></a></li>
-                                    <li><a href="{{ socials.gmail }}"><i class="fa fa-google-plus-square"></i></a></li>
-                                    <li><a href="{{ socials.linkedin }}"><i class="fa fa-linkedin-square"></i></a></li>
-                                    <li><a href="{{ socials.github }}"><i class="fa fa-github-square"></i></a></li>
-                                </ul>
-                            </div>
-                        {% endif %}
-                        <div class="description">
-                            <p>{{ single_teacher.summary }}</p>
-                        </div>
-                    </div> <!-- teachers left -->
+                <!-- singel dashboard -->
+                <div class="singel-dashboard pt-40">
+                  <h5>Achievements</h5>
+                  {% for achievement in achievements.values %}
+                  <p>{{ achievement }}</p>
+                  {% endfor %}
                 </div>
-                <div class="col-lg-8">
-                    <div class="teachers-right mt-50">
-                        <ul class="nav nav-justified" id="myTab" role="tablist">
-                            <li class="nav-item">
-                                <a class="active" id="dashboard-tab" data-toggle="tab" href="#dashboard" role="tab"
-                                   aria-controls="dashboard" aria-selected="true">Dashboard</a>
-                            </li>
-                            <li class="nav-item">
-                                <a id="courses-tab" data-toggle="tab" href="#courses" role="tab" aria-controls="courses"
-                                   aria-selected="false">Courses</a>
-                            </li>
-                            <li class="nav-item">
-                                <a id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews"
-                                   aria-selected="false">Reviews</a>
-                            </li>
-                        </ul> <!-- nav -->
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="dashboard" role="tabpanel"
-                                 aria-labelledby="dashboard-tab">
-                                <div class="dashboard-cont">
-                                    <div class="singel-dashboard pt-40">
-                                        <h5>About</h5>
-                                        <p>{{ single_teacher.about }}</p>
-                                    </div> <!-- singel dashboard -->
-                                    <div class="singel-dashboard pt-40">
-                                        <h5>Achievements</h5>
-                                        {% for achievement in achievements.values %}
-                                            <p>{{ achievement }}</p>
-                                        {% endfor %}
-                                    </div> <!-- singel dashboard -->
-                                    <div class="singel-dashboard pt-40">
-                                        <h5>My Objective</h5>
-                                        <p>{{ single_teacher.objectives }}</p>
-                                    </div> <!-- singel dashboard -->
-                                </div> <!-- dashboard cont -->
-                            </div>
-                            <div class="tab-pane fade" id="courses" role="tabpanel" aria-labelledby="courses-tab">
-                                <div class="courses-cont pt-20">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="singel-course mt-30">
-                                                <div class="thum">
-                                                    <div class="image">
-                                                        <img src="{% static 'images/course/cu-2.jpg' %}" alt="Course">
-                                                    </div>
-                                                    <div class="price">
-                                                        <span>$10</span>
-                                                    </div>
-                                                </div>
-                                                <div class="cont border">
-                                                    <ul>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                    </ul>
-                                                    <span>(20 Reviws)</span>
-                                                    <a href="#"><h4>Learn basis javascirpt from start for beginner</h4>
-                                                    </a>
-                                                    <div class="course-teacher">
-                                                        <div class="thum">
-                                                            <a href="#"><img
-                                                                    src="{% static 'images/course/teacher/t-2.jpg' %}"
-                                                                    alt="teacher"></a>
-                                                        </div>
-                                                        <div class="name">
-                                                            <a href="#"><h6>Mark anthem</h6></a>
-                                                        </div>
-                                                        <div class="admin">
-                                                            <ul>
-                                                                <li><a href="#"><i
-                                                                        class="fa fa-user"></i><span>31</span></a></li>
-                                                                <li><a href="#"><i
-                                                                        class="fa fa-heart"></i><span>10</span></a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div> <!-- singel course -->
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="singel-course mt-30">
-                                                <div class="thum">
-                                                    <div class="image">
-                                                        <img src="{% static 'images/course/cu-3.jpg' %}" alt="Course">
-                                                    </div>
-                                                    <div class="price">
-                                                        <span>$30</span>
-                                                    </div>
-                                                </div>
-                                                <div class="cont border">
-                                                    <ul>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                    </ul>
-                                                    <span>(20 Reviws)</span>
-                                                    <a href="#"><h4>Learn basis javascirpt from start for beginner</h4>
-                                                    </a>
-                                                    <div class="course-teacher">
-                                                        <div class="thum">
-                                                            <a href="#"><img
-                                                                    src="{% static 'images/course/teacher/t-3.jpg' %}"
-                                                                    alt="teacher"></a>
-                                                        </div>
-                                                        <div class="name">
-                                                            <a href="#"><h6>Mark anthem</h6></a>
-                                                        </div>
-                                                        <div class="admin">
-                                                            <ul>
-                                                                <li><a href="#"><i
-                                                                        class="fa fa-user"></i><span>31</span></a></li>
-                                                                <li><a href="#"><i
-                                                                        class="fa fa-heart"></i><span>10</span></a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div> <!-- single course -->
-                                        </div>
-                                    </div> <!-- row -->
-                                </div> <!-- courses cont -->
-                            </div>
-                            <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
-                                <div class="reviews-cont">
-                                    <div class="title">
-                                        <h6>Student Reviews</h6>
-                                    </div>
-                                    {% if reviews %}
-                                        <ul>
-                                            {% for view in reviews %}
-                                                <li>
-                                                    <div class="singel-reviews">
-                                                        <div class="reviews-author">
-                                                            <div class="author-thum">
-                                                                <img width="70px" height="70px"
-                                                                     src="{{ view.user_picture }}"
-                                                                     alt="Reviews">
-                                                            </div>
-                                                            <div class="author-name">
-                                                                <h6>{{ view.first_name }} {{ view.last_name }}</h6>
-                                                                <span>{{ view.date }}</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="reviews-description pt-20">
-                                                            <p>{{ view.comment }}</p>
-                                                            <div class="rating">
-                                                                <ul>
-                                                                    {% with ''|center:view.rating as range %}
-                                                                        {% for star in range %}
-                                                                            <li><i class="fa fa-star"></i></li>
-                                                                        {% endfor %}
-                                                                    {% endwith %}
-                                                                </ul>
-                                                                <span>/ {{ view.rating }} Star</span>
-                                                            </div>
-                                                        </div>
-                                                    </div> <!-- singel reviews -->
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
-                                    {% else %}
-                                        <ul>
-                                            <li>
-                                                <p>
-                                                    Be the first student to take part and review this free course.&nbsp;😉
-                                                </p>
-                                            </li>
-                                        </ul>
-
-                                    {% endif %}
-                                    <div class="title pt-15">
-                                        <h6>Leave A Comment</h6>
-                                    </div>
-                                    <div class="reviews-form">
-                                        <form action="{% url 'teacher-single' pk=single_teacher_path %}" method="post"
-                                              name="reviewForm">
-                                            {% csrf_token %}
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-singel">
-                                                        <label>
-                                                            <input type="text" name="first_name"
-                                                                   placeholder="First name">
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-singel">
-                                                        <label>
-                                                            <input type="text" name="last_name" placeholder="Last Name">
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12">
-                                                    <div class="form-singel">
-                                                        <div class="rate-wrapper">
-                                                            <div class="rate-label">Your Rating:</div>
-                                                            <div class="rating">
-                                                <span>
-                                                    <input type="radio" name="rating" id="str5" value="5"><label
-                                                        for="str5">&#10038;</label>
-                                                </span>
-                                                                <span><input type="radio" name="rating" id="str4"
-                                                                             value="4"><label
-                                                                        for="str4">&#10038;</label></span>
-                                                                <span><input type="radio" name="rating" id="str3"
-                                                                             value="3"><label
-                                                                        for="str3">&#10038;</label></span>
-                                                                <span><input type="radio" name="rating" id="str2"
-                                                                             value="2"><label
-                                                                        for="str2">&#10038;</label></span>
-                                                                <span><input type="radio" name="rating" id="str1"
-                                                                             value="1"><label
-                                                                        for="str1">&#10038;</label></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12">
-                                                    <div class="form-singel">
-                                                        <label>
-                                                            <textarea name="review_comment"
-                                                                      placeholder="Comment"></textarea>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12">
-                                                    <div class="form-singel">
-                                                        <button type="submit" class="main-btn">Submit review</button>
-                                                    </div>
-                                                </div>
-                                            </div> <!-- row -->
-                                            <label>
-                                                <input name="starRating" hidden value="dd" type="text">
-                                            </label>
-                                        </form>
-                                        <script>
-                                            $(document).ready(function () {
-                                                // Check Radio-box
-                                                $(".rating input:radio").attr("checked", false);
-
-                                                $('.rating input').click(function () {
-                                                    $(".rating span").removeClass('checked');
-                                                    $(this).parent().addClass('checked');
-                                                });
-
-                                                $('input:radio').change(
-                                                    function () {
-                                                        var userRating = this.value;
-                                                        var Myelement = document.forms['reviewForm']['starRating'];
-                                                        Myelement.setAttribute('value', userRating);
-                                                    });
-                                            });
-                                        </script>
-                                    </div>
-                                </div> <!-- reviews cont -->
-                            </div>
-                        </div> <!-- tab content -->
-                    </div> <!-- teachers right -->
+                <!-- singel dashboard -->
+                <div class="singel-dashboard pt-40">
+                  <h5>My Objective</h5>
+                  <p>{{ single_teacher.objectives }}</p>
                 </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </section>
+                <!-- singel dashboard -->
+              </div>
+              <!-- dashboard cont -->
+            </div>
+            <div
+              class="tab-pane fade"
+              id="courses"
+              role="tabpanel"
+              aria-labelledby="courses-tab"
+            >
+              <div class="courses-cont pt-20">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="singel-course mt-30">
+                      <div class="thum">
+                        <div class="image">
+                          <img
+                            src="{% static 'images/course/cu-2.jpg' %}"
+                            alt="Course"
+                          />
+                        </div>
+                        <div class="price">
+                          <span>$10</span>
+                        </div>
+                      </div>
+                      <div class="cont border">
+                        <ul>
+                          <li><i class="fa fa-star"></i></li>
+                          <li><i class="fa fa-star"></i></li>
+                          <li><i class="fa fa-star"></i></li>
+                          <li><i class="fa fa-star"></i></li>
+                          <li><i class="fa fa-star"></i></li>
+                        </ul>
+                        <span>(20 Reviws)</span>
+                        <a href="#"
+                          ><h4>
+                            Learn basis javascirpt from start for beginner
+                          </h4>
+                        </a>
+                        <div class="course-teacher">
+                          <div class="thum">
+                            <a href="#"
+                              ><img
+                                src="{% static 'images/course/teacher/t-2.jpg' %}"
+                                alt="teacher"
+                            /></a>
+                          </div>
+                          <div class="name">
+                            <a href="#"><h6>Mark anthem</h6></a>
+                          </div>
+                          <div class="admin">
+                            <ul>
+                              <li>
+                                <a href="#"
+                                  ><i class="fa fa-user"></i><span>31</span></a
+                                >
+                              </li>
+                              <li>
+                                <a href="#"
+                                  ><i class="fa fa-heart"></i><span>10</span></a
+                                >
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- singel course -->
+                  </div>
+                  <div class="col-md-6">
+                    <div class="singel-course mt-30">
+                      <div class="thum">
+                        <div class="image">
+                          <img
+                            src="{% static 'images/course/cu-3.jpg' %}"
+                            alt="Course"
+                          />
+                        </div>
+                        <div class="price">
+                          <span>$30</span>
+                        </div>
+                      </div>
+                      <div class="cont border">
+                        <ul>
+                          <li><i class="fa fa-star"></i></li>
+                          <li><i class="fa fa-star"></i></li>
+                          <li><i class="fa fa-star"></i></li>
+                          <li><i class="fa fa-star"></i></li>
+                          <li><i class="fa fa-star"></i></li>
+                        </ul>
+                        <span>(20 Reviws)</span>
+                        <a href="#"
+                          ><h4>
+                            Learn basis javascirpt from start for beginner
+                          </h4>
+                        </a>
+                        <div class="course-teacher">
+                          <div class="thum">
+                            <a href="#"
+                              ><img
+                                src="{% static 'images/course/teacher/t-3.jpg' %}"
+                                alt="teacher"
+                            /></a>
+                          </div>
+                          <div class="name">
+                            <a href="#"><h6>Mark anthem</h6></a>
+                          </div>
+                          <div class="admin">
+                            <ul>
+                              <li>
+                                <a href="#"
+                                  ><i class="fa fa-user"></i><span>31</span></a
+                                >
+                              </li>
+                              <li>
+                                <a href="#"
+                                  ><i class="fa fa-heart"></i><span>10</span></a
+                                >
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- single course -->
+                  </div>
+                </div>
+                <!-- row -->
+              </div>
+              <!-- courses cont -->
+            </div>
+            <div
+              class="tab-pane fade"
+              id="reviews"
+              role="tabpanel"
+              aria-labelledby="reviews-tab"
+            >
+              <div class="reviews-cont">
+                <div class="title">
+                  <h6>Student Reviews</h6>
+                </div>
+                {% if reviews %}
+                <ul>
+                  {% for view in reviews %}
+                  <li>
+                    <div class="singel-reviews">
+                      <div class="reviews-author">
+                        <div class="author-thum">
+                          <img
+                            width="70px"
+                            height="70px"
+                            src="{{ view.user_picture }}"
+                            alt="Reviews"
+                          />
+                        </div>
+                        <div class="author-name">
+                          <h6>{{ view.first_name }} {{ view.last_name }}</h6>
+                          <span>{{ view.date }}</span>
+                        </div>
+                      </div>
+                      <div class="reviews-description pt-20">
+                        <p>{{ view.comment }}</p>
+                        <div class="rating">
+                          <ul>
+                            {% with ''|center:view.rating as range %} {% for
+                            star in range %}
+                            <li><i class="fa fa-star"></i></li>
+                            {% endfor %} {% endwith %}
+                          </ul>
+                          <span>/ {{ view.rating }} Star</span>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- singel reviews -->
+                  </li>
+                  {% endfor %}
+                </ul>
+                {% else %}
+                <ul>
+                  <li>
+                    <p>
+                      Be the first student to take part and review this free
+                      course.&nbsp;😉
+                    </p>
+                  </li>
+                </ul>
+
+                {% endif %}
+                <div class="title pt-15">
+                  <h6>Leave A Comment</h6>
+                </div>
+                <div class="reviews-form">
+                  <form
+                    action="{% url 'teacher-single' pk=single_teacher_path %}"
+                    method="post"
+                    name="reviewForm"
+                  >
+                    {% csrf_token %}
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-singel">
+                          <label>
+                            <input
+                              type="text"
+                              name="first_name"
+                              placeholder="First name"
+                            />
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-singel">
+                          <label>
+                            <input
+                              type="text"
+                              name="last_name"
+                              placeholder="Last Name"
+                            />
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="form-singel">
+                          <div class="rate-wrapper">
+                            <div class="rate-label">Your Rating:</div>
+                            <div class="rating">
+                              <span>
+                                <input
+                                  type="radio"
+                                  name="rating"
+                                  id="str5"
+                                  value="5"
+                                /><label for="str5">&#10038;</label>
+                              </span>
+                              <span
+                                ><input
+                                  type="radio"
+                                  name="rating"
+                                  id="str4"
+                                  value="4"
+                                /><label for="str4">&#10038;</label></span
+                              >
+                              <span
+                                ><input
+                                  type="radio"
+                                  name="rating"
+                                  id="str3"
+                                  value="3"
+                                /><label for="str3">&#10038;</label></span
+                              >
+                              <span
+                                ><input
+                                  type="radio"
+                                  name="rating"
+                                  id="str2"
+                                  value="2"
+                                /><label for="str2">&#10038;</label></span
+                              >
+                              <span
+                                ><input
+                                  type="radio"
+                                  name="rating"
+                                  id="str1"
+                                  value="1"
+                                /><label for="str1">&#10038;</label></span
+                              >
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="form-singel">
+                          <label>
+                            <textarea
+                              name="review_comment"
+                              placeholder="Comment"
+                            ></textarea>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="form-singel">
+                          <button type="submit" class="main-btn">
+                            Submit review
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- row -->
+                    <label>
+                      <input name="starRating" hidden value="dd" type="text" />
+                    </label>
+                  </form>
+                  <script>
+                    $(document).ready(function () {
+                      // Check Radio-box
+                      $(".rating input:radio").attr("checked", false);
+
+                      $(".rating input").click(function () {
+                        $(".rating span").removeClass("checked");
+                        $(this).parent().addClass("checked");
+                      });
+
+                      $("input:radio").change(function () {
+                        var userRating = this.value;
+                        var Myelement =
+                          document.forms["reviewForm"]["starRating"];
+                        Myelement.setAttribute("value", userRating);
+                      });
+                    });
+                  </script>
+                </div>
+              </div>
+              <!-- reviews cont -->
+            </div>
+          </div>
+          <!-- tab content -->
+        </div>
+        <!-- teachers right -->
+      </div>
+    </div>
+    <!-- row -->
+  </div>
+  <!-- container -->
+</section>
 {% endblock %}
