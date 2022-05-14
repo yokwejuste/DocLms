@@ -1,41 +1,56 @@
-<!doctype html>
+<!DOCTYPE html>
 {% load static %}
 <html lang="en">
-<head>
+  <head>
     <!--====== Required meta tags ======-->
-    <meta charset="utf-8">
-    <meta property="og:image"
-          content="https://google-solution-challenge2022.s3.amazonaws.com/static/PRo.png">
-    <meta property="og:url" content="https://www.doclms.com/"/>
-    <meta property="og:title" content="The Doctor LMS"/>
-    <meta property="twitter:url"
-          content="https://doclms.com">
-    <meta property="twitter:title"
-          content="The Doctor LMS">
+    <meta charset="utf-8" />
+    <meta
+      property="og:image"
+      content="https://google-solution-challenge2022.s3.amazonaws.com/static/PRo.png"
+    />
+    <meta property="og:url" content="https://www.doclms.com/" />
+    <meta property="og:title" content="The Doctor LMS" />
+    <meta property="twitter:url" content="https://doclms.com" />
+    <meta property="twitter:title" content="The Doctor LMS" />
 
-    <meta property="og: description" content="The best in education, we do it with our hearts"/>
-    <meta property="twitter:image"
-          content="https://google-solution-challenge2022.s3.amazonaws.com/static/PRo.png">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta
+      property="og: description"
+      content="The best in education, we do it with our hearts"
+    />
+    <meta
+      property="twitter:image"
+      content="https://google-solution-challenge2022.s3.amazonaws.com/static/PRo.png"
+    />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="description" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <title>DocLMS - Life Taste</title>
-    <link rel="stylesheet" href="{% static 'css/slick.css' %}">
-    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
-    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
-    <link rel="stylesheet" href="{% static 'css/jquery.nice-number.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slick.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'css/jquery.nice-number.min.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" />
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-          rel="stylesheet">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
-    <link rel="stylesheet" href="{% static 'css/default.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
-    <link rel="stylesheet" href="{% static 'css/dark-mode.css' %}">
+    <link rel="stylesheet" href="{% static 'css/default.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/dark-mode.css' %}" />
     <script src="{% static 'js/dark-mode-switch.min.js' %}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
@@ -63,487 +78,271 @@
         window.addEventListener('load', addDarkmodeWidget);
     </script>-->
     <style>
-        @media only screen and (min-width: 569px) and (max-width: 11768px) {
-            #back-logo {
-                display: none
-            }
-
-            #login-computer {
-                display: block;
-            }
-
-            #login_phone {
-                display: none;
-            }
+      @media only screen and (min-width: 569px) and (max-width: 11768px) {
+        #back-logo {
+          display: none;
         }
 
-        @media only screen and (max-width: 958px) {
-            #head-1 {
-                display: none;
-                align-content: center;
-            }
-
-            #login-computer {
-                display: none;
-            }
-
-            #login_phone {
-                display: block;
-            }
-
-            #back-logo {
-                margin-top: 20px;
-                display: inline;
-            }
+        #login-computer {
+          display: block;
         }
 
-        .rating {
-            float: left;
-            width: 300px;
+        #login_phone {
+          display: none;
+        }
+      }
+
+      @media only screen and (max-width: 958px) {
+        #head-1 {
+          display: none;
+          align-content: center;
         }
 
-        .rating span {
-            float: right;
-            position: relative;
+        #login-computer {
+          display: none;
         }
 
-        .rating span input {
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-        }
-        .rating span label {
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            text-align: center;
-            color: #FFF;
-            background: #ccc;
-            font-size: 30px;
-            margin-right: 2px;
-            line-height: 30px;
-            border-radius: 50%;
-            -webkit-border-radius: 50%;
+        #login_phone {
+          display: block;
         }
 
-        .rating span:hover ~ span label,
-        .rating span:hover label,
-        .rating span.checked label,
-        .rating span.checked ~ span label {
-            background: #F90;
-            color: #FFF;
+        #back-logo {
+          margin-top: 20px;
+          display: inline;
         }
+      }
 
-        .dropdown-content > a {
-            text-align: left;
-        }
+      .rating {
+        float: left;
+        width: 300px;
+      }
 
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
+      .rating span {
+        float: right;
+        position: relative;
+      }
 
-        #snackbar {
-            visibility: hidden;
-            min-width: 250px;
-            margin-left: -125px;
-            background-color: #333;
-            color: green;
-            text-align: center;
-            border-radius: 2px;
-            padding: 16px;
-            position: fixed;
-            z-index: 1;
-            left: 50%;
-            bottom: 30px;
-            font-size: 17px;
-        }
+      .rating span input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+      }
+      .rating span label {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        color: #fff;
+        background: #ccc;
+        font-size: 30px;
+        margin-right: 2px;
+        line-height: 30px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+      }
 
-        #snackbar.show {
-            visibility: visible;
-            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-            animation: fadein 0.5s, fadeout 0.5s 2.5s;
-        }
+      .rating span:hover ~ span label,
+      .rating span:hover label,
+      .rating span.checked label,
+      .rating span.checked ~ span label {
+        background: #f90;
+        color: #fff;
+      }
 
-        @-webkit-keyframes fadein {
-            from {
-                bottom: 0;
-                opacity: 0;
-            }
-            to {
-                bottom: 30px;
-                opacity: 1;
-            }
-        }
+      .dropdown-content > a {
+        text-align: left;
+      }
 
-        @keyframes fadein {
-            from {
-                bottom: 0;
-                opacity: 0;
-            }
-            to {
-                bottom: 30px;
-                opacity: 1;
-            }
-        }
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
 
-        @-webkit-keyframes fadeout {
-            from {
-                bottom: 30px;
-                opacity: 1;
-            }
-            to {
-                bottom: 0;
-                opacity: 0;
-            }
-        }
+      #snackbar {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #333;
+        color: green;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 30px;
+        font-size: 17px;
+      }
 
-        @keyframes fadeout {
-            from {
-                bottom: 30px;
-                opacity: 1;
-            }
-            to {
-                bottom: 0;
-                opacity: 0;
-            }
-        }
+      #snackbar.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      }
 
-        .dropdown a:hover {
-            background-color: #ddd;
+      @-webkit-keyframes fadein {
+        from {
+          bottom: 0;
+          opacity: 0;
         }
+        to {
+          bottom: 30px;
+          opacity: 1;
+        }
+      }
 
-        .nav li {
-            display: inline-block;
-            list-style: none;
+      @keyframes fadein {
+        from {
+          bottom: 0;
+          opacity: 0;
         }
+        to {
+          bottom: 30px;
+          opacity: 1;
+        }
+      }
 
-        .nav .button-dropdown {
-            position: relative;
+      @-webkit-keyframes fadeout {
+        from {
+          bottom: 30px;
+          opacity: 1;
         }
+        to {
+          bottom: 0;
+          opacity: 0;
+        }
+      }
 
-        .nav li a {
-            display: block;
-            color: #333;
-            background-color: #fff;
-            padding: 10px 20px;
-            text-decoration: none;
+      @keyframes fadeout {
+        from {
+          bottom: 30px;
+          opacity: 1;
         }
+        to {
+          bottom: 0;
+          opacity: 0;
+        }
+      }
 
-        .nav li a span {
-            display: inline-block;
-            margin-left: 5px;
-            font-size: 10px;
-            color: #999;
-        }
+      .dropdown a:hover {
+        background-color: #ddd;
+      }
 
-        .nav li a:hover, .nav li a.dropdown-toggle.active {
-            background-color: #289dcc;
-            color: #fff;
-        }
+      .nav li {
+        display: inline-block;
+        list-style: none;
+      }
 
-        .nav li a:hover span, .nav li a.dropdown-toggle.active span {
-            color: #fff;
-        }
+      .nav .button-dropdown {
+        position: relative;
+      }
 
-        .nav li .dropdown-menu {
-            display: none;
-            padding: 0;
-            text-align: left;
-        }
+      .nav li a {
+        display: block;
+        color: #333;
+        background-color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+      }
 
-        .nav li .dropdown-menu a {
-            width: 100%;
-        }
+      .nav li a span {
+        display: inline-block;
+        margin-left: 5px;
+        font-size: 10px;
+        color: #999;
+      }
 
-        #read-more:hover, #read-more:focus {
-            color: blue;
-        }
+      .nav li a:hover,
+      .nav li a.dropdown-toggle.active {
+        background-color: #289dcc;
+        color: #fff;
+      }
+
+      .nav li a:hover span,
+      .nav li a.dropdown-toggle.active span {
+        color: #fff;
+      }
+
+      .nav li .dropdown-menu {
+        display: none;
+        padding: 0;
+        text-align: left;
+      }
+
+      .nav li .dropdown-menu a {
+        width: 100%;
+      }
+
+      #read-more:hover,
+      #read-more:focus {
+        color: blue;
+      }
     </style>
-
-</head>
-<body onload="myFunctionPop()">
-<header id="header-part">
-
-    <div class="header-logo-support pt-30 pb-30" id="head-1">
-        <div class="container">
-            <div class="row">
-                <div class="d-flex text-center justify-content-center col-lg-12 col-md-12">
-                    <div class="logo">
-                        <a href="{% url 'index' %}">
-                            <img src="{% static 'images/logo.png' %}" alt="Logo">
-                        </a>
-                    </div>
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </div> <!-- header logo support -->
-    <div class="navigation">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 col-md-10 col-sm-9 col-8">
-                    <nav style="box-shadow: none" class="navbar navbar-expand-lg">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <div class="logo" id="back-logo">
-                            <a href="{% url 'index' %}">
-                                <img src="{% static 'images/logo.png' %}" alt="Logo">
-                            </a>
-                        </div>
-                        <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
-                            <ul class="navbar-nav mr-auto">
-                                <li class="nav-item">
-                                    <a class="{{ home }}" href="{% url 'index' %}">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="{{ about }}" href="{% url 'about' %}">About us</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="{{ courses }}" href="{% url 'courses' %}">Courses</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="{{ events }}" href="{% url 'events' %}">Events</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="{% url 'events' %}">All Events</a></li>
-                                        <li><a href="{% url 'event-single' %}">Upcoming Event</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="{{ teachers }}" href="{% url 'teachers' %}">Our teachers</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="{{ blog }}" href="{% url 'blog' %}">Blog</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="{{ library }}" href="{% url 'library' %}">Library</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="{{ contact }}" href="{% url 'contact' %}">Contact</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{% url 'maps_index' %}">Maps</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav> <!-- nav -->
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-3 col-4">
-                    <div class="right-icon text-right">
-                        <ul class="nav">
-                            {% if user.is_authenticated %}
-                                {% if notifications %}
-                                    <li>
-                                        <a href="">
-                                            <i class="fa fa-bell"></i>
-                                        </a>
-                                    </li>
-                                {% endif %}
-                                <li class="button-dropdown">
-                                    <a href="javascript:void(0)" class="dropdown-toggle">
-                                        <i class="fa fa-user"></i>
-                                    </a>
-                                    <ul style="left: 0 !important;" class="dropdown-menu dropdown-menu-left">
-                                        <li style="padding: 0 0">
-                                            <a href="{% url 'login' %}">
-                                                <i class="fa fa-sign-in"></i> &nbsp; Login
-                                            </a>
-                                        </li>
-                                        <li style="padding: 0">
-                                            <a href="{% url 'register' %}">
-                                                <i class="fa fa-user-plus"></i> &nbsp; Register
-                                            </a>
-                                        </li>
-                                        <li style="padding: 0 0">
-                                            <a href="#">
-                                                <i class="fa fa-question"></i> &nbsp; Help
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            {% else %}
-                                <li id="login-computer">
-                                    <a href="{% url 'login' %}" class="btn btn-primary btn-group-toggle px-4">
-                                        Login
-                                    </a>
-                                </li>
-                                <li id="login_phone">
-                                    <a href="{% url 'login' %}">
-                                        <i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Login
-                                    </a>
-                                </li>
-                            {% endif %}
-                        </ul>
-                    </div>
-                </div> <!-- row -->
-            </div> <!-- container -->
-        </div>
-    </div>
-</header>
-{% block content %}
-
-{% endblock %}
-
-<footer id="footer-part">
-    <div class="footer-top pt-40 pb-70">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="footer-about mt-40">
-                        <div class="logo">
-                            <a href="#"><img src="{% static 'images/logo.png' %}" alt="Logo"></a>
-                        </div>
-                        <p>Gravida nibh vel velit auctor aliquetn quibibendum auci elit cons equat ipsutis sem nibh id
-                            elit. Duis sed odio sit amet nibh vulputate.</p>
-                        <ul class="mt-20">
-                            <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        </ul>
-                    </div> <!-- footer about -->
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="footer-link mt-40">
-                        <div class="footer-title pb-25">
-                            <h6>Sitemap</h6>
-                        </div>
-                        <ul>
-                            <li><a href="{% url 'index' %}"><i class="fa fa-angle-right"></i>Home</a></li>
-                            <li><a href="{% url 'about' %}"><i class="fa fa-angle-right"></i>About us</a></li>
-                            <li><a href="{% url 'courses' %}"><i class="fa fa-angle-right"></i>Courses</a></li>
-                            <li><a href="{% url 'blog' %}"><i class="fa fa-angle-right"></i>News</a></li>
-                            <li><a href="{% url 'events' %}"><i class="fa fa-angle-right"></i>Event</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="{% url 'index' %}"><i class="fa fa-angle-right"></i>Gallery</a></li>
-                            <li><a href="{% url 'library' %}"><i class="fa fa-angle-right"></i>Library</a></li>
-                            <li><a href="{% url 'teachers' %}"><i class="fa fa-angle-right"></i>Teachers</a></li>
-                            <li><a href="{% url 'index' %}"><i class="fa fa-angle-right"></i>Support</a></li>
-                            <li><a href="{% url 'contact' %}"><i class="fa fa-angle-right"></i>Contact</a></li>
-                        </ul>
-                    </div> <!-- footer link -->
-                </div>
-                <div class="col-lg-2 col-md-6 col-sm-6">
-                    <div class="footer-link support mt-40">
-                        <div class="footer-title pb-25">
-                            <h6>Support</h6>
-                        </div>
-                        <ul>
-                            <li><a href="#"><i class="fa fa-angle-right"></i>FAQS</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i>Privacy</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i>Policy</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i>Support</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i>Documentation</a></li>
-                        </ul>
-                    </div> <!-- support -->
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-address mt-40">
-                        <div class="footer-title pb-25">
-                            <h6>Contact Us</h6>
-                        </div>
-                        <ul>
-                            <li>
-                                <div class="icon">
-                                    <i class="fa fa-home"></i>
-                                </div>
-                                <div class="cont">
-                                    <p>143 castle road 517 district, kiyev port south Canada</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="icon">
-                                    <i class="fa fa-phone"></i>
-                                </div>
-                                <div class="cont">
-                                    <p>+3 123 456 789</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="icon">
-                                    <i class="fa fa-envelope-o"></i>
-                                </div>
-                                <div class="cont">
-                                    <p>info@yourmail.com</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div> <!-- footer address -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </div> <!-- footer top -->
-</footer>
-{% for message in messages %}
-    <div id="snackbar">
-        <div class="container-fluid p-0">
-            <div class="alert {{ message.tags }} alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="True">&times;</span>
-                </button>
-                {{ message }}
-            </div>
-        </div>
-    </div>
-{% endfor %}
-{% if messages %}
+    {% block styles %}{% endblock styles %}
+  </head>
+  <body onload="myFunctionPop()">
+    {% include 'partials/nav_bar.html' %} {% block content %} {% endblock %}
+    {%include 'partials/footer.html' %} {% if messages %}
     <script>
-        function myFunctionPop() {
-            const x = document.getElementById("snackbar");
-            x.className = "show";
-            setTimeout(function () {
-                x.className = x.className.replace("show", "");
-            }, 2000);
-        }
+      function myFunctionPop() {
+        const x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function () {
+          x.className = x.className.replace("show", "");
+        }, 2000);
+      }
     </script>
-{% endif %}
-<a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
-<script src="{% static 'js/vendor/modernizr-3.6.0.min.js' %}"></script>
-<script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
-<script src="https://google-solution-challenge2022.s3.amazonaws.com/static/bootstrap/js/bootstrap.min.js">
-</script>
-<script src="{% static 'js/slick.min.js' %}"></script>
-<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
-<script src="{% static 'js/waypoints.min.js' %}"></script>
-<script src="{% static 'js/jquery.counterup.min.js' %}"></script>
-<script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
-<script src="{% static 'js/jquery.nice-number.min.js' %}"></script>
-<script src="{% static 'js/jquery.countdown.min.js' %}"></script>
-<script src="{% static 'js/validator.min.js' %}"></script>
-<script src="{% static 'js/ajax-contact.js' %}"></script>
-<script src="{% static 'js/main.js' %}"></script>
-<script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC3Ip9iVC0nIxC6V14CKLQ1HZNF_65qEQ">
-</script>
-<script src="{% static 'js/map-script.js' %}"></script>
-<script>
-    jQuery(document).ready(function (e) {
+    {% endif %}
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+    <script src="{% static 'js/vendor/modernizr-3.6.0.min.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <script src="https://google-solution-challenge2022.s3.amazonaws.com/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/slick.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/waypoints.min.js' %}"></script>
+    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'js/jquery.nice-number.min.js' %}"></script>
+    <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'js/validator.min.js' %}"></script>
+    <script src="{% static 'js/ajax-contact.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC3Ip9iVC0nIxC6V14CKLQ1HZNF_65qEQ"></script>
+    <script src="{% static 'js/map-script.js' %}"></script>
+    <script>
+      jQuery(document).ready(function (e) {
         e(".dropdown-toggle").click(function () {
-            const t = e(this).parents(".button-dropdown").children(".dropdown-menu").is(":hidden");
+          const t = e(this)
+            .parents(".button-dropdown")
+            .children(".dropdown-menu")
+            .is(":hidden");
+          e(".button-dropdown .dropdown-menu").hide();
+          e(".button-dropdown .dropdown-toggle").removeClass("active");
+          if (t) {
+            e(this)
+              .parents(".button-dropdown")
+              .children(".dropdown-menu")
+              .toggle()
+              .parents(".button-dropdown")
+              .children(".dropdown-toggle")
+              .addClass("active");
+          }
+        });
+        e(document).bind("click", function (t) {
+          const n = e(t.target);
+          if (!n.parents().hasClass("button-dropdown"))
             e(".button-dropdown .dropdown-menu").hide();
+        });
+        e(document).bind("click", function (t) {
+          const n = e(t.target);
+          if (!n.parents().hasClass("button-dropdown"))
             e(".button-dropdown .dropdown-toggle").removeClass("active");
-            if (t) {
-                e(this).parents(".button-dropdown").children(".dropdown-menu").toggle().parents(".button-dropdown")
-                    .children(".dropdown-toggle").addClass("active")
-            }
         });
-        e(document).bind("click", function (t) {
-            const n = e(t.target);
-            if (!n.parents().hasClass("button-dropdown")) e(".button-dropdown .dropdown-menu").hide();
-        });
-        e(document).bind("click", function (t) {
-            const n = e(t.target);
-            if (!n.parents().hasClass("button-dropdown")) e(".button-dropdown .dropdown-toggle").removeClass("active");
-        })
-    });
-</script><!-- dropdown js -->
-</body>
+      });
+    </script>
+    <!-- dropdown js -->
+  </body>
 </html>

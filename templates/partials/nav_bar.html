@@ -1,0 +1,151 @@
+{% load static %}
+<header id="header-part">
+  <div class="header-logo-support pt-30 pb-30" id="head-1">
+    <div class="container">
+      <div class="row">
+        <div
+          class="d-flex text-center justify-content-center col-lg-12 col-md-12"
+        >
+          <div class="logo">
+            <a href="{% url 'index' %}">
+              <img src="{% static 'images/logo.png' %}" alt="Logo" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- row -->
+    </div>
+    <!-- container -->
+  </div>
+  <!-- header logo support -->
+  <div class="navigation">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-md-10 col-sm-9 col-8">
+          <nav style="box-shadow: none" class="navbar navbar-expand-lg">
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="logo" id="back-logo">
+              <a href="{% url 'index' %}">
+                <img src="{% static 'images/logo.png' %}" alt="Logo" />
+              </a>
+            </div>
+            <div
+              class="collapse navbar-collapse sub-menu-bar"
+              id="navbarSupportedContent"
+            >
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a class="{{ home }}" href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="{{ about }}" href="{% url 'about' %}">About us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="{{ courses }}" href="{% url 'courses' %}"
+                    >Courses</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="{{ events }}" href="{% url 'events' %}">Events</a>
+                  <ul class="sub-menu">
+                    <li><a href="{% url 'events' %}">All Events</a></li>
+                    <li>
+                      <a href="{% url 'event-single' %}">Upcoming Event</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="{{ teachers }}" href="{% url 'teachers' %}"
+                    >Our teachers</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="{{ blog }}" href="{% url 'blog' %}">Blog</a>
+                </li>
+                <li class="nav-item">
+                  <a class="{{ library }}" href="{% url 'library' %}"
+                    >Library</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="{{ contact }}" href="{% url 'contact' %}"
+                    >Contact</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a href="{% url 'maps_index' %}">Maps</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <!-- nav -->
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-3 col-4">
+          <div class="right-icon text-right">
+            <ul class="nav">
+              {% if user.is_authenticated %} {% if notifications %}
+              <li>
+                <a href="">
+                  <i class="fa fa-bell"></i>
+                </a>
+              </li>
+              {% endif %}
+              <li class="button-dropdown">
+                <a href="javascript:void(0)" class="dropdown-toggle">
+                  <i class="fa fa-user"></i>
+                </a>
+                <ul
+                  style="left: 0 !important"
+                  class="dropdown-menu dropdown-menu-left"
+                >
+                  <li style="padding: 0 0">
+                    <a href="{% url 'login' %}">
+                      <i class="fa fa-sign-in"></i> &nbsp; Login
+                    </a>
+                  </li>
+                  <li style="padding: 0">
+                    <a href="{% url 'register' %}">
+                      <i class="fa fa-user-plus"></i> &nbsp; Register
+                    </a>
+                  </li>
+                  <li style="padding: 0 0">
+                    <a href="#"> <i class="fa fa-question"></i> &nbsp; Help </a>
+                  </li>
+                </ul>
+              </li>
+              {% else %}
+              <li id="login-computer">
+                <a
+                  href="{% url 'login' %}"
+                  class="btn btn-primary btn-group-toggle px-4"
+                >
+                  Login
+                </a>
+              </li>
+              <li id="login_phone">
+                <a href="{% url 'login' %}">
+                  <i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Login
+                </a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+        <!-- row -->
+      </div>
+      <!-- container -->
+    </div>
+  </div>
+</header>
